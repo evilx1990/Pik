@@ -7,7 +7,6 @@
     %ul.navbar-nav.ml-auto
       %li
         - if user_signed_in?
-          %span.glyphicom-user
           = link_to(image_tag('login-logout_icon.png'), destroy_user_session_path, method: :delete)
         - else
           = link_to(image_tag('members_icon.png'), user_session_path)
