@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_120748) do
+ActiveRecord::Schema.define(version: 2018_10_05_103313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,15 +60,13 @@ ActiveRecord::Schema.define(version: 2018_10_05_120748) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string "full_size_path", null: false
-    t.string "medium_size_path", null: false
-    t.string "small_size_path", null: false
+    t.string "path", null: false
     t.float "size", null: false
     t.bigint "users_id"
+    t.bigint "categories_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_images_on_category_id"
+    t.index ["categories_id"], name: "index_images_on_categories_id"
     t.index ["users_id"], name: "index_images_on_users_id"
   end
 
@@ -86,6 +84,6 @@ ActiveRecord::Schema.define(version: 2018_10_05_120748) do
 
   add_foreign_key "comments", "images", column: "images_id"
   add_foreign_key "comments", "users", column: "users_id"
-  add_foreign_key "images", "categories"
+  add_foreign_key "images", "categories", column: "categories_id"
   add_foreign_key "images", "users", column: "users_id"
 end
