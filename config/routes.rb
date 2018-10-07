@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root 'startup#index'
+  root 'categories#index'
 end

@@ -1,16 +1,11 @@
 = render 'startup/header'
 
-- @categories.each do |cat|
-
-
-
-
-
-
-
-
-
-
-
-
-
+-if user_signed_in?
+  .categories
+    - @categories.each do |category|
+      .card
+        .card-img-top
+          = image_tag('download.png')
+            .card-text
+              = category.name
+-else
