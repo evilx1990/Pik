@@ -1,4 +1,4 @@
-= render 'startup/header'
+= render 'home/header'
 .container-login
   = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
     = bootstrap_devise_error_messages!

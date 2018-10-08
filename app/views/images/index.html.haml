@@ -1,0 +1,10 @@
+=render 'home/header'
+
+.upload
+  =link_to('upload', new_image_path)
+
+.images
+  - @images.each do |image|
+    .card
+      .card-img-top
+        = link_to('some_image', image_path(image))

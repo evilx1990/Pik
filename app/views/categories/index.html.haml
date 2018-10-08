@@ -1,11 +1,14 @@
-= render 'startup/header'
+= render 'home/header'
 
--if user_signed_in?
-  .categories
-    - @categories.each do |category|
-      .card
-        .card-img-top
-          = image_tag('download.png')
-            .card-text
-              = category.name
--else
+%p
+  = current_user.id
+
+.categories
+  - @categories.each do |category|
+    .card
+      .card-img-top
+        = link_to(image_tag('category.png'), show_category_image_path(category.id))
+
+  .card
+    .card-img-top
+      = link_to(image_tag('category.png'), new_category_path)

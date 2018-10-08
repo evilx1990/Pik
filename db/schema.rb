@@ -44,30 +44,30 @@ ActiveRecord::Schema.define(version: 2018_10_05_103313) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.integer "count", default: 0
-    t.string "username", default: "auto generate", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.bigint "images_id"
-    t.bigint "users_id"
+    t.bigint "image_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["images_id"], name: "index_comments_on_images_id"
-    t.index ["users_id"], name: "index_comments_on_users_id"
+    t.index ["image_id"], name: "index_comments_on_image_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "images", force: :cascade do |t|
     t.string "path", null: false
-    t.float "size", null: false
-    t.bigint "users_id"
-    t.bigint "categories_id"
+    t.bigint "user_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["categories_id"], name: "index_images_on_categories_id"
-    t.index ["users_id"], name: "index_images_on_users_id"
+    t.index ["category_id"], name: "index_images_on_category_id"
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 2018_10_05_103313) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "images", column: "images_id"
-  add_foreign_key "comments", "users", column: "users_id"
-  add_foreign_key "images", "categories", column: "categories_id"
-  add_foreign_key "images", "users", column: "users_id"
+  add_foreign_key "comments", "images"
+  add_foreign_key "comments", "users"
+  add_foreign_key "images", "categories"
+  add_foreign_key "images", "users"
 end

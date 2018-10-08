@@ -12,7 +12,6 @@ gem 'jquery-rails'
 gem "haml-rails", "~> 1.0"
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views', '~> 1.0'
-
 gem 'activeadmin'
 # Plus integrations with:
 gem 'cancan' # or cancancan
