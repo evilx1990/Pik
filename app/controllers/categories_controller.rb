@@ -1,11 +1,8 @@
 class CategoriesController < ApplicationController
-  before_action :get_category, only: %i[show edit update destroy]
+  before_action :get_category, only: %i[edit update destroy]
 
   def index
     @categories = Category.all
-  end
-
-  def show
   end
 
   def new
@@ -14,7 +11,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_param)
-    @category.user_id = current_user.id
+
     if @category.save
       redirect_to categories_path
     else
@@ -26,21 +23,23 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    if @category.update_attributes(category_param)
-      redirect_to category_path(@category)
-    else 
+    if @category.update(category_param)
+      redirect_to categories_path
+    else
       render :edit
     end
   end
 
   def destroy
     @category.destroy
+
+    redirect_to categories_path
   end
 
   private
 
   def category_param
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :user_id)
   end
 
   def get_category

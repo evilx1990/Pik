@@ -13,6 +13,8 @@ gem "haml-rails", "~> 1.0"
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'activeadmin'
+gem 'file_validators'
+gem "rmagick"
 # Plus integrations with:
 gem 'cancan' # or cancancan
 gem 'draper'

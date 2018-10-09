@@ -1,5 +1,6 @@
 = render 'home/header'
 
-= form_for @category do |form|
+= form_with model: @category, local: true do |form|
   = form.text_field :name
+  = form.hidden_field :user_id, value: current_user.id
   = form.submit

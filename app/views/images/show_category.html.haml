@@ -1,0 +1,9 @@
+= render 'home/header'
+
+= link_to('upload', new_image_path(cat_id: params[:id]))
+
+.container
+  - @images.each do |i|
+    .card
+      .card-img-top
+        = link_to(image_tag(i.path.thumb_medium.url, alt: 'Image'), image_path(i))

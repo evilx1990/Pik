@@ -121,6 +121,9 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.25)
+    file_validators (2.3.0)
+      activemodel (>= 3.2)
+      mime-types (>= 1.0)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
@@ -253,6 +256,7 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rmagick (2.16.0)
     ruby_dep (1.5.0)
     ruby_parser (3.11.0)
       sexp_processor (~> 4.9)
@@ -329,6 +333,7 @@ DEPENDENCIES
   devise
   devise-bootstrap-views (~> 1.0)
   draper
+  file_validators
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)
   jquery-rails
@@ -338,6 +343,7 @@ DEPENDENCIES
   puma (~> 3.11)
   pundit
   rails (~> 5.2.1)
+  rmagick
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
