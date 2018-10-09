@@ -1,7 +1,8 @@
 =render 'home/header'
 
 .upload
-  =link_to('upload', new_image_path)
+  - @category = Category.find(params[:category_id]).id
+  = link_to('upload', new_image_path(category_id = @category))
 
 .images
   - @images.each do |image|

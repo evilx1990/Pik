@@ -1,0 +1,6 @@
+=render 'home/header'
+
+= form_for @image do |f|
+  .form-group
+    = f.file_field :path
+    = f.submit

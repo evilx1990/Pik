@@ -21274,3 +21274,970 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 161ms (Views: 158.5ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-10-08 17:56:27 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 21ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 17:56:27 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (10.0ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (31.1ms)
+Completed 200 OK in 219ms (Views: 210.4ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 17:56:31 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+Completed 500 Internal Server Error in 497ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_category' for #<ImagesController:0x00007fdd4302b818>
+Did you mean?  current_user):
+  
+app/controllers/images_controller.rb:12:in `show_category'
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 17:57:54 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+Completed 500 Internal Server Error in 681ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_category' for #<ImagesController:0x00007fdd41a0e710>
+Did you mean?  current_user):
+  
+app/controllers/images_controller.rb:12:in `show_category'
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 17:57:57 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (30.3ms)
+  Rendered images/index.html.haml within layouts/application (35.7ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 12.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294063153280'
+app/controllers/images_controller.rb:13:in `show_category'
+Started GET "/" for 127.0.0.1 at 2018-10-08 17:58:07 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 4ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 17:58:07 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (9.4ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (27.4ms)
+Completed 200 OK in 205ms (Views: 195.6ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2018-10-08 17:58:13 +0300
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (17.6ms)
+  Rendered categories/new.html.haml within layouts/application (21.5ms)
+Completed 200 OK in 208ms (Views: 205.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 17:58:16 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (18.4ms)
+  Rendered images/index.html.haml within layouts/application (24.7ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294138131920'
+app/controllers/images_controller.rb:13:in `show_category'
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 17:58:21 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (12.0ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (21.7ms)
+Completed 200 OK in 234ms (Views: 231.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2018-10-08 17:58:22 +0300
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.haml within layouts/application
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (17.0ms)
+  Rendered categories/new.html.haml within layouts/application (20.8ms)
+Completed 200 OK in 220ms (Views: 215.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/images/9/show_category" for 127.0.0.1 at 2018-10-08 17:58:25 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"9"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (11.4ms)
+  Rendered images/index.html.haml within layouts/application (16.9ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294063893620'
+app/controllers/images_controller.rb:13:in `show_category'
+Started GET "/images/9/show_category" for 127.0.0.1 at 2018-10-08 17:59:40 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"9"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (21.5ms)
+  Rendered images/index.html.haml within layouts/application (27.4ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 4.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294057205140'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images/9/show_category" for 127.0.0.1 at 2018-10-08 17:59:42 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"9"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (11.6ms)
+  Rendered images/index.html.haml within layouts/application (18.2ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294144051240'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images/9/show_category" for 127.0.0.1 at 2018-10-08 17:59:44 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"9"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (9.8ms)
+  Rendered images/index.html.haml within layouts/application (16.5ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294141082560'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images/9/show_category" for 127.0.0.1 at 2018-10-08 17:59:51 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"9"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (13.1ms)
+  Rendered images/index.html.haml within layouts/application (26.7ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294137472760'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/" for 127.0.0.1 at 2018-10-08 17:59:56 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 4ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 17:59:56 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (10.6ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (45.7ms)
+Completed 200 OK in 197ms (Views: 188.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:00:00 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (15.9ms)
+  Rendered images/index.html.haml within layouts/application (21.1ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294063419720'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:00:46 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (10.1ms)
+  Rendered images/index.html.haml within layouts/application (15.3ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(id: @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294058958240'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:01:46 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (9.6ms)
+  Rendered images/index.html.haml within layouts/application (15.0ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(@category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294145745500'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:10:25 +0300
+Processing by ImagesController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `id=' for nil:NilClass):
+  
+app/controllers/images_controller.rb:8:in `index'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:10:38 +0300
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (26.4ms)
+  Rendered images/index.html.haml within layouts/application (32.5ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 7.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___1191656530285146333_70294132602600'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:12:31 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ImagesController#index as HTML
+Completed 404 Not Found in 28ms (ActiveRecord: 11.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/controllers/images_controller.rb:8:in `index'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:12:33 +0300
+Processing by ImagesController#index as HTML
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/controllers/images_controller.rb:8:in `index'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:13:04 +0300
+Processing by ImagesController#index as HTML
+Completed 404 Not Found in 17ms (ActiveRecord: 8.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/controllers/images_controller.rb:8:in `index'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:13:06 +0300
+Processing by ImagesController#index as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/controllers/images_controller.rb:8:in `index'
+Started GET "/" for 127.0.0.1 at 2018-10-08 18:13:15 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 32ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:13:15 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (285.8ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (305.3ms)
+Completed 200 OK in 588ms (Views: 579.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:13:17 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (17.5ms)
+  Rendered images/index.html.haml within layouts/application (27.8ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___737241505372335709_69919428917900'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:16:41 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (35.0ms)
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 10)[0m
+  ↳ app/views/images/index.html.haml:7
+  Rendered images/index.html.haml within layouts/application (58.1ms)
+Completed 200 OK in 232ms (Views: 213.0ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2018-10-08 18:16:44 +0300
+Processing by ImagesController#new as HTML
+  Rendering images/new.html.haml within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (12.7ms)
+  Rendered images/new.html.haml within layouts/application (17.6ms)
+Completed 200 OK in 181ms (Views: 178.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-08 18:16:52 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZPXyLgSmkF5ZddwnLcVtZcerXBJlfMcZO9yspOgtWgbWvobxIsPFzbJV+F6I/jIvWqFIHbfVXj2ac++Owe4L8Q==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f2ec4282e50 @tempfile=#<Tempfile:/tmp/RackMultipart20181008-15902-1sx258l.png>, @original_filename="logo.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"logo.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Image"}
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:28
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:28
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:28
+  [1m[36mImage Create (0.9ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "logo.png"], ["user_id", 1], ["category_id", 10], ["created_at", "2018-10-08 15:16:52.515742"], ["updated_at", "2018-10-08 15:16:52.515742"]]
+  ↳ app/controllers/images_controller.rb:28
+  [1m[35m (26.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:28
+Redirected to http://localhost:3000/images/10/show_category
+Completed 302 Found in 71ms (ActiveRecord: 38.1ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:16:52 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (14.8ms)
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 10)[0m
+  ↳ app/views/images/index.html.haml:7
+  Rendered images/index.html.haml within layouts/application (20.8ms)
+Completed 200 OK in 175ms (Views: 172.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-08 18:20:45 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 7ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:20:45 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (15.5ms)
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (24.6ms)
+Completed 200 OK in 214ms (Views: 210.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:20:58 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (28.4ms)
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 10)[0m
+  ↳ app/views/images/index.html.haml:7
+  Rendered images/index.html.haml within layouts/application (36.9ms)
+Completed 200 OK in 197ms (Views: 195.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-08 18:21:52 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:21:52 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (11.5ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (19.7ms)
+Completed 200 OK in 330ms (Views: 327.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:21:55 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (13.9ms)
+  Rendered images/index.html.haml within layouts/application (20.5ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___737241505372335709_69919436714200'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:21:58 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (17.5ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (28.4ms)
+Completed 200 OK in 225ms (Views: 222.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:21:58 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (21.2ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (34.7ms)
+Completed 200 OK in 212ms (Views: 209.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:22:11 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (14.0ms)
+  Rendered images/index.html.haml within layouts/application (23.9ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   =link_to('upload', new_image_path(category_id = @category.id))
+    5: 
+    6: .images
+    7:   - @images.each do |image|
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___737241505372335709_47429108747380'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:24:38 +0300
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (13.9ms)
+  Rendered images/index.html.haml within layouts/application (20.5ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___737241505372335709_69919425238800'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:24:44 +0300
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (12.0ms)
+  Rendered images/index.html.haml within layouts/application (17.1ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___737241505372335709_69919430454160'
+Started GET "/" for 127.0.0.1 at 2018-10-08 18:24:53 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 27ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:24:53 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (315.5ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (346.6ms)
+Completed 200 OK in 672ms (Views: 663.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:24:55 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (26.9ms)
+  Rendered images/index.html.haml within layouts/application (39.9ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml__3851467478430625639_69983423806400'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:27:41 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (14.1ms)
+  Rendered images/index.html.haml within layouts/application (19.9ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml__3851467478430625639_69983417463160'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:27:43 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (9.0ms)
+  Rendered images/index.html.haml within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml__3851467478430625639_69983422694760'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:27:52 +0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (260.7ms)
+  Rendered images/index.html.haml within layouts/application (276.7ms)
+Completed 500 Internal Server Error in 295ms (ActiveRecord: 9.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml__2739184779321532905_70047696106140'
+Started GET "/" for 127.0.0.1 at 2018-10-08 18:27:55 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 4ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:27:55 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (13.7ms)
+  [1m[36mCategory Load (2.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (36.4ms)
+Completed 200 OK in 325ms (Views: 318.2ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:27:57 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (16.1ms)
+  Rendered images/index.html.haml within layouts/application (21.2ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml__2739184779321532905_70047713755220'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:28:12 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (23.8ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (33.1ms)
+Completed 200 OK in 193ms (Views: 190.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:29:03 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (269.8ms)
+  Rendered images/index.html.haml within layouts/application (283.9ms)
+Completed 500 Internal Server Error in 307ms (ActiveRecord: 16.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Image without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___69337043053573605_69921934125840'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:29:19 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (11.3ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (31.3ms)
+Completed 200 OK in 377ms (Views: 368.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:35:18 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (11.0ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (18.5ms)
+Completed 200 OK in 182ms (Views: 178.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:35:22 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (16.3ms)
+  Rendered images/index.html.haml within layouts/application (21.0ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml___69337043053573605_69921951798780'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/" for 127.0.0.1 at 2018-10-08 18:45:51 +0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 30ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:45:51 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (311.4ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (332.1ms)
+Completed 200 OK in 663ms (Views: 655.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:45:54 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (21.7ms)
+  Rendered images/index.html.haml within layouts/application (41.5ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for #<Class:0x00007f08a820fd98>
+Did you mean?  ids):
+    1: =render 'home/header'
+    2: 
+    3: .upload
+    4:   - @category = Category.id.find(params[:category_id])
+    5:   = link_to('upload', new_image_path(category_id = @category))
+    6: 
+    7: .images
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml__785913919180195929_69837586382980'
+app/controllers/images_controller.rb:14:in `show_category'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:46:38 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (259.9ms)
+  Rendered images/index.html.haml within layouts/application (288.1ms)
+Completed 500 Internal Server Error in 314ms (ActiveRecord: 20.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml__28131294648533726_69940891643520'
+Started GET "/images" for 127.0.0.1 at 2018-10-08 18:46:39 +0300
+Processing by ImagesController#index as HTML
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (16.0ms)
+  Rendered images/index.html.haml within layouts/application (22.6ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml__28131294648533726_69940697587380'
+Started GET "/" for 127.0.0.1 at 2018-10-08 18:46:45 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-08 18:46:45 +0300
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (10.9ms)
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:7
+  Rendered categories/index.html.haml within layouts/application (26.2ms)
+Completed 200 OK in 288ms (Views: 284.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/images/10/show_category" for 127.0.0.1 at 2018-10-08 18:46:48 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"10"}
+  Rendering images/index.html.haml within layouts/application
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.haml:9
+  Rendered home/_header.html.haml (25.9ms)
+  Rendered images/index.html.haml within layouts/application (31.2ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 4.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category without an ID):
+  
+app/views/images/index.html.haml:4:in `_app_views_images_index_html_haml__28131294648533726_47363274947380'
+app/controllers/images_controller.rb:14:in `show_category'

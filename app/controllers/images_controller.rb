@@ -5,6 +5,7 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all
+    # @category_id = Category.find(params[:category_id])
   end
 
   def show_category
@@ -49,7 +50,7 @@ class ImagesController < ApplicationController
   private
 
   def image_param
-    params.require(:image).permit(:path)
+    params.require(:image).permit(:path, :category_id)
   end
 
   def get_image
