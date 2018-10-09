@@ -19,11 +19,10 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    if @category.update(category_param)
+    if @category.save(category_param)
       redirect_to categories_path
     else
       render :edit

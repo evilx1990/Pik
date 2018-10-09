@@ -7,6 +7,7 @@
         = link_to(image_tag('category.png'), show_category_image_path(category))
       .card-text
         = category.name
+        = category.count
         - if current_user.id == category.user_id
           = link_to('edit', edit_category_path(category))
           = link_to('delete', category_path(category), method: :delete, data: { confirm: 'You are sure?' })

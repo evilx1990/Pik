@@ -1,3 +1,5 @@
 = render 'home/header'
 
 = image_tag(@image.path.url, alt: 'some_image')
+%br
+= link_to('delete', image_path(@image), method: :delete, data: { confirm: 'You are sure?' })
