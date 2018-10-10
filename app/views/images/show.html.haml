@@ -2,10 +2,16 @@
 
 = image_tag(@image.path.url, alt: 'some_image')
 %br
--if @image.user_id == current_user.id
-  = link_to('delete', image_path(@image), method: :delete, data: { confirm: 'You are sure?' })
-
 = link_to('like', up_vote_image_path(@image), method: :put)
 = @image.get_upvotes.size
 = @image.get_down_votes.size
 = link_to('dislike', down_vote_image_path(@image), method: :put)
+
+= form_with(model: [ @image, @image.comments.build ], local: true) do |form|
+  .form-group
+    = form.text_area :body
+    = form.hidden_field :image_id, value: @image.id
+    = form.hidden_field :user_id, value: current_user.id
+    = form.submit
+
+= render @image.comments

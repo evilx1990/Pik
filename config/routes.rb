@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'home/index'
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
+
   ActiveAdmin.routes(self)
 
   resources :categories
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
     put :up_vote, on: :member
     put :down_vote, on: :member
 
-    resources :comments
+    resources :comments, only: %i[create destroy]
   end
 
   root 'home#index'
