@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :images do
     get :show_category, on: :member
+    put :up_vote, on: :member
+    put :down_vote, on: :member
+
     resources :comments
   end
 

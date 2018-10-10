@@ -14,7 +14,8 @@ gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'activeadmin'
 gem 'file_validators'
-gem "rmagick"
+gem 'rmagick'
+gem 'acts_as_votable'
 # Plus integrations with:
 gem 'cancan' # or cancancan
 gem 'draper'
