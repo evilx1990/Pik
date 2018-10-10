@@ -2,11 +2,25 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Pik
+    %title Gallery
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .container
+      %nav.navbar.navbar-expand-lg.navbar-light
+        %a.navbar-brand
+          =link_to(image_tag('logo.png'), root_path)
+        %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "drop", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#drop", "data-toggle" => "collapse", :type => "button"}
+          %span.navbar-toggler-icon
+        #drop.collapse.navbar-collapse
+          %ul.navbar-nav.ml-auto
+            %li
+              - if user_signed_in?
+                = link_to current_user.username, edit_user_registration_path
+                = link_to(image_tag('login-logout_icon.png'), destroy_user_session_path, method: :delete)
+              - else
+                login
+                = link_to(image_tag('members_icon.png'), user_session_path)
       = yield
