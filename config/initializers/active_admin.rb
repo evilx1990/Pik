@@ -122,14 +122,14 @@ ActiveAdmin.setup do |config|
   config.comments = false
   #
   # You can change the name under which comments are registered:
-  # config.comments_registration_name = 'AdminComment'
+  config.comments_registration_name = 'AdminComment'
   #
   # You can change the order for the comments and you can change the column
   # to be used for ordering:
   # config.comments_order = 'created_at ASC'
   #
   # You can disable the menu item for the comments index page:
-  # config.comments_menu = false
+  config.comments_menu = false
   #
   # You can customize the comment menu:
   # config.comments_menu = { parent: 'Admin', priority: 1 }
