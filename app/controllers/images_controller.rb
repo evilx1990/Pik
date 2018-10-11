@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
   before_action :find_image, only: %i[show edit update destroy up_vote down_vote]
 
   def show_category
-    @images = Image.where("category_id = #{params[:id]}")
+    @images = Image.where('category_id = ?', params[:id])
   end
 
   def show; end

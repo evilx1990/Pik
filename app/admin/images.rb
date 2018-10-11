@@ -1,4 +1,5 @@
 ActiveAdmin.register Image do
+  menu priority: 5
   permit_params :path, :user_id, :category_id
 
   controller do
