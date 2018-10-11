@@ -48050,3 +48050,843 @@ Processing by ImagesController#show_category as HTML
 Completed 200 OK in 185ms (Views: 180.6ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-10-11 10:06:32 +0300
+  [1m[35m (22.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (6.4ms)
+Completed 200 OK in 1617ms (Views: 1602.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-10-11 10:06:38 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/shared/_links.html.haml (9.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (45.4ms)
+Completed 200 OK in 440ms (Views: 247.5ms | ActiveRecord: 135.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-10-11 10:06:39 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OCifGUt+89O8G41kLGld3Jm4fmzC96xvfUNpBorBnJ6Vzh0myEFQY4dY8HLnN+UM3JThoDuOI2UOHBgjdXQ8oA==", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (59.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 254ms (ActiveRecord: 59.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-11 10:06:39 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-11 10:06:40 +0300
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mCategory Load (19.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:2
+  Rendered categories/index.html.haml within layouts/application (46.9ms)
+Completed 200 OK in 209ms (Views: 169.1ms | ActiveRecord: 27.0ms)
+
+
+Started GET "/images/40/show_category" for 127.0.0.1 at 2018-10-11 10:06:46 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (3.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 40)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (9.4ms)
+Completed 200 OK in 182ms (Views: 157.0ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:06:49 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (18.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (36.3ms)
+Completed 200 OK in 199ms (Views: 175.8ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/images/76" for 127.0.0.1 at 2018-10-11 10:06:51 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"76"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:61
+  Rendering images/show.html.haml within layouts/application
+  [1m[35m (37.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 76], ["votable_type", "Image"], ["vote_flag", true]]
+  ↳ app/views/images/show.html.haml:4
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 76], ["votable_type", "Image"], ["vote_flag", false]]
+  ↳ app/views/images/show.html.haml:5
+  [1m[36mComment Load (22.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."image_id" = $1[0m  [["image_id", 76]]
+  ↳ app/views/images/show.html.haml:15
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.haml:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.haml:4
+  Rendered collection of comments/_comment.html.haml [3 times] (11.3ms)
+  Rendered images/show.html.haml within layouts/application (253.6ms)
+Completed 200 OK in 525ms (Views: 449.5ms | ActiveRecord: 69.5ms)
+
+
+Started GET "/images/77" for 127.0.0.1 at 2018-10-11 10:06:53 +0300
+Processing by ImagesController#show as HTML
+  Parameters: {"id"=>"77"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mImage Load (2.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = $1 LIMIT $2[0m  [["id", 77], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:61
+  Rendering images/show.html.haml within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 77], ["votable_type", "Image"], ["vote_flag", true]]
+  ↳ app/views/images/show.html.haml:4
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 77], ["votable_type", "Image"], ["vote_flag", false]]
+  ↳ app/views/images/show.html.haml:5
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."image_id" = $1[0m  [["image_id", 77]]
+  ↳ app/views/images/show.html.haml:15
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.haml:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.haml:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.haml:4
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.haml:4
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.haml:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.haml:4
+  Rendered collection of comments/_comment.html.haml [7 times] (10.8ms)
+  Rendered images/show.html.haml within layouts/application (25.3ms)
+Completed 200 OK in 184ms (Views: 174.1ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:08:57 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (43.9ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (174.3ms)
+Completed 200 OK in 311ms (Views: 190.2ms | ActiveRecord: 50.2ms)
+
+
+Started GET "/a" for 127.0.0.1 at 2018-10-11 10:08:59 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/a"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:11:53 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (102.9ms)
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 4.9ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant Categories):
+    1: insert_tag active_admin_application.view_factory["page"]
+  
+app/admin/dashboard.rb:16:in `block (4 levels) in <main>'
+app/admin/dashboard.rb:15:in `block (3 levels) in <main>'
+app/admin/dashboard.rb:14:in `block (2 levels) in <main>'
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:12:16 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (98.2ms)
+Completed 200 OK in 144ms (Views: 100.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:12:39 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (120.1ms)
+Completed 200 OK in 169ms (Views: 122.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:14:05 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (102.0ms)
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 8.5ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant Categories):
+    1: insert_tag active_admin_application.view_factory["page"]
+  
+app/admin/dashboard.rb:16:in `block (4 levels) in <main>'
+app/admin/dashboard.rb:15:in `block (3 levels) in <main>'
+app/admin/dashboard.rb:14:in `block (2 levels) in <main>'
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:14:15 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (8.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY create_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:16
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (111.1ms)
+Completed 500 Internal Server Error in 215ms (ActiveRecord: 18.2ms)
+
+
+  
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  column "create_at" does not exist
+LINE 1: SELECT  "categories".* FROM "categories" ORDER BY create_at ...
+                                                          ^
+HINT:  Perhaps you meant to reference the column "categories.created_at".
+: SELECT  "categories".* FROM "categories" ORDER BY create_at DESC LIMIT $1):
+    1: insert_tag active_admin_application.view_factory["page"]
+  
+app/admin/dashboard.rb:16:in `block (4 levels) in <main>'
+app/admin/dashboard.rb:15:in `block (3 levels) in <main>'
+app/admin/dashboard.rb:14:in `block (2 levels) in <main>'
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:14:30 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:16
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (125.6ms)
+Completed 200 OK in 200ms (Views: 124.8ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:15:08 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:15
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (130.7ms)
+Completed 200 OK in 225ms (Views: 129.7ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:16:28 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:15
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (126.5ms)
+Completed 200 OK in 218ms (Views: 125.4ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:18:40 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:15
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:20
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/admin/dashboard.rb:25
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (154.1ms)
+Completed 200 OK in 270ms (Views: 142.4ms | ActiveRecord: 19.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:20:29 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:15
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:20
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/admin/dashboard.rb:26
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (140.7ms)
+Completed 200 OK in 266ms (Views: 129.8ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:21:08 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:15
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:20
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/admin/dashboard.rb:26
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (292.2ms)
+Completed 200 OK in 443ms (Views: 269.4ms | ActiveRecord: 30.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-11 10:21:41 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 19ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-10-11 10:21:42 +0300
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering categories/index.html.haml within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.haml:2
+  Rendered categories/index.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 156ms (Views: 151.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:21:45 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (4.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (9.6ms)
+Completed 200 OK in 188ms (Views: 179.9ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:21:47 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (15.6ms)
+Completed 200 OK in 224ms (Views: 198.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:21:51 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q5brGVDWCoTfgLPhYFqIZR/Om+hHTHTZOCLs9M3U6tslI304vL5pgZPgJvqKjP7moCuRJ0dteLsgEAyMeIGdSg==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f6274bc0510 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-1y7lyqm.jpeg>, @original_filename="pexels-photo-120049.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-120049.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (49.0ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-120049.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:21:51.254607"], ["updated_at", "2018-10-11 07:21:51.254607"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (36.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (25.5ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 284ms (ActiveRecord: 114.2ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:21:51 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (5.7ms)
+Completed 200 OK in 163ms (Views: 159.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:21:52 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (8.1ms)
+Completed 200 OK in 162ms (Views: 153.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:21:56 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QrQl1Tzl1XDmFl/n23tkanHQI+eEwz6DKhXSMD3hlUrMAbP00I22dap2yvwxrRLpzjUpKITiMuEyJzJIiLTi2w==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f6274c13058 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-1hg5ubp.jpeg>, @original_filename="pexels-photo-170811.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-170811.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-170811.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:21:56.518447"], ["updated_at", "2018-10-11 07:21:56.518447"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (29.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (3.0ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 115ms (ActiveRecord: 35.2ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:21:56 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (7.7ms)
+Completed 200 OK in 158ms (Views: 153.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:21:58 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 170ms (Views: 147.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:22:04 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5dCHb2YikE2H+xzkKuYk/2DmSxftxzh8oRmSy6TUQLVrZRFOikrzSMubif/AMFJ83wNB2O3mNB65K3KzEYE3JA==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f6274c21e00 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-1qcpfx2.jpeg>, @original_filename="pexels-photo-305070.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-305070.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (0.6ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-305070.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:22:04.159959"], ["updated_at", "2018-10-11 07:22:04.159959"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (6.0ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 97ms (ActiveRecord: 38.8ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:22:04 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (7.1ms)
+Completed 200 OK in 168ms (Views: 162.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:22:06 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 159ms (Views: 156.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:22:10 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oMLj8qiPmR6ERMSvrlG/iOIxruzw9Cae2f5+6X0/f70ud3XTROf6G8gkUbREh8kLXdSkI/DVKvzBzJ6RyGoILA==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f6274b8e830 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-13kfal4.jpeg>, @original_filename="pexels-photo-170811.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-170811.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (2.2ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-170811.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:22:10.130416"], ["updated_at", "2018-10-11 07:22:10.130416"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (25.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (6.1ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 113ms (ActiveRecord: 37.0ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:22:10 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (2.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (8.8ms)
+Completed 200 OK in 172ms (Views: 166.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:22:12 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (4.9ms)
+Completed 200 OK in 193ms (Views: 188.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:22:15 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dXriBCxzJlahALgqjyb8Yu0OwnRuq1007rjO7NRtg2H7z3QlwBtFU+1gLTFl8IrhUuvIu26KUVb2ii6UYTj08A==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f62747732a0 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-1tka672.jpeg>, @original_filename="pexels-photo-210019.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-210019.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-210019.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:22:15.528614"], ["updated_at", "2018-10-11 07:22:15.528614"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (20.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (5.4ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 97ms (ActiveRecord: 29.2ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:22:15 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (6.9ms)
+Completed 200 OK in 169ms (Views: 165.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:22:29 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:15
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:20
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/admin/dashboard.rb:26
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (115.3ms)
+Completed 200 OK in 120ms (Views: 115.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:22:37 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 187ms (Views: 183.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:22:41 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i2LbbmZYevCI320o5eLc28l+DHWN4emVWtnAyNagejkF101PijAZ9cS/+DMPNKpYdpsGuo3A5fdC6yCwY/UNqA==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f627ecbee80 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-newhyx.jpeg>, @original_filename="pexels-photo-210019.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-210019.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-210019.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:22:41.254625"], ["updated_at", "2018-10-11 07:22:41.254625"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (5.7ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 143ms (ActiveRecord: 39.8ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:22:41 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (7.2ms)
+Completed 200 OK in 150ms (Views: 145.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:22:43 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (7.4ms)
+Completed 200 OK in 184ms (Views: 180.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:22:46 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/H9BkJuSIoZ+Xu/RMs8+tGDhCINxPxNV6CZTUzwXjLVyytexd/pBgzI+esrYGUg33wQCTHEeHzfwFLMriUL7JA==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f627de66540 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-ncc1yv.jpeg>, @original_filename="pexels-photo-210019.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-210019.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (0.6ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-210019.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:22:46.307385"], ["updated_at", "2018-10-11 07:22:46.307385"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (28.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (5.7ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 92ms (ActiveRecord: 36.7ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:22:46 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (7.2ms)
+Completed 200 OK in 150ms (Views: 145.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:22:47 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (4.9ms)
+Completed 200 OK in 186ms (Views: 181.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:22:50 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"seLzvRMPe0MTmhJyT1f2QjMyNhSmdtQTKX2KMiuJL8A/V2Wc/2cYRl/6h2mlgYDBjNc826ZX2HExT2pKntxYUQ==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f62980cf100 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-1mk7yjg.jpeg>, @original_filename="pexels-photo-210019.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-210019.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (0.6ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-210019.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:22:50.866154"], ["updated_at", "2018-10-11 07:22:50.866154"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (35.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (5.3ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 124ms (ActiveRecord: 43.4ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:22:50 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (8.4ms)
+Completed 200 OK in 155ms (Views: 150.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:22:53 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (4.2ms)
+Completed 200 OK in 172ms (Views: 168.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:22:56 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YZDv/k0ZvfnGYJX8BHTxndlG84YQdkL8UfnfPgS1EJLvJXnfoXHe/IoAAOfuooceZqP5SRBXTp5Jyz9GseBnAw==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f6274b290e8 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-1mbnwss.jpeg>, @original_filename="pexels-photo-210019.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-210019.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (0.6ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-210019.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:22:56.359936"], ["updated_at", "2018-10-11 07:22:56.359936"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (27.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (5.5ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 97ms (ActiveRecord: 36.0ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:22:56 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (8.1ms)
+Completed 200 OK in 167ms (Views: 162.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/new?cat_id=39" for 127.0.0.1 at 2018-10-11 10:22:59 +0300
+Processing by ImagesController#new as HTML
+  Parameters: {"cat_id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/new.html.haml within layouts/application
+  Rendered images/new.html.haml within layouts/application (6.7ms)
+Completed 200 OK in 161ms (Views: 157.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2018-10-11 10:23:01 +0300
+Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LJjmT1C0B7h/oBi2eseY1/8M13zPl51sBiDmAyx+/+OiLXBuvNxkvTPAja2QEe5UQOnds8+2kQ4eEgZ7mSuIcg==", "image"=>{"path"=>#<ActionDispatch::Http::UploadedFile:0x00007f627d566828 @tempfile=#<Tempfile:/tmp/RackMultipart20181011-22971-17vgrp8.jpeg>, @original_filename="pexels-photo-305070.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[path]\"; filename=\"pexels-photo-305070.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "category_id"=>"39", "user_id"=>"1"}, "commit"=>"Create Image"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("path", "user_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["path", "pexels-photo-305070.jpeg"], ["user_id", 1], ["category_id", 39], ["created_at", "2018-10-11 07:23:01.696269"], ["updated_at", "2018-10-11 07:23:01.696269"]]
+  ↳ app/controllers/images_controller.rb:18
+  [1m[35m (33.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/images_controller.rb:18
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:65
+  [1m[36mCategory Update All (4.6ms)[0m  [1m[33mUPDATE "categories" SET "count" = COALESCE("count", 0) + 1 WHERE "categories"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/images_controller.rb:65
+Redirected to http://localhost:3000/images/39/show_category
+Completed 302 Found in 115ms (ActiveRecord: 40.6ms)
+
+
+Started GET "/images/39/show_category" for 127.0.0.1 at 2018-10-11 10:23:01 +0300
+Processing by ImagesController#show_category as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering images/show_category.html.haml within layouts/application
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE (category_id = 39)[0m
+  ↳ app/views/images/show_category.html.haml:4
+  Rendered images/show_category.html.haml within layouts/application (8.7ms)
+Completed 200 OK in 164ms (Views: 160.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:23:12 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:15
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:20
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/admin/dashboard.rb:26
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (141.6ms)
+Completed 200 OK in 146ms (Views: 141.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-10-11 10:25:40 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/developer/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:15
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/admin/dashboard.rb:20
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT  "images".* FROM "images" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/admin/dashboard.rb:26
+  Rendered /home/developer/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (176.8ms)
+Completed 200 OK in 339ms (Views: 159.3ms | ActiveRecord: 25.2ms)
+
+
