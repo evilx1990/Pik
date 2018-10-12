@@ -3,24 +3,33 @@ ActiveAdmin.register_page "Dashboard" do
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
   content title: proc{ I18n.t("active_admin.dashboard") } do
-    panel "Statistics" do
-      table_for Category.order("created_at DESC").limit(5) do |category|
+    panel "Categories" do
+      table_for Category.order('created_at DESC').limit(5) do |category|
         category.column(:name)
         category.column(:count)
       end
+    end
 
-      table_for Comment.order("created_at DESC").limit(5) do |comment|
+    panel "Comments" do
+      table_for Comment.order('created_at DESC').limit(5) do |comment|
         comment.column(:body)
         comment.column(:user_id)
         comment.column(:image_id)
       end
+    end
 
-      table_for Image.order("created_at DESC").limit(10) do |image|
-        image.column(:path)
-        image.column(:user_id)
-        image.column(:category_id)
+    panel "Images" do
+      table_for Image.order('created_at DESC').limit(10) do |image|
+        column :path, as: :Image do |img|
+          image_tag(img.path.thumb_small.url, alt: 'Image')
+        end
+        column :user_id do |img|
+          User.find(img.user_id).username
+        end
+        column :category_id do |img|
+          Category.find(img.category_id).name
+        end
       end
-
-    end # panel
+    end
   end # content
 end

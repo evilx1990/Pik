@@ -4,9 +4,12 @@ class ImagesController < ApplicationController
 
   def show_category
     @images = Image.where('category_id = ?', params[:id])
+    record_activity('navigation')
   end
 
-  def show; end
+  def show
+    record_activity('navigation')
+  end
 
   def new
     @image = Image.new
@@ -43,11 +46,13 @@ class ImagesController < ApplicationController
 
   def up_vote
     @image.liked_by current_user
+    record_activity('like')
     redirect_to image_path(@image)
   end
 
   def down_vote
     @image.downvote_from current_user
+    record_activity('dislike')
     redirect_to image_path(@image)
   end
 

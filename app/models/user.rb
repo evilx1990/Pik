@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :comments
   has_many :images
+  has_many :activities
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

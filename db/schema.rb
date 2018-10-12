@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_10_075101) do
+ActiveRecord::Schema.define(version: 2018_10_12_071244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2018_10_10_075101) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "action", null: false
+    t.string "url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -108,6 +117,7 @@ ActiveRecord::Schema.define(version: 2018_10_10_075101) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
+  add_foreign_key "activities", "users"
   add_foreign_key "comments", "images"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "categories"

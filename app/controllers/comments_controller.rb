@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @image.comments.create(comment_params)
+    record_activity('comment')
     redirect_to image_path(@image)
   end
 

@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    record_activity('navigation')
   end
 
   def new
@@ -23,7 +24,7 @@ class CategoriesController < ApplicationController
   def edit; end
 
   def update
-    if @category.save(category_param)
+    if @category.update(category_param)
       redirect_to categories_path
     else
       render :edit
