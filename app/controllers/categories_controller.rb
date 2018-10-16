@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_category, only: %i[edit update destroy]
+  before_action :get_category, only: %i[edit update destroy follow unfollow]
 
   def index
+    @category = Category.new
     @categories = Category.all
     record_activity('navigation')
   end
@@ -33,6 +34,20 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
+
+    redirect_to categories_path
+  end
+
+  def follow
+    @user = current_user
+    @user.follow(@category)
+
+    redirect_to categories_path
+  end
+
+  def unfollow
+    @user = current_user
+    @user.stop_following(@category)
 
     redirect_to categories_path
   end

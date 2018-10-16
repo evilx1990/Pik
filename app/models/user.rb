@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   acts_as_votable
+  acts_as_follower
 
   has_many :comments
   has_many :images

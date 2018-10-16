@@ -1,7 +1,10 @@
-= link_to('upload', new_image_path(cat_id: params[:id]))
+= form_for @image do |f|
+  .form-group
+    = f.file_field :picture
+    = f.hidden_field :category_id, value: params[:id]
+    = f.hidden_field :user_id, value: current_user.id
+    = f.submit
 
 .container
-  - @images.each do |i|
-    .card
-      .card-img-top
-        = link_to(image_tag(i.path.thumb_medium.url, alt: 'Image'), image_path(i))
+  = render @images
+  = paginate @images

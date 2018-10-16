@@ -20,8 +20,8 @@ ActiveAdmin.register_page "Dashboard" do
 
     panel "Images" do
       table_for Image.order('created_at DESC').limit(10) do |image|
-        column :path, as: :Image do |img|
-          image_tag(img.path.thumb_small.url, alt: 'Image')
+        column :picture do |img|
+          image_tag(img.picture.thumb_small.url, alt: 'Image')
         end
         column :user_id do |img|
           User.find(img.user_id).username

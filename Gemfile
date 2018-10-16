@@ -4,24 +4,29 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 gem 'devise'
-
 gem 'bootstrap', '~> 4.1.3'
-
 gem 'jquery-rails'
-
 gem "haml-rails", "~> 1.0"
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'activeadmin'
-gem 'file_validators'
-gem 'rmagick'
+# Голосование
 gem 'acts_as_votable'
 # Plus integrations with:
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
 
+# Загрузка картинок
 gem 'carrierwave', '~> 1.0'
+gem 'rmagick'
+gem 'file_validators'
+# Подписка
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+# Перевод
+gem 'rails-i18n', '~> 5.1'
+#Пагинация
+gem 'kaminari'
 
 # monitoring users action
 

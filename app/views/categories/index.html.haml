@@ -1,16 +1,17 @@
-.categories
-  - @categories.each do |category|
-    .card
-      .card-img-top
-        = link_to(image_tag('category.png'), show_category_image_path(category))
-      .card-text
-        = category.name
-        = category.count
-        - if current_user.id == category.user_id
-          = link_to('edit', edit_category_path(category))
-          = link_to('delete', category_path(category), method: :delete, data: { confirm: 'You are sure?' })
-.card
-  .card-img-top
-    = link_to(image_tag('category.png'), new_category_path)
-  .card-text
-    new
+= render 'categories/form'
+
+%div.categories
+- @categories.each do |category|
+  .card
+    .card-img-top
+      = link_to(image_tag('category.png'), show_category_image_path(category))
+    .card-text
+      = category.name
+      = category.count
+      - if current_user.id == category.user_id
+        = link_to('edit', edit_category_path(category))
+        = link_to('delete', category_path(category), method: :delete, data: { confirm: 'You are sure?' })
+        - if current_user.following?(category)
+          = link_to('unfollow', unfollow_category_path(category), method: :put)
+        - else
+          = link_to('follow', follow_category_path(category), method: :put)

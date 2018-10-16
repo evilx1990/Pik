@@ -1,0 +1,19 @@
+.page-link {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.page-item.active .page-link {
+  z-index: auto;
+  color: #ffffff;
+  background-color: black;
+  border-color: black;
+}
+
+.page-link:focus, .page-link:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: black;
+  border-color: black;
+}

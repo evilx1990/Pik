@@ -1,22 +1,17 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_image, only: %i[create destroy]
 
-  def create
-    @comment = @image.comments.create(comment_params)
-    record_activity('comment')
-    redirect_to image_path(@image)
+  def index
+    @comments = Comment.all
   end
 
-  def destroy
-    @comment = @image.comments.destroy
+  def create
+    @comment = Comment.create(comment_params)
+    record_activity('comment')
+    redirect_to image_path(params[:comment].fetch(:image_id))
   end
 
   private
-
-  def find_image
-    @image = Image.find(params[:image_id])
-  end
 
   def comment_params
     params.require(:comment).permit(:body, :image_id, :user_id)

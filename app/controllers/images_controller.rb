@@ -2,17 +2,21 @@ class ImagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_image, only: %i[show edit update destroy up_vote down_vote]
 
+  def index
+    @images = Image.all.page(params[:page]).per(20)
+  end
+
   def show_category
     @images = Image.where('category_id = ?', params[:id])
+    @images = @images.page(params[:page])
+    @image = Image.new
     record_activity('navigation')
   end
 
   def show
+    @comment = Comment.new
+    @comments = Comment.where('image_id = ?', params[:id])
     record_activity('navigation')
-  end
-
-  def new
-    @image = Image.new
   end
 
   def create
@@ -22,26 +26,8 @@ class ImagesController < ApplicationController
       increment_category_img
       redirect_to show_category_image_path(category_id)
     else
-      render :new
+      render :show_category
     end
-  end
-
-  def edit; end
-
-  def update
-    if @image.update(image_param)
-      redirect_to show_category_image_path(category_id)
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    id = category_id
-    decrement_category_img
-    @image.destroy
-
-    redirect_to show_category_image_path(id)
   end
 
   def up_vote
@@ -59,7 +45,7 @@ class ImagesController < ApplicationController
   private
 
   def image_param
-    params.require(:image).permit(:path, :user_id, :category_id)
+    params.require(:image).permit(:picture, :user_id, :category_id)
   end
 
   def find_image

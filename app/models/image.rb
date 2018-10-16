@@ -1,8 +1,9 @@
 class Image < ApplicationRecord
   acts_as_votable
-  mount_uploader :path, ImageUploader
+  mount_uploader :picture, ImageUploader
+  paginates_per 5
 
-  validates :path, presence: true, file_size: { less_than: 50.megabytes }
+  validates :picture, presence: true, file_size: { less_than: 50.megabytes }
 
   has_many :comments, dependent: :destroy
   belongs_to :category

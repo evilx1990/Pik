@@ -8,19 +8,44 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .container
-      %nav.navbar.navbar-expand-lg.navbar-light
-        %a.navbar-brand
-          =link_to(image_tag('logo.png'), root_path)
-        %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "drop", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#drop", "data-toggle" => "collapse", :type => "button"}
+    %nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+      %div.container.d-flex.justify-content-between
+        = link_to('Gallery', root_path, class: 'navbar-brand ml-2')
+        %button.navbar-toggler{ type: 'button' , 'data-toggle' => 'collapse', 'data-target' => '#menu',
+                                'aria-controls' => 'navbarSupportedContent', 'aria-expanded' => 'false',
+                                'aria-label' => 'Toggle navigation' }
           %span.navbar-toggler-icon
-        #drop.collapse.navbar-collapse
+
+        %div#menu.collapse.navbar-collapse
           %ul.navbar-nav.ml-auto
-            %li
-              - if user_signed_in?
-                = link_to current_user.username, edit_user_registration_path
-                = link_to(image_tag('login-logout_icon.png'), destroy_user_session_path, method: :delete)
-              - else
-                login
-                = link_to(image_tag('members_icon.png'), user_session_path)
+            - if user_signed_in?
+              %li.nav-item.dropdown.active.bd-dark
+                %a.nav-link.dropdown-toggle{ 'aria-expanded' => 'false', 'aria-haspopup' => 'true',
+                                             'data-toggle' => 'dropdown', :href => '#', :role => 'button' }
+                  Top 5 Categories
+                %div.dropdown-menu{ 'aria-labelledby' => 'navbarDropdown' }
+                  - if Category.count.zero?
+                    %a.dropdown-item
+                      No categories
+                  - else
+                    - Category.limit(5).each do |category|
+                      =link_to(category.name, show_category_image_path(category), class: 'dropdown-item')
+              %li.nav-item
+                = link_to('Images', images_path, class: 'nav-link')
+              %li.nav-item
+                = link_to('Comments', comments_path, class: 'nav-link')
+              %li.nav-item.dropdown.active
+                %a.nav-link.dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown', :href => '#', :role => 'button' }
+                  = current_user.username
+                %div.dropdown-menu{'aria-labelledby' => 'navbarDropdown'}
+                  %a.dropdown-item
+                    = link_to('Edit', edit_user_registration_path, class: 'dropdown-item')
+                  %a.dropdown-item
+                    = link_to('Log out', destroy_user_session_path, class: 'dropdown-item', method: :delete)
+            - else
+              %a.navbar-item
+                = link_to('Sign in', user_session_path, class: 'nav-link')
+              %a.navbar-item
+                = link_to('Sign up', new_user_registration_path, class: 'nav-link')
+    %div.container
       = yield
