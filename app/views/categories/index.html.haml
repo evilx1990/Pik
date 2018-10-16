@@ -10,7 +10,9 @@
       = category.count
       - if current_user.id == category.user_id
         = link_to('edit', edit_category_path(category))
-        = link_to('delete', category_path(category), method: :delete, data: { confirm: 'You are sure?' })
+        -#= link_to('delete', category_path(category), method: :delete, data: { confirm: 'You are sure?' })
+        %button{:id => category.id}
+          %a.delete Destroy
         - if current_user.following?(category)
           = link_to('unfollow', unfollow_category_path(category), method: :put)
         - else
