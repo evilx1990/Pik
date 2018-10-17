@@ -19,15 +19,3 @@
 //= require bootstrap-sprockets
 
 
-$(document).ready(function(){
-  $('.delete').on('click', function(){
-    if(confirm("Are your sure?")) {
-      $.ajax({
-        url: '/categories/' + this.parentElement.id,
-        type: 'DELETE',
-        success: function (r) {
-        }
-      });
-    }
-  });
-});

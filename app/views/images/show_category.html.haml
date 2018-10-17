@@ -1,9 +1,4 @@
-= form_for @image do |f|
-  .form-group
-    = f.file_field :picture
-    = f.hidden_field :category_id, value: params[:id]
-    = f.hidden_field :user_id, value: current_user.id
-    = f.submit
+= link_to('upload', new_image_path(cat_id: params[:id]))
 
 .container
   = render @images

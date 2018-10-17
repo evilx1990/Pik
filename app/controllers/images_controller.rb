@@ -9,14 +9,16 @@ class ImagesController < ApplicationController
   def show_category
     @images = Image.where('category_id = ?', params[:id])
     @images = @images.page(params[:page])
-    @image = Image.new
     record_activity('navigation')
   end
 
   def show
-    @comment = Comment.new
     @comments = Comment.where('image_id = ?', params[:id])
     record_activity('navigation')
+  end
+
+  def new
+    @image = Image.new
   end
 
   def create
@@ -26,18 +28,26 @@ class ImagesController < ApplicationController
       increment_category_img
       redirect_to show_category_image_path(category_id)
     else
-      render :show_category
+      render :new
     end
   end
 
   def up_vote
-    @image.liked_by current_user
+    if current_user.liked? @image
+      @image.unliked_by(current_user)
+    else
+      @image.upvote_from(current_user)
+    end
     record_activity('like')
     redirect_to image_path(@image)
   end
 
   def down_vote
-    @image.downvote_from current_user
+    if current_user.disliked? @image
+      @image.undisliked_by(current_user)
+    else
+      @image.downvote_from(current_user)
+    end
     record_activity('dislike')
     redirect_to image_path(@image)
   end

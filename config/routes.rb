@@ -8,13 +8,13 @@ Rails.application.routes.draw do
     put :unfollow, on: :member
   end
 
-  resources :images, only: %i[index show create] do
+  resources :images, only: %i[index show new  create] do
     get :show_category, on: :member
     put :up_vote, on: :member
     put :down_vote, on: :member
-  end
 
-  resources :comments, only: %i[index create]
+    resources :comments, only: %i[index create]
+  end
 
   root 'home#index'
 end

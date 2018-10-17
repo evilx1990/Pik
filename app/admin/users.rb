@@ -6,6 +6,9 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
+    column :avatar do |img|
+      image_tag(img.avatar.thumb.url, alt: 'Image')
+    end
     column :username
     column :email
     column :current_sign_in_at

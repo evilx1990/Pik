@@ -1,15 +1,11 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @comments = Comment.all
-  end
-
   def create
-    @comment = Comment.create(comment_params)
-
+    @image = Image.find(params[:image_id])
+    @comment = @image.comments.create(comment_params)
     record_activity('comment')
-    redirect_to image_path(params[:comment].fetch(:image_id))
+    redirect_to image_path(@image)
   end
 
   private

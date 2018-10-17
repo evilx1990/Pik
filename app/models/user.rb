@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  acts_as_voter
   acts_as_votable
   acts_as_follower
+  mount_uploader :avatar, AvatarUploader
 
   has_many :comments
   has_many :images
@@ -11,4 +13,5 @@ class User < ApplicationRecord
   devise :database_authenticatable,:registerable, :trackable,
          :recoverable, :rememberable, :validatable
   validates_uniqueness_of :username
+  validates :avatar, presence: true
 end
