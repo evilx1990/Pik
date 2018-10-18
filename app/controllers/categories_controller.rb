@@ -8,18 +8,10 @@ class CategoriesController < ApplicationController
     record_activity('navigation')
   end
 
-  def new
-    @category = Category.new
-  end
-
   def create
-    @category = Category.new(category_param)
+    @category = Category.create(category_param)
 
-    if @category.save
-      redirect_to categories_path
-    else
-      render :new
-    end
+    redirect_to categories_path
   end
 
   def edit; end

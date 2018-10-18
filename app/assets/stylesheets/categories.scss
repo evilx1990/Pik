@@ -10,5 +10,13 @@
 }
 
 div.new-cat{
+  float: left;
   display: none;
+  width: 100%;
+  margin: 15px auto;
+}
+
+div.box{
+  display: inline-block;
+  margin: 10px;
 }

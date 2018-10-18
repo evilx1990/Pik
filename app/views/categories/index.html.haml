@@ -1,3 +1,15 @@
+%div.box
+  %button.btn.btn-sm.btn-secondary#newCategory
+    NEW CATEGORY
+  -#=render 'categories/form'
+  %div.new-cat
+    = form_with model: @category, local: true do |form|
+      = form.text_field :name, style: 'float: left; display: block-inline;'
+      = form.hidden_field :user_id, value: current_user.id
+      = form.submit
+
+%hr
+
 %div.categories
 - @categories.each do |category|
   .card
@@ -15,9 +27,3 @@
           = link_to('unfollow', unfollow_category_path(category), method: :put)
         - else
           = link_to('follow', follow_category_path(category), method: :put)
-
-.card
-  .card-img-top
-    = link_to(image_tag('category.png'), new_category_path)
-    .card-text
-      new
