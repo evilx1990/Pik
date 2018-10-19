@@ -1,12 +1,14 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_category, only: %i[update destroy follow unfollow]
+  before_action :get_category, only: %i[show update destroy follow unfollow]
 
   def index
     @categories = Category.all
     @category = Category.new
     record_activity('navigation')
   end
+
+  def show; end
 
   def create
     @category = Category.new(category_param)

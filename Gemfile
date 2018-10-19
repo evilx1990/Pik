@@ -25,8 +25,6 @@ gem 'rails-i18n', '~> 5.1'
 #Пагинация
 gem 'kaminari'
 
-gem 'friendly_id', '~> 5.2.0'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record

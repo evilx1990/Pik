@@ -1,4 +1,5 @@
 - if image.id
   .card
     .card-img-top
-      = link_to(image_tag(image.picture.thumb_medium.url, alt: 'picture'), category_image_path(id: image.id))
+      = link_to(image_tag(image.picture.thumb_medium.url, alt: 'picture'),
+                          category_image_path(id: image.id, category_id: image.category_id))

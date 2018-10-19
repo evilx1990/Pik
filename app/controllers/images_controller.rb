@@ -1,9 +1,9 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_image, only: %i[show edit update destroy up_vote down_vote]
+  before_action :find_category, only: %i[index new]
 
   def index
-    @category = Category.find(params[:category_id])
     record_activity('navigation')
   end
 
@@ -11,20 +11,13 @@ class ImagesController < ApplicationController
     record_activity('navigation')
   end
 
-  def new
-    @category = Category.find(params[:category_id])
-  end
+  def new; end
 
   def create
     @image = Image.new(image_param)
-    @image.category_id = params[:category_id]
-    @image.user_id = current_user.id
+    @image.update(category_id: params[:category_id], user_id: current_user.id)
 
-    if @image.save
-      redirect_to category_images_path(category_id)
-    else
-      render :new
-    end
+    redirect_to category_path(params[:category_id])
   end
 
   def up_vote
@@ -55,6 +48,10 @@ class ImagesController < ApplicationController
 
   def find_image
     @image = Image.find(params[:id])
+  end
+
+  def find_category
+    @category = Category.find(params[:category_id])
   end
 
   def category_id
