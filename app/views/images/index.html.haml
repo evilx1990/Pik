@@ -1,3 +1,7 @@
+= form_with model: [@category, @category.images.build] do |form|
+  = form.file_field :picture
+  = form.submit
+
 .container
-  = render @images
-  = paginate @images
+  = render @category.images
+  -#= paginate @category

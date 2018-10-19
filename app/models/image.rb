@@ -6,6 +6,6 @@ class Image < ApplicationRecord
   validates :picture, presence: true, file_size: { less_than: 50.megabytes }
 
   has_many :comments, dependent: :destroy
-  belongs_to :category
+  belongs_to :category, counter_cache: :count
   belongs_to :user
 end

@@ -1,15 +1,13 @@
 = image_tag(@image.picture.url, alt: 'some_image')
 %br
-= link_to('like', up_vote_image_path(@image), method: :put)
+= link_to('like', up_vote_category_image_path(@image), remote: true, method: :put)
 = @image.get_upvotes.size
 = @image.get_down_votes.size
-= link_to('dislike', down_vote_image_path(@image), method: :put)
+= link_to('dislike', down_vote_category_image_path(@image), remote: true, method: :put)
 
-= form_with(model: [ @image, @image.comments.build ], local: true) do |form|
+= form_with model: [@image, @image.comments.build], url: category_image_comments_path(image_id: params[:id]) do |form|
   .form-group
     = form.text_area :body
-    = form.hidden_field :image_id, value: @image.id
-    = form.hidden_field :user_id, value: current_user.id
     = form.submit
 
 = render @image.comments

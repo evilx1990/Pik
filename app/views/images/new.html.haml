@@ -1,6 +1,3 @@
-= form_for @image do |f|
-  .form-group
-    = f.file_field :picture
-    = f.hidden_field :category_id, value: params[:cat_id]
-    = f.hidden_field :user_id, value: current_user.id
-    = f.submit
+-#= form_with(model: [@category, @category.images.build], local: true) do |form|
+-#  = form.file_field :picture
+-#  = form.submit

@@ -6,14 +6,13 @@ Rails.application.routes.draw do
   resources :categories do
     put :follow, on: :member
     put :unfollow, on: :member
-  end
 
-  resources :images, only: %i[index show new  create] do
-    get :show_category, on: :member
-    put :up_vote, on: :member
-    put :down_vote, on: :member
+    resources :images, only: %i[index show new create] do
+      put :up_vote, on: :member
+      put :down_vote, on: :member
 
-    resources :comments, only: %i[index create]
+      resources :comments, only: %i[index create]
+    end
   end
 
   root 'home#index'

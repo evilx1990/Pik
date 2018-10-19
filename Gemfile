@@ -3,23 +3,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+# Авторизация
 gem 'devise'
+
 gem 'bootstrap', '~> 4.1.3'
-gem 'jquery-rails'
-gem "haml-rails", "~> 1.0"
-gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views', '~> 1.0'
+
+gem "haml-rails", "~> 1.0"
 gem 'activeadmin'
 # Голосование
 gem 'acts_as_votable'
-# Plus integrations with:
-gem 'cancan' # or cancancan
-gem 'draper'
-gem 'pundit'
 
 # Загрузка картинок
 gem 'carrierwave', '~> 1.0'
-gem 'rmagick'
+gem 'mini_magick'
 gem 'file_validators'
 # Подписка
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
@@ -28,7 +25,7 @@ gem 'rails-i18n', '~> 5.1'
 #Пагинация
 gem 'kaminari'
 
-# monitoring users action
+gem 'friendly_id', '~> 5.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'

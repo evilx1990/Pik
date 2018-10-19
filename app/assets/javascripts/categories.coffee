@@ -1,7 +1,9 @@
 $(document).on 'turbolinks:load', ->
-
   $(document).ready ->
     $('#newCategory').click ->
-      $('.new-cat').toggle()
+      if $('.new-cat').css('display') == 'none'
+        $('.new-cat').css('display', 'inline-block')
+      else
+        $('.new-cat').css('display', 'none')
       return
     return

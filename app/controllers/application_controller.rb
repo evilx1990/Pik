@@ -4,13 +4,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def record_activity(note)
-    @activity = Activity.new
-    @activity.user_id = current_user.id
-    @activity.action = note
-    @activity.url = request.original_url
-    @activity.save
+    @activity = Activity.new(user_id: current_user.id, action: note, url: request.original_url).save
   end
-
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
