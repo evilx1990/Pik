@@ -12,6 +12,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,:registerable, :trackable,
          :recoverable, :rememberable, :validatable
+
   validates_uniqueness_of :username
-  validates :avatar, presence: true
 end

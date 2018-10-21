@@ -1,13 +1,14 @@
-= image_tag(@image.picture.url, alt: 'some_image')
+
+=image_tag(@image.picture.thumb_list.url, alt: 'some_image')
 %br
-= link_to('like', up_vote_category_image_path(@image), remote: true, method: :put)
-= @image.get_upvotes.size
-= @image.get_down_votes.size
-= link_to('dislike', down_vote_category_image_path(@image), remote: true, method: :put)
+=link_to('like', up_vote_category_image_path(@image), remote: true, method: :put)
+=@image.get_upvotes.size
+=@image.get_down_votes.size
+=link_to('dislike', down_vote_category_image_path(@image), remote: true, method: :put)
 
-= form_with model: [@image, @image.comments.build], url: category_image_comments_path(image_id: params[:id]) do |form|
+=form_with model: [@image, @image.comments.build], url: category_image_comments_path(image_id: params[:id]) do |form|
   .form-group
-    = form.text_area :body
-    = form.submit
+    =form.text_area :body
+    =form.submit
 
-= render @image.comments
+=render @image.comments

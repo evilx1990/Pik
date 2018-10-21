@@ -8,7 +8,9 @@ class CategoriesController < ApplicationController
     record_activity('navigation')
   end
 
-  def show; end
+  def show
+    @images = @category.images.page(params[:page])
+  end
 
   def create
     @category = Category.new(category_param)

@@ -8,7 +8,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+    .navbar.navbar-expand-md.navbar-dark.bg-dark
       .container.d-flex.justify-content-between
         = link_to('Gallery', root_path, class: 'navbar-brand ml-2')
         %button.navbar-toggler{ type: 'button' , 'data-toggle' => 'collapse', 'data-target' => '#menu',

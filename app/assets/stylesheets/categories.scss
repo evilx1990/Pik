@@ -1,4 +1,4 @@
-.box{
+.new-category{
   display: inline-block;
   margin: 10px;
 }
@@ -12,8 +12,24 @@ hr{
   margin-top: 0;
 }
 
+.categories{
+  text-align: center;
+}
+
 .card{
-  width: 202px;
   display: inline-block;
-  margin: 0 10px 10px 0;
+  margin: 10px;
+  width: 500px;
+  height: 400px;
+}
+
+.card-text{
+  align-items: center;
+  margin: auto;
+  color: white;
+  background: #343a40;
+}
+
+.category-nav{
+  color: #5bc0de;
 }

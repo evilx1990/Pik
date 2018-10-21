@@ -1,4 +1,4 @@
 %div.new-cat
   = form_with model: @category, remote: true do |form|
-    = form.text_field :name, style: 'float: left; display: block-inline;'
+    = form.text_field :name, placeholder: 'NAME', style: 'display: block-inline;'
     = form.submit

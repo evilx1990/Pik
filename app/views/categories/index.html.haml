@@ -1,23 +1,24 @@
-%div.box
+%div.new-category.d-flex.justify-content-center
   %button.btn.btn-sm.btn-secondary#newCategory
     NEW CATEGORY
   = render 'categories/form'
 %hr
 
-- @categories.each do |category|
-  .card
-    .card-img-top
-      = link_to(image_tag('category.png'), category_path(category))
-    .card-text
-      = category.name
-      = category.count
-      %br
-      .btn-group.d-flex.justify-content-center
-        = link_to 'show', category_path(category), class: 'btn btn-sm btn-secondary'
-        -if current_user == category.user
-          = link_to 'edit', edit_category_path(category), class: 'btn btn-sm btn-secondary'
-          = link_to 'delete', category_path(category), class: 'btn btn-sm btn-secondary', method: :delete, data: { confirm: 'Delete?' }
-        -if current_user.following?(category)
-          = link_to 'unfollow', unfollow_category_path(category), class: 'btn btn-sm btn-secondary', remote: true, method: :put
-        -else
-          = link_to 'follow', follow_category_path(category), class: 'btn btn-sm btn-secondary', remote: true, method: :put
+.categories
+  -@categories.each do |category|
+    .card
+      .card-img-top
+        = link_to(image_tag('categoryNew.png'), category_path(category))
+      .card-text.d-flex.justify-content-between
+        = truncate(category.name, length: 10)
+        &nbsp|&nbsp
+        = category.count
+        %div
+          = link_to 'show', category_path(category), class: 'category-nav'
+          -if current_user == category.user
+            = link_to 'edit', edit_category_path(category), class: 'category-nav'
+            = link_to 'delete', category_path(category), class: 'category-nav',method: :delete, data: { confirm: 'Delete?' }
+          -if current_user.following?(category)
+            = link_to 'unfollow', unfollow_category_path(category), class: 'category-nav', remote: true, method: :put
+          -else
+            = link_to 'follow', follow_category_path(category), class: 'category-nav', remote: true, method: :put
