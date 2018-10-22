@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'sessions' }
   ActiveAdmin.routes(self)
 
-  resources :categories, only: %i[index show edit create update destroy] do
+  resources :categories do
     put :follow, on: :member
     put :unfollow, on: :member
 

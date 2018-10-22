@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    models:
+      category: 'катерории'
+      image: 'Изображения'
+      comment: 'Комментарии'
+    attributes:
+      category:
+        name: 'Название'
+      image:
+        picture: 'Изображение'
+      comment:
+        body: 'Комментарий'

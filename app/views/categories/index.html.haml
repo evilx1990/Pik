@@ -1,24 +1,21 @@
-%div.new-category.d-flex.justify-content-center
-  %button.btn.btn-sm.btn-secondary#newCategory
-    NEW CATEGORY
-  = render 'categories/form'
 %hr
 
 .categories
   -@categories.each do |category|
     .card
       .card-img-top
-        = link_to(image_tag('categoryNew.png'), category_path(category))
+        =link_to(image_tag('categoryNew.png'), category_path(category))
       .card-text.d-flex.justify-content-between
         = truncate(category.name, length: 10)
         &nbsp|&nbsp
         = category.count
         %div
-          = link_to 'show', category_path(category), class: 'category-nav'
+          =link_to(t('categories.card_buttons.show'), category_path(category), class: 'category-nav')
           -if current_user == category.user
-            = link_to 'edit', edit_category_path(category), class: 'category-nav'
-            = link_to 'delete', category_path(category), class: 'category-nav',method: :delete, data: { confirm: 'Delete?' }
+            =link_to(t('categories.card_buttons.edit'), edit_category_path(category), class: 'category-nav')
+            =link_to(t('categories.card_buttons.delete'), category_path(category), class: 'category-nav',
+                     method: :delete, data: { confirm: t('categories.card_buttons.delete') + '?' })
           -if current_user.following?(category)
-            = link_to 'unfollow', unfollow_category_path(category), class: 'category-nav', remote: true, method: :put
+            =link_to(t('categories.card_buttons.unfollow'), unfollow_category_path(category), class: 'category-nav', remote: true, method: :put)
           -else
-            = link_to 'follow', follow_category_path(category), class: 'category-nav', remote: true, method: :put
+            =link_to(t('categories.card_buttons.follow'), follow_category_path(category), class: 'category-nav', remote: true, method: :put)

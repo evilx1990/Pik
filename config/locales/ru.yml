@@ -1,0 +1,22 @@
+ru:
+  commons:
+    back: 'назад'
+  layout:
+    top_categories:
+      top: 'Топ 5 категорий'
+      empty: 'Пусто'
+    images: 'Изображения'
+    comments: 'Комментарии'
+    add_category: 'Добавить категорию'
+    profile: 'Профиль'
+  categories:
+    card_buttons:
+      show: 'Перейти'
+      edit: 'Изменить'
+      delete: 'Удалить'
+      follow: 'Подписаться'
+      unfollow: 'Отписаться'
+    form:
+      submit:
+        create: 'Создать категорию'
+        update: 'Обновить категорию'
