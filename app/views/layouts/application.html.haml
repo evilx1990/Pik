@@ -38,12 +38,16 @@
                 %a.nav-link.dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown', :href => '#', :role => 'button' }
                   = current_user.username
                 %div.dropdown-menu{'aria-labelledby' => 'navbarDropdown'}
-                  %a.dropdown-item
-                    = link_to(t('layout.add_category'), new_category_path, class: 'dropdown-item')
+                  -if action_name == 'show' && controller_name == 'categories'
+                    %a.dropdown-item
+                      =link_to(t('layout.add_image'), new_category_image_path(category_id: params[:id]), class: 'dropdown-item')
+                  -elsif action_name == 'index' && controller_name == 'categories'
+                    %a.dropdown-item
+                      =link_to(t('layout.add_category'), new_category_path, class: 'dropdown-item')
                   %a.dropdown-item
                     = link_to(t('layout.profile'), edit_user_registration_path, class: 'dropdown-item')
                   %a.dropdown-item
-                    = link_to('log out', destroy_user_session_path, class: 'dropdown-item', method: :delete)
+                    = link_to(t('devise.sessions.destroy.sign_out'), destroy_user_session_path, class: 'dropdown-item', method: :delete)
             -else
               %a.navbar-item
                 = link_to('Sign in', user_session_path, class: 'nav-link')

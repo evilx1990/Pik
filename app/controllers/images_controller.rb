@@ -43,7 +43,7 @@ class ImagesController < ApplicationController
   private
 
   def image_param
-    params.require(:image).permit(:picture)
+    params.require(:image).permit(:picture, :image_name)
   end
 
   def find_image

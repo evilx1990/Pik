@@ -1,6 +1,7 @@
 .center-block
   =form_with model: [@category, @category.images.build] do |form|
     =form.file_field :picture
+    =form.text_field :image_name
     =form.submit
 
 .container

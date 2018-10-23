@@ -9,7 +9,7 @@ gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
 gem 'devise-bootstrap-views', '~> 1.0'
 
-gem "haml-rails", "~> 1.0"
+gem 'haml-rails', "~> 1.0"
 gem 'activeadmin'
 # Голосование
 gem 'acts_as_votable'

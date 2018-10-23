@@ -7,6 +7,7 @@
         -@category.errors.full_messages.each do |msg|
           = msg
   = form.text_field :name, placeholder: t('activerecord.attributes.category.name'), style: 'display: block-inline;'
-  = form.collection_select :preview, @category.images, :picture, :id, include_blank: true
+  -unless @category.new_record?
+    =form.collection_select :image_id, @category.images, :id, :image_name, include_blank: true
   = form.submit @category.new_record? ? t('categories.form.submit.create') : t('categories.form.submit.update')
   = link_to(t('common.back'), :back, class: 'btn')

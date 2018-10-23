@@ -4,12 +4,12 @@
     = bootstrap_devise_error_messages!
     = f.hidden_field :reset_password_token
     .form-group
-      = f.password_field :password, placeholder: 'Email', class: 'form-control'
+      = f.password_field :password, placeholder: t('devise.form.fields.password'), class: 'form-control'
       - if @minimum_password_length
-        %small.form-text.text-muted= t('devise.shared.minimum_password_length', count: @minimum_password_length)
+        %small.form-text.text-muted= t('devise.passwords.minimum_pass_length', count: @minimum_password_length)
     .form-group
       = f.label :password_confirmation, t('.confirm_new_password')
       = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
     .form-group
-      = f.submit t('.change_my_password'), class: 'btn btn-sm btn-primary'
+      = f.submit t('devise.sessions.new.sign_in'), class: 'btn btn-sm btn-primary'
     = render 'devise/shared/links'

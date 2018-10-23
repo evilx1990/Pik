@@ -8,6 +8,7 @@ ru:
     images: 'Изображения'
     comments: 'Комментарии'
     add_category: 'Добавить категорию'
+    add_image: 'Добавить изображение'
     profile: 'Профиль'
   categories:
     card_buttons:

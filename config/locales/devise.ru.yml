@@ -1,0 +1,95 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ru:
+  devise:
+    forms:
+      fields:
+        email: 'Электронная почта'
+        username: 'Псевдоним'
+        password: 'Пароль'
+        new_password: 'Новый пароль'
+        current_password: 'Текущий пароль'
+        confirm_password: 'Подтверждение пароля'
+      check_box:
+        remember_me: 'Запомнить меня'
+    confirmations:
+      confirmed: "Email успешно подтвержден"
+      send_instructions: "В течение нескольких минут Вы получите email с инструкциями для подтверждения"
+      send_paranoid_instructions: "Если ваш адрес электронной почты существует в нашей базе данных, вы получите электронное письмо с инструкциями о том, как подтвердить свой адрес электронной почты за несколько минут."
+    failure:
+      already_authenticated: "Вы уже вошли "
+      inactive: "Аккаунт еще не активирован"
+      invalid: "Неверный %{authentication_keys} или пароль."
+      locked: "Аккаунт заблокирован."
+      last_attempt: "У вас есть еще одна попытка, прежде чем ваша учетная запись заблокирована."
+      not_found_in_database: "Неверный %{authentication_keys} или пароль."
+      timeout: "Срок действия вашей сессии истек. Повторите попытку, чтобы продолжить."
+      unauthenticated: "Вам необходимо войти в систему или зарегистрироваться, прежде чем продолжить."
+      unconfirmed: "Вы должны подтвердить свой адрес электронной почты, прежде чем продолжить."
+    mailer:
+      confirmation_instructions:
+        subject: "Инструкции по подтверждению"
+      reset_password_instructions:
+        subject: "Сбросить инструкции для пароля"
+      unlock_instructions:
+        subject: "Инструкции по разблокировке"
+      email_changed:
+        subject: "Email изменен"
+      password_change:
+        subject: "Password изменен"
+    omniauth_callbacks:
+      failure: "Не удалось аутентифицировать вас %{kind} потому что \"%{reason}\"."
+      success: "Аунтификация успешно завершена %{kind}"
+    passwords:
+      new:
+        send_me_reset_password_instructions: 'Отправить инструкции'
+      no_token: "Сначала выполните интрукции по сбросу пароля, мы отправили ее на вашу электронную почту."
+      send_instructions: "Вы получите электронное письмо с инструкциями о том, как сбросить пароль за несколько минут."
+      send_paranoid_instructions: "Если ваш адрес электронной почты существует в нашей базе данных, вы получите ссылку на восстановление пароля на свой адрес электронной почты через несколько минут."
+      updated: "Ваш пароль был успешно изменен."
+      updated_not_active: "Ваш пароль был успешно изменен."
+    registrations:
+      new:
+        sign_up: 'Зарегистрироваться'
+      edit:
+        leave_blank_if_you_don_t_want_to_change_it: 'Оставьте пустым, если вы не хотите его менять'
+        we_need_your_current_password_to_confirm_your_changes: 'Нам нужен ваш текущий пароль для подтверждения изменений'
+        update: 'Обновить'
+        remove_account: 'Удалить аккаунт'
+        back: 'Назад'
+        are_you_sure: 'Вы уверены?'
+      destroyed: "Учетная запись успешно удалена. Надеемся увидеть вас снова."
+      signed_up: "Вы успешно зарегистрировались."
+      signed_up_but_inactive: ".Вы успешно зарегистрировались. Однако мы не смогли подписать вас, потому что ваша учетная запись еще не активирована"
+      signed_up_but_locked: "Вы успешно зарегистрировались. Однако мы не смогли подписать вас, потому что ваша учетная запись заблокирована."
+      signed_up_but_unconfirmed: "На ваш адрес электронной почты отправлено сообщение с ссылкой для подтверждения. Перейдите по ссылке, чтобы активировать свою учетную запись.."
+      update_needs_confirmation: "Вы успешно обновили свою учетную запись, но нам нужно подтвердить ваш новый адрес электронной почты. Проверьте свою почту и подтвердите свой новый адрес электронной почты.."
+      updated: "Аккаунт успешно обновден."
+    sessions:
+      new:
+        sign_in: 'Войти'
+      destroy:
+        sign_out: 'Выйти'
+      signed_in: "Вход выполнен успешно."
+      signed_out: "Выйти"
+      already_signed_out: "До свидания."
+    unlocks:
+      send_instructions: "вы получите электронное письмо с инструкциями о том, как разблокировать свою учетную запись за несколько минут."
+      send_paranoid_instructions: "z."
+      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+    shared:
+      links:
+        sign_in: 'Войти'
+        sign_up: 'Зарегистрироваться'
+        forgot_your_password: 'Восстановить пароль'
+      minimum_password_length: 'Минимальная длина пароля: %{count}'
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "Ошибка:"
+        few: "%{count} ошибки:"
