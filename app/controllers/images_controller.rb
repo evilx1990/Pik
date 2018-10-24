@@ -1,11 +1,7 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_image, only: %i[show edit update destroy up_vote down_vote]
-  before_action :find_category, only: %i[index new]
-
-  def index
-    record_activity('navigation')
-  end
+  before_action :find_image, only: %i[show up_vote down_vote]
+  before_action :find_category, only: %i[new]
 
   def show
     record_activity('navigation')

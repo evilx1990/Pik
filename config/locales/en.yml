@@ -1,1 +1,23 @@
 en:
+  commons:
+    back: 'back'
+  layout:
+    top_categories:
+      top: 'Top 5 categories'
+      empty: 'empty'
+    images: 'Images'
+    comments: 'Comments'
+    add_category: 'Add category'
+    add_image: 'Add image'
+    profile: 'Profile'
+  categories:
+    card_buttons:
+      show: 'Show'
+      edit: 'Edit'
+      delete: 'Delete'
+      follow: 'Follow'
+      unfollow: 'Unfollow'
+    form:
+      submit:
+        create: 'Create category'
+        update: 'Update category'

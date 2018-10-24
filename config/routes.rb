@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  devise_for :users, controllers: { sessions: 'sessions' }
-  ActiveAdmin.routes(self)
+  scope '/:locale' do
+    devise_for :admin_users, ActiveAdmin::Devise.config
+    devise_for :users, controllers: { sessions: 'sessions' }
+    ActiveAdmin.routes(self)
 
-  resources :categories do
-    put :follow, on: :member
-    put :unfollow, on: :member
+    resources :categories do
+      put :follow, on: :member
+      put :unfollow, on: :member
 
-    resources :images, only: %i[index show new create] do
-      put :up_vote, on: :member
-      put :down_vote, on: :member
+      resources :images, only: %i[show new create] do
+        put :up_vote, on: :member
+        put :down_vote, on: :member
 
-      resources :comments, only: %i[create]
+        resources :comments, only: %i[create]
+      end
     end
-  end
 
-  root 'home#index'
+    root 'home#index'
+  end
 end

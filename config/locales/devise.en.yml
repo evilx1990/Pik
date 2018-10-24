@@ -6,6 +6,12 @@ en:
       fields:
         email: 'Email'
         password: 'Password'
+        username: 'Username'
+        new_password: 'New password'
+        current_password: 'Current password'
+        confirm_password: 'Confirm password'
+      check_box:
+        remember_me: 'Remember me'
       buttons:
         confirm: 'Confirm'
         sign_in: 'Log in'
