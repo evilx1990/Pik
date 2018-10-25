@@ -1,18 +1,15 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_category, only: %i[images show edit update destroy follow unfollow]
+  before_action :find_category, only: %i[show update destroy follow unfollow]
 
   def index
+    @category = Category.new
     @categories = Category.all
     record_activity('navigation')
   end
 
   def show
     @images = @category.images.page(params[:page])
-  end
-
-  def new
-    @category = Category.new
   end
 
   def create
@@ -26,14 +23,10 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
-    if @category.update(category_param)
-      redirect_to categories_path
-    else
-      render :edit
-    end
+    @category.update(category_param)
+
+    redirect_to category_path(@category)
   end
 
   def destroy
@@ -60,7 +53,7 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:name, :image_id)
   end
 
-  def get_category
+  def find_category
     @category = Category.find(params[:id])
   end
 end

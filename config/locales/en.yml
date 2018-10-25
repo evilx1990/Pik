@@ -8,6 +8,7 @@ en:
     images: 'Images'
     comments: 'Comments'
     add_category: 'Add category'
+    edit_category: 'Edit category'
     add_image: 'Add image'
     profile: 'Profile'
   categories:

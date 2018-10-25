@@ -14,11 +14,12 @@
         = category.count
         %div
           =link_to(t('categories.card_buttons.show'), category_path(category), class: 'category-nav')
-          -if current_user == category.user
-            =link_to(t('categories.card_buttons.edit'), edit_category_path(category), class: 'category-nav')
-            =link_to(t('categories.card_buttons.delete'), category_path(category), class: 'category-nav',
-                     method: :delete, data: { confirm: t('categories.card_buttons.delete') + '?' })
           -if current_user.following?(category)
             =link_to(t('categories.card_buttons.unfollow'), unfollow_category_path(category), class: 'category-nav', remote: true, method: :put)
           -else
             =link_to(t('categories.card_buttons.follow'), follow_category_path(category), class: 'category-nav', remote: true, method: :put)
+          -if current_user == category.user
+            =link_to(t('categories.card_buttons.delete'), category_path(category), class: 'category-nav', remote: true,
+                     method: :delete, data: { confirm: t('categories.card_buttons.delete') + '?' })
+
+=render 'categories/modal' # <= Modal window here(link in layout)

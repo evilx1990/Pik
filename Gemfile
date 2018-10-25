@@ -7,6 +7,7 @@ ruby '2.5.1'
 gem 'devise'
 
 gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 gem 'haml-rails', "~> 1.0"

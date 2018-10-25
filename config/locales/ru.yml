@@ -8,12 +8,12 @@ ru:
     images: 'Изображения'
     comments: 'Комментарии'
     add_category: 'Добавить категорию'
+    edit_category: 'Изменить категорию'
     add_image: 'Добавить изображение'
     profile: 'Профиль'
   categories:
     card_buttons:
       show: 'Перейти'
-      edit: 'Изменить'
       delete: 'Удалить'
       follow: 'Подписаться'
       unfollow: 'Отписаться'

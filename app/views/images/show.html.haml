@@ -5,5 +5,5 @@
 =@image.get_down_votes.size
 =link_to('dislike', down_vote_category_image_path(category_id: @image.category_id, id: @image.id), remote: true, method: :put)
 
-=render 'comments/form'
+=render 'comments/form', image: @image
 =render @image.comments
