@@ -24,16 +24,16 @@
                                              'data-toggle' => 'dropdown', :href => '#', :role => 'button' }
                   =t('layout.top_categories.top')
                 .dropdown-menu{ 'aria-labelledby' => 'navbarDropdown' }
-                  -if Category.count.zero?
+                  -if categories_present?
                     %a.dropdown-item
                       = t('layout.top_categories.empty')
                   -else
-                    -Category.limit(5).each do |category|
-                      =link_to(category.name, category_images_path(category), class: 'dropdown-item')
+                    -get_top_categories(5).each do |category|
+                      =link_to(category.name, category_path(category), class: 'dropdown-item')
               %li.nav-item
-                =link_to(t('layout.images'), '#', class: 'nav-link')
+                =link_to(t('layout.images'), images_path, class: 'nav-link')
               %li.nav-item
-                =link_to(t('layout.comments'), '#', class: 'nav-link')
+                =link_to(t('layout.comments'), comments_path, class: 'nav-link')
               %li.nav-item.dropdown.active
                 %a.nav-link.dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true',
                                             'data-toggle' => 'dropdown', :href => '#', :role => 'button' }
@@ -60,4 +60,4 @@
               -else
                 =link_to('Ru', { locale: :ru }, class: 'nav-link')
     .container
-      = yield
+      =yield

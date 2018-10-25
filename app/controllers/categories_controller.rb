@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_category, only: %i[show edit update destroy follow unfollow]
+  before_action :get_category, only: %i[images show edit update destroy follow unfollow]
 
   def index
     @categories = Category.all

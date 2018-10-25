@@ -1,8 +1,0 @@
-=form_with model: [@category, @category.images.build] do |form|
-  =form.file_field :picture
-  =form.submit
-
-.image-list
-  =render @category.images
-
-=paginate @category.images.page(params[:page])

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope '/:locale' do
+  scope '(:locale)' do
     devise_for :admin_users, ActiveAdmin::Devise.config
     devise_for :users, controllers: { sessions: 'sessions' }
     ActiveAdmin.routes(self)
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
         resources :comments, only: %i[create]
       end
     end
+
+    get 'images', to: 'images#index'
+    get 'comments', to: 'comments#index'
 
     root 'home#index'
   end

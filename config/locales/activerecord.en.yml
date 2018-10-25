@@ -1,0 +1,31 @@
+en:
+  activerecord:
+    models:
+      activity: 'Activity'
+      admin_user: 'Administrator'
+      category: 'Category'
+      comment: 'Comment'
+      follow: 'Follow'
+      image: 'Image'
+      user: 'User'
+    attributes:
+      activity:
+        aсtion: 'Action'
+        url: 'Url'
+      category:
+        name: 'Name'
+        count: 'Count'
+      comment:
+        body: 'Comment'
+      follow:
+        blocked: 'Like'
+      image:
+        picture: 'Image'
+      user:
+        current_password: 'Current password'
+        password_confirmation: "Confirm password"
+        password: 'Password'
+        sign_in_count: 'Sign in count'
+        lastt_sign_in_at: 'Last sign in'
+        username: 'Username'
+        avatar: 'Avatar'

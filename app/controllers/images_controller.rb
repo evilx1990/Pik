@@ -3,6 +3,10 @@ class ImagesController < ApplicationController
   before_action :find_image, only: %i[show up_vote down_vote]
   before_action :find_category, only: %i[new]
 
+  def index
+    @images = Image.all
+  end
+
   def show
     record_activity('navigation')
   end
@@ -13,13 +17,16 @@ class ImagesController < ApplicationController
     @image = Image.new(image_param)
     @image.update(category_id: params[:category_id], user_id: current_user.id)
 
+    increment_scope_category(params[:category_id])
     redirect_to category_path(params[:category_id])
   end
 
   def up_vote
     if current_user.liked? @image
       @image.unliked_by(current_user)
+      decrement_scope_category(params[:category_id])
     else
+      increment_scope_category(params[:category_id]) unless current_user.disliked? @image
       @image.upvote_from(current_user)
     end
     record_activity('like')
@@ -29,7 +36,9 @@ class ImagesController < ApplicationController
   def down_vote
     if current_user.disliked? @image
       @image.undisliked_by(current_user)
+      decrement_scope_category(params[:category_id])
     else
+      increment_scope_category(params[:category_id]) unless current_user.liked? @image
       @image.downvote_from(current_user)
     end
     record_activity('dislike')
