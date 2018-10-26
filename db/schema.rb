@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_122829) do
+ActiveRecord::Schema.define(version: 2018_10_26_144459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,10 +136,6 @@ ActiveRecord::Schema.define(version: 2018_10_24_122829) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
-  add_foreign_key "activities", "users"
-  add_foreign_key "categories", "users"
   add_foreign_key "comments", "images"
-  add_foreign_key "comments", "users"
   add_foreign_key "images", "categories"
-  add_foreign_key "images", "users"
 end

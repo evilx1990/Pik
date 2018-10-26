@@ -9,9 +9,12 @@
         -else
           =link_to(image_tag(category.image.picture.thumb_medium.url, alt: 'picture'), category_path(category))
       .card-text.d-flex.justify-content-between
-        = truncate(category.name, length: 10)
+        =truncate(category.name, length: 10)
         &nbsp|&nbsp
-        = category.count
+        =category.count
+        &nbsp|&nbsp
+        =t('categories.card_buttons.created')
+        =category.user.username
         %div
           =link_to(t('categories.card_buttons.show'), category_path(category), class: 'category-nav')
           -if current_user.following?(category)

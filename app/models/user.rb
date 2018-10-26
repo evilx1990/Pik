@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :comments
   has_many :images
+  has_many :categories
   has_many :activities
 
   # Include default devise modules. Others available are:
@@ -13,5 +14,6 @@ class User < ApplicationRecord
   devise :database_authenticatable,:registerable, :trackable,
          :recoverable, :rememberable, :validatable
 
-  validates_uniqueness_of :username
+  validates :username, presence: true
+  validates_uniqueness_of :username, case_sensitive: false
 end

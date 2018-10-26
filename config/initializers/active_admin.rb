@@ -215,13 +215,18 @@ ActiveAdmin.setup do |config|
   #
   # To change the default utility navigation to show a link to your website & a logout btn
   #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :utility_navigation do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #       admin.add_logout_button_to_menu menu
-  #     end
-  #   end
-  #
+  config.namespace :admin do |admin|
+    admin.build_menu :utility_navigation do |menu|
+      if I18n.locale == :en
+        menu.add label: 'Ru', url: { locale: :ru }, local: true
+      else
+        menu.add label: 'En', url: { locale: :en }, local: true
+      end
+      admin.add_logout_button_to_menu menu
+    end
+  end
+
+  # config.namespace :admin do |admin|
   # If you wanted to add a static menu item to the default menu provided:
   #
   #   config.namespace :admin do |admin|
@@ -288,6 +293,5 @@ ActiveAdmin.setup do |config|
   #
   # By default ActiveAdmin::OrderClause is used for sorting logic
   # You can inherit it with own class and inject it for all resources
-  #
   # config.order_clause = MyOrderClause
 end

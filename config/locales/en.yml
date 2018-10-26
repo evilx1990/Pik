@@ -13,8 +13,8 @@ en:
     profile: 'Profile'
   categories:
     card_buttons:
+      created: 'created: '
       show: 'Show'
-      edit: 'Edit'
       delete: 'Delete'
       follow: 'Follow'
       unfollow: 'Unfollow'

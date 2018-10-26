@@ -1,7 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_image, only: %i[show up_vote down_vote]
-  before_action :find_category, only: %i[new]
 
   def index
     @images = Image.all
@@ -11,7 +10,9 @@ class ImagesController < ApplicationController
     record_activity('navigation')
   end
 
-  def new; end
+  def new
+    @category = Category.find(params[:category_id])
+  end
 
   def create
     @image = Image.new(image_param)
@@ -53,13 +54,5 @@ class ImagesController < ApplicationController
 
   def find_image
     @image = Image.find(params[:id])
-  end
-
-  def find_category
-    @category = Category.find(params[:category_id])
-  end
-
-  def category_id
-    @image.category_id
   end
 end

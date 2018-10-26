@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope '(:locale)' do
     devise_for :admin_users, ActiveAdmin::Devise.config
     devise_for :users, controllers: { sessions: 'sessions' }
+
     ActiveAdmin.routes(self)
 
     resources :categories do

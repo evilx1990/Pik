@@ -4,14 +4,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def increment_scope_category(category_id)
-    Category.find(category_id).increment!(:scope)
-  end
-
-  def decrement_scope_category(category_id)
-    Category.find(category_id).decrement!(:scope)
-  end
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
     devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
@@ -28,5 +20,13 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { locale: I18n.locale }
+  end
+
+  def increment_scope_category(category_id)
+    Category.find(category_id).increment!(:scope)
+  end
+
+  def decrement_scope_category(category_id)
+    Category.find(category_id).decrement!(:scope)
   end
 end

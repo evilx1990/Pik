@@ -13,6 +13,7 @@ ru:
     profile: 'Профиль'
   categories:
     card_buttons:
+      created: 'автор: '
       show: 'Перейти'
       delete: 'Удалить'
       follow: 'Подписаться'

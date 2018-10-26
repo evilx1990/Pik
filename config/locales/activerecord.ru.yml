@@ -2,12 +2,12 @@ ru:
   activerecord:
     models:
       activity: 'Активность'
-      admin_user: 'Администратор'
-      category: 'Категория'
-      comment: 'Комментарий'
-      follow: 'Подписка'
-      image: 'Изображение'
-      user: 'Пользователь'
+      admin_user: 'Администраторы'
+      category: 'Категории'
+      comment: 'Комментарии'
+      follow: 'Подписки'
+      image: 'Изображения'
+      user: 'Пользователи'
     attributes:
       activity:
         aсtion: 'Действие'
@@ -23,7 +23,7 @@ ru:
         picture: 'Изображение'
       user:
         current_password: 'Текущий пароль'
-        password_confirmation: "Поле 'Подтверждение пароля'"
+        password_confirmation: "Подтверждение пароля"
         password: 'Пароль'
         sign_in_count: 'Количество входов'
         lastt_sign_in_at: 'Последний раз был'

@@ -4,7 +4,9 @@ class Image < ApplicationRecord
   paginates_per 5
 
   validates :picture, presence: true, file_size: { less_than: 50.megabytes }
+  validates :image_name, presence: true, length: { minimum: 3, maximum: 15 }
 
   has_many :comments, dependent: :destroy
   belongs_to :category, counter_cache: :count
+  belongs_to :user
 end

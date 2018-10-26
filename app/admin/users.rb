@@ -7,7 +7,9 @@ ActiveAdmin.register User do
     selectable_column
     id_column
     column :avatar do |img|
-      image_tag(img.avatar.thumb.url, alt: 'Image')
+      if img.avatar.present?
+        image_tag(img.avatar.thumb.url, alt: 'Image')
+      end
     end
     column :username
     column :email
@@ -26,6 +28,7 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs do
       f.input :email
+      f.input :username
       f.input :password
       f.input :password_confirmation
     end
