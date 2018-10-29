@@ -5,4 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+if AdminUser.none? && User.none?
+  User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', username: :admin) if Rails.env.development?AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+end
+
+unless Image.none?
+  3.times do
+    Image.find(Random.rand(25)).comments.create!(body: 'Its amaizing image', user_id: 1)
+  end
+end
