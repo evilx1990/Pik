@@ -15,19 +15,19 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_param)
-    @image.update(category_id: params[:category_id], user_id: current_user.id)
+    @image = Category.find(params[:category_id]).images.new(image_param)
+    @image.user_id = current_user.id
+    @image.save
 
-    increment_scope_category(params[:category_id])
     redirect_to category_path(params[:category_id])
   end
 
   def up_vote
     if current_user.liked? @image
       @image.unliked_by(current_user)
-      decrement_scope_category(params[:category_id])
+      Category.decrement_counter('count', @image.category.id)
     else
-      increment_scope_category(params[:category_id]) unless current_user.disliked? @image
+      Category.increment_counter('count', @image.category.id) unless current_user.disliked? @image
       @image.upvote_from(current_user)
     end
     record_activity('like')
@@ -37,9 +37,9 @@ class ImagesController < ApplicationController
   def down_vote
     if current_user.disliked? @image
       @image.undisliked_by(current_user)
-      decrement_scope_category(params[:category_id])
+      Category.decrement_counter('count', @image.category.id)
     else
-      increment_scope_category(params[:category_id]) unless current_user.liked? @image
+      Category.increment_counter('count', @image.category.id) unless current_user.liked? @image
       @image.downvote_from(current_user)
     end
     record_activity('dislike')

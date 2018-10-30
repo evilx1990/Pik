@@ -16,17 +16,13 @@ namespace :app do
   def upload_images(category_name)
     Dir.chdir("#{Rails.root.to_s}/lib/assets/to_table/#{category_name}")
     image_paths = Dir['*.*']
-    category = Category.where(name: category_name)
+    category = Category.find_by(name: category_name)
 
-    i = 1
-    image_paths.each do |img_path|
+    image_paths.each_with_index do |img_path, i|
       file_img = File.open(img_path)
-      Image.create!(picture: file_img, image_name: ('d_img_' + i.to_s), user_id: 1,
-                    category_id: category[0].id)
-      puts "\tUpload #{File.basename(img_path)}"
-
+      puts "\tUpload #{File.basename(img_path)}" if Image.create!(picture: file_img, image_name: ('d_img_' + (i + 1).to_s),
+                                                                  user_id: 1, category_id: category.id)
       file_img.close
-      i += 1
     end
   end
 end

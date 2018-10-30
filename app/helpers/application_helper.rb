@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def get_top_categories(quantity)
-    Category.order(scope: :desc).limit(quantity)
+    Category.order(count: :desc).limit(quantity)
   end
 end

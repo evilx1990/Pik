@@ -21,12 +21,4 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { locale: I18n.locale }
   end
-
-  def increment_scope_category(category_id)
-    Category.find(category_id).increment!(:scope)
-  end
-
-  def decrement_scope_category(category_id)
-    Category.find(category_id).decrement!(:scope)
-  end
 end

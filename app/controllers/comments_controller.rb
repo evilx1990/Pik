@@ -6,18 +6,18 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @image = Image.find(params[:image_id])
-    @comment = @image.comments.new(comment_params)
-    @comment.update(image_id: params[:image_id], user_id: current_user.id)
-    record_activity('comment')
-    increment_scope_category(params[:category_id])
+    @comment = Image.find(params[:image_id]).comments.new(comment_params)
+    @comment.user_id = current_user.id
+    @comment.save
 
-    redirect_to category_image_path(id: @image.id), remote: true
+    record_activity('comment')
+
+    redirect_to category_image_path(id: params[:image_id]), remote: true
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :image_id)
   end
 end

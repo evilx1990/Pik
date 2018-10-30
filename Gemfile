@@ -5,6 +5,8 @@ ruby '2.5.1'
 
 # Авторизация
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'recaptcha'
 
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'

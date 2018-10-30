@@ -11,6 +11,6 @@ end
 
 unless Image.none?
   3.times do
-    Image.find(Random.rand(25)).comments.create!(body: 'Its amaizing image', user_id: 1)
+    Image.find(Random.rand(25)).comments.create!(body: 'Its amazing', user_id: 1)
   end
 end

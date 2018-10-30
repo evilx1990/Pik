@@ -52,7 +52,7 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [:email]
+  config.case_insensitive_keys = [:username]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
@@ -253,10 +253,11 @@ Devise.setup do |config|
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
-  # ==> OmniAuth
+  # ==> omniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, '334768817299513', 'f74a5a64d4ec220056e68c9d50ae1f17'
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -277,7 +278,7 @@ Devise.setup do |config|
   # The router that invoked `devise_for`, in the example above, would be:
   # config.router_name = :my_engine
   #
-  # When using OmniAuth, Devise cannot automatically set OmniAuth path,
+  # When using Auth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
