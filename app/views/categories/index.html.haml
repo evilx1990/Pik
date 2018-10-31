@@ -14,7 +14,10 @@
         =category.count
         &nbsp|&nbsp
         =t('categories.card_buttons.created')
-        =category.user.username
+        -if category.user
+          =category.user.username
+        -else
+          missing
         %div
           =link_to(t('categories.card_buttons.show'), category_path(category), class: 'category-nav')
           -if current_user.following?(category)

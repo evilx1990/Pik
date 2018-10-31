@@ -10,10 +10,10 @@ class Comment < ApplicationRecord
   private
 
   def increment_counter_cache
-    Category.increment_counter('count', self.image.category.id)
+    Category.increment_counter('count', image.category.id)
   end
 
   def decrement_counter_cache
-    Category.decrement_counter('count', self.image.category.id)
+    Category.decrement_counter('count', image.category.id)
   end
 end

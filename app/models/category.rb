@@ -1,10 +1,13 @@
 class Category < ApplicationRecord
-  acts_as_followable
+  has_many :images, dependent: :destroy, counter_cache: true
+  has_many :comments
+  belongs_to :user
+  belongs_to :image, optional: true
 
   validates :name, length: { minimum: 3, maximum: 15 }
 
-  has_many :images, dependent: :destroy, counter_cache: true
-  has_many :comments, through: :images
-  belongs_to :user
-  belongs_to :image, optional: true
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
+  acts_as_followable
 end

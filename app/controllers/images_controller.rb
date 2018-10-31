@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_image, only: %i[show up_vote down_vote]
+  before_action :find_image, only: %i[show like dislike]
+  before_action :find_category, only: %i[new create]
 
   def index
     @images = Image.all
@@ -10,40 +11,24 @@ class ImagesController < ApplicationController
     record_activity('navigation')
   end
 
-  def new
-    @category = Category.find(params[:category_id])
-  end
+  def new; end
 
   def create
-    @image = Category.find(params[:category_id]).images.new(image_param)
+    @image = @category.images.new(image_param)
     @image.user_id = current_user.id
     @image.save
 
     redirect_to category_path(params[:category_id])
   end
 
-  def up_vote
-    if current_user.liked? @image
-      @image.unliked_by(current_user)
-      Category.decrement_counter('count', @image.category.id)
-    else
-      Category.increment_counter('count', @image.category.id) unless current_user.disliked? @image
-      @image.upvote_from(current_user)
-    end
-    record_activity('like')
-    redirect_to category_image_path(@image)
+  def like
+    record_activity('like') if @image.like_from(current_user)
+    redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
   end
 
-  def down_vote
-    if current_user.disliked? @image
-      @image.undisliked_by(current_user)
-      Category.decrement_counter('count', @image.category.id)
-    else
-      Category.increment_counter('count', @image.category.id) unless current_user.liked? @image
-      @image.downvote_from(current_user)
-    end
-    record_activity('dislike')
-    redirect_to category_image_path(@image)
+  def dislike
+    record_activity('dislike') if @image.dislike_from(current_user)
+    redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
   end
 
   private
@@ -52,7 +37,11 @@ class ImagesController < ApplicationController
     params.require(:image).permit(:picture, :image_name)
   end
 
+  def find_category
+    @category = Category.friendly.find(params[:category_id])
+  end
+
   def find_image
-    @image = Image.find(params[:id])
+    @image = Image.friendly.find(params[:id])
   end
 end

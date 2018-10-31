@@ -1,9 +1,9 @@
 =image_tag(@image.picture.thumb_list.url, alt: 'some_image')
 %br
-=link_to('like', up_vote_category_image_path(category_id: @image.category_id, id: @image.id), remote: true, method: :put)
-=@image.get_upvotes.size
-=@image.get_down_votes.size
-=link_to('dislike', down_vote_category_image_path(category_id: @image.category_id, id: @image.id), remote: true, method: :put)
+=link_to('like', like_category_image_path(category_id: @image.category.slug, id: @image.slug), remote: true, method: :put)
+=@image.likes_count
+=@image.dislikes_count
+=link_to('dislike', dislike_category_image_path(category_id: @image.category.slug, id: @image.slug), remote: true, method: :put)
 
 =render 'comments/form', image: @image
 =render @image.comments
