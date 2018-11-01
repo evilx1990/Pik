@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#new-image-block {
+  width: 100%;
+  text-align: right;
+  margin-top: 10px;
+}
+
 .image-list{
   display: block;
   text-align: center;

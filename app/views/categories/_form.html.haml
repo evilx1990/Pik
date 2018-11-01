@@ -1,13 +1,10 @@
--if @category.errors.any?
-  .alert.alert-danger
-    %h5
-      =t('common.errors')
-    %p
-      -@category.errors.full_messages.each do |msg|
-        = msg
-
 =form_with model: @category, remote: true do |form|
   =form.text_field :name, placeholder: t('activerecord.attributes.category.name'), style: 'display: block-inline;'
   -unless @category.new_record?
     =form.collection_select :image_id, @category.images, :id, :image_name, include_blank: true
-  =form.submit @category.new_record? ? t('categories.form.submit.create') : t('categories.form.submit.update')
+  =form.submit @category.new_record? ? t('catetegories._modal.add_category') : t('catetegories._modal.edit_category')
+%small
+  =t('catetegories._form.small')
+-unless @category.new_record?
+  =link_to(t('catetegories._form.delete_category.label'), category_path(@category),
+         class: 'btn btn-link', local: true, method: :delete, data: { confirm: t('catetegories._form.delete_category.confirm') })

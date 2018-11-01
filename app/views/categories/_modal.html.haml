@@ -4,13 +4,13 @@
       .modal-header
         %strong
           -if @category.new_record?
-            =t('layout.add_category')
+            =t('catetegories._modal.add_category')
           -else
-            =t('layout.edit_category')
+            =t('catetegories._modal.edit_category')
         %button.close{type: 'button', 'data-dismiss' => 'modal'}
           x
       .modal-body
         =render 'categories/form'
       .modal-footer
         %button.btn.btn-primary{type: 'button', 'data-dismiss' => 'modal'}
-          Close
+          =t('catetegories._modal.close')

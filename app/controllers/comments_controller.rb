@@ -8,11 +8,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Image.find(params[:image_id]).comments.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
 
-    record_activity('comment')
-
-    redirect_to category_image_path(id: params[:image_id]), remote: true
+    if @comment.save
+      record_activity('comment')
+      redirect_to category_image_path(id: params[:image_id]), remote: true
+    end
   end
 
   private

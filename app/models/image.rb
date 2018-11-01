@@ -1,6 +1,6 @@
 class Image < ApplicationRecord
   has_many :comments, dependent: :destroy
-  has_many :votes, counter_cache: true, dependent: :destroy
+  has_many :votes, dependent: :destroy
   belongs_to :category, counter_cache: :count
   belongs_to :user
 
@@ -46,6 +46,8 @@ class Image < ApplicationRecord
                 end
     vote.save!
   end
+
+  private
 
   def increment_category_count
     Category.increment_counter('count', category.id)

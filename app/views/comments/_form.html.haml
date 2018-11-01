@@ -1,4 +1,4 @@
 =form_with model: @image.comments.build, url: category_image_comments_path(category_id: @image.category_id, image_id: @image.id) do |form|
   .form-group
     =form.text_area :body
-    =form.submit
+    =form.submit t('comments._form.create_comment')

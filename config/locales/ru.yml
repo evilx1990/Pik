@@ -1,24 +1,38 @@
 ru:
-  commons:
-    back: 'назад'
-  layout:
-    top_categories:
-      top: 'Топ 5 категорий'
-      empty: 'Пусто'
-    images: 'Изображения'
-    comments: 'Комментарии'
-    add_category: 'Добавить категорию'
-    edit_category: 'Изменить категорию'
-    add_image: 'Добавить изображение'
-    profile: 'Профиль'
-  categories:
-    card_buttons:
-      created: 'автор: '
-      show: 'Перейти'
-      delete: 'Удалить'
-      follow: 'Подписаться'
-      unfollow: 'Отписаться'
-    form:
-      submit:
-        create: 'Создать категорию'
-        update: 'Обновить категорию'
+  layouts:
+    application:
+      title: 'Простая галерея'
+      top_categories:
+        top: "Топ 5 категорий"
+        empty: 'Пусто'
+      images: 'Изображения'
+      comments: 'Комментарии'
+      profile: 'Профиль'
+      log_out: 'Выход'
+  catetegories:
+    index:
+      author: 'автор: '
+      show: 'перейти'
+      follow: 'подписаться'
+      unfollow: 'отписаться'
+    show:
+      upload_image: 'Заргузить изображение'
+    _modal:
+      add_category: 'Добавить категорию'
+      edit_category: 'Редактировать категорию'
+      close: 'Закрыть'
+    _form:
+      small: 'минимум 3 символа'
+      delete_category:
+        label: 'удалить категорию'
+        confirm: 'Серьезно удалить?'
+  images:
+    _form:
+      image_name_field: 'Имя'
+      small: 'у картинки должно быть имя(минимум 3 символа)'
+  comments:
+    _comment:
+      user: 'пользователь: '
+      comment_body: 'комментарий: '
+    _form:
+      create_comment: 'Создать комментарий'

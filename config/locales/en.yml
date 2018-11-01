@@ -1,24 +1,38 @@
 en:
-  commons:
-    back: 'back'
-  layout:
-    top_categories:
-      top: 'Top 5 categories'
-      empty: 'empty'
-    images: 'Images'
-    comments: 'Comments'
-    add_category: 'Add category'
-    edit_category: 'Edit category'
-    add_image: 'Add image'
-    profile: 'Profile'
-  categories:
-    card_buttons:
-      created: 'created: '
-      show: 'Show'
-      delete: 'Delete'
-      follow: 'Follow'
-      unfollow: 'Unfollow'
-    form:
-      submit:
-        create: 'Create category'
-        update: 'Update category'
+  layouts:
+    application:
+      title: 'Simple Gallery'
+      top_categories:
+        top: "Top 5 categories"
+        empty: 'Empty'
+      images: 'Images'
+      comments: 'Comments'
+      profile: 'Profile'
+      log_out: 'Log out'
+  catetegories:
+    index:
+      author: 'author: '
+      show: 'show'
+      follow: 'follow'
+      unfollow: 'unfollow'
+    show:
+      upload_image: 'Upload image'
+    _modal:
+      add_category: 'Add category'
+      edit_category: 'Edit category'
+      close: 'Close'
+    _form:
+      small: 'minimum 3 symbols'
+      delete_category:
+        label: 'Delete category'
+        confirm: 'You are sure?'
+  images:
+    _form:
+      image_name_field: 'Image name'
+      small: 'image must have name(minimum 3 symbols)'
+  comments:
+    _comment:
+      user: 'user: '
+      comment_body: 'comment body: '
+    _form:
+      create_comment: 'Create comment'

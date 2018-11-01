@@ -4,21 +4,22 @@ class ImagesController < ApplicationController
   before_action :find_category, only: %i[new create]
 
   def index
-    @images = Image.all
+    @images = Image.all.page(params[:page]).per(20)
   end
 
   def show
     record_activity('navigation')
   end
 
-  def new; end
+  def new
+    @image = @category.images.new
+  end
 
   def create
     @image = @category.images.new(image_param)
     @image.user_id = current_user.id
-    @image.save
 
-    redirect_to category_path(params[:category_id])
+    redirect_to category_path(params[:category_id]) if @image.save
   end
 
   def like

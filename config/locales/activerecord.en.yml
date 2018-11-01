@@ -2,12 +2,12 @@ en:
   activerecord:
     models:
       activity: 'Activity'
-      admin_user: 'Administrators'
-      category: 'Categories'
-      comment: 'Comments'
-      follow: 'Follows'
-      image: 'Images'
-      user: 'Users'
+      admin_user: 'administrator'
+      category: 'category'
+      comment: 'comment'
+      follow: 'follow'
+      image: 'image'
+      user: 'user'
     attributes:
       activity:
         aсtion: 'Action'

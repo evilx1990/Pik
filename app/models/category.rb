@@ -1,6 +1,5 @@
 class Category < ApplicationRecord
-  has_many :images, dependent: :destroy, counter_cache: true
-  has_many :comments
+  has_many :images, dependent: :destroy
   belongs_to :user
   belongs_to :image, optional: true
 

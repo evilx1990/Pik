@@ -1,13 +1,13 @@
 ru:
   activerecord:
     models:
-      activity: 'Активность'
-      admin_user: 'Администраторы'
-      category: 'Категории'
-      comment: 'Комментарии'
-      follow: 'Подписки'
-      image: 'Изображения'
-      user: 'Пользователи'
+      activity:
+      admin_user: 'администратор'
+      category: 'категория'
+      comment: 'комментария'
+      follow: 'подписка'
+      image: 'изображениe'
+      user: 'пользователь'
     attributes:
       activity:
         aсtion: 'Действие'

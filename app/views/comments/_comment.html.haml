@@ -1,7 +1,7 @@
 -if comment.body != nil
   %p
-    user:
+    =t('comments._comment.user')
     = User.find(comment.user_id).username
-    comment body:
+    =t('comments._comment.comment_body')
   %p
     = comment.body

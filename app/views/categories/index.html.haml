@@ -1,5 +1,4 @@
 %hr
-
 .categories
   -@categories.each do |category|
     .card
@@ -13,19 +12,16 @@
         &nbsp|&nbsp
         =category.count
         &nbsp|&nbsp
-        =t('categories.card_buttons.created')
+        =t('catetegories.index.author')
         -if category.user
           =category.user.username
         -else
           missing
         %div
-          =link_to(t('categories.card_buttons.show'), category_path(category), class: 'category-nav')
+          =link_to(t('catetegories.index.show'), category_path(category), class: 'category-nav')
           -if current_user.following?(category)
-            =link_to(t('categories.card_buttons.unfollow'), unfollow_category_path(category), class: 'category-nav', remote: true, method: :put)
+            =link_to(t('catetegories.index.unfollow'), unfollow_category_path(category), class: 'category-nav', remote: true, method: :put)
           -else
-            =link_to(t('categories.card_buttons.follow'), follow_category_path(category), class: 'category-nav', remote: true, method: :put)
-          -if current_user == category.user
-            =link_to(t('categories.card_buttons.delete'), category_path(category), class: 'category-nav', remote: true,
-                     method: :delete, data: { confirm: t('categories.card_buttons.delete') + '?' })
+            =link_to(t('catetegories.index.follow'), follow_category_path(category), class: 'category-nav', remote: true, method: :put)
 
 =render 'categories/modal' # <= Modal window here(link in layout)

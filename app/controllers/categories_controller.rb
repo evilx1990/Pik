@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   def index
     @category = Category.new
-    @categories = Category.all
+    @categories = Category.order(count: :desc)
     record_activity('navigation')
   end
 
@@ -18,30 +18,28 @@ class CategoriesController < ApplicationController
 
     if @category.save
       redirect_to categories_path
+    else
+      render :index
     end
   end
 
   def update
     @category.update(category_param)
-
     redirect_to category_path(@category)
   end
 
   def destroy
     @category.destroy
-
     redirect_to categories_path
   end
 
   def follow
     current_user.follow(@category)
-
     redirect_to categories_path
   end
 
   def unfollow
     current_user.stop_following(@category)
-
     redirect_to categories_path
   end
 
