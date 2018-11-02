@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { locale: I18n.locale }
   end
+
+  def after_sign_in_path_for(resource)
+    resource.encrypted_password.present? ? root_path : edit_user_registration_path
+  end
 end

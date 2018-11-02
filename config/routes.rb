@@ -7,12 +7,11 @@ Rails.application.routes.draw do
   }
 
   scope '(:locale)' do
+    ActiveAdmin.routes(self)
     devise_for :users, skip: :omniauth_callbacks, controllers: {
       sessions: 'sessions',
       registrations: 'registrations'
     }
-
-    ActiveAdmin.routes(self)
 
     resources :categories do
       put :follow, on: :member
