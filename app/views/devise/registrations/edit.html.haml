@@ -20,9 +20,10 @@
       %small.form-text.text-muted= t('.leave_blank_if_you_don_t_want_to_change_it')
     .form-group
       = f.password_field :password_confirmation, placeholder: t('devise.forms.fields.confirm_password'), class: 'form-control'
-    -#.form-group
-    -#  = f.password_field :current_password, placeholder: t('devise.forms.fields.current_password'), class: 'form-control'
-    -#  %small.form-text.text-muted= t('.we_need_your_current_password_to_confirm_your_changes')
+    -if current_user.encrypted_password.present?
+      .form-group
+        = f.password_field :current_password, placeholder: t('devise.forms.fields.current_password'), class: 'form-control'
+        %small.form-text.text-muted= t('.we_need_your_current_password_to_confirm_your_changes')
     .form-group
       = f.submit t('.update'), class: 'btn btn-sm btn-primary'
 

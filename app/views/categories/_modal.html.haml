@@ -3,14 +3,14 @@
     .modal-content
       .modal-header
         %strong
-          -if @category.new_record?
-            =t('catetegories._modal.add_category')
-          -else
-            =t('catetegories._modal.edit_category')
+          =t('catetegories._modal.edit_category')
         %button.close{type: 'button', 'data-dismiss' => 'modal'}
           x
       .modal-body
-        =render 'categories/form'
+        =render 'categories/form', category: @category
+        -if @category.user.eql?(current_user)
+          =link_to(t('catetegories._form.delete_category.label'), category_path(@category),
+           class: 'btn btn-link', local: true, method: :delete, data: { confirm: t('catetegories._form.delete_category.confirm') })
       .modal-footer
-        %button.btn.btn-primary{type: 'button', 'data-dismiss' => 'modal'}
+        %button.btn.btn-primary{ type: 'button', 'data-dismiss' => 'modal' }
           =t('catetegories._modal.close')

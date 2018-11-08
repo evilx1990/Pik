@@ -42,8 +42,6 @@
                 %div.dropdown-menu.dropdown-menu-right{ 'aria-labelledby' => 'navbarDropdown' }
                   -if action_name == 'show' && controller_name == 'categories'
                     =link_to(t('catetegories._modal.edit_category'), '#modalCategory', 'data-toggle' => 'modal', class: 'dropdown-item') # call modal
-                  -elsif action_name == 'index' && controller_name == 'categories'
-                    =link_to(t('catetegories._modal.add_category'), '#modalCategory', 'data-toggle' => 'modal', class: 'dropdown-item') # call modal
                   =link_to(t('layouts.application.profile'), edit_user_registration_path, class: 'dropdown-item')
                   =link_to(t('layouts.application.log_out'), destroy_user_session_path, class: 'dropdown-item', method: :delete)
             -else

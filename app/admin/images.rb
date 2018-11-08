@@ -11,5 +11,4 @@ ActiveAdmin.register Image do
     end
     f.actions
   end
-
 end

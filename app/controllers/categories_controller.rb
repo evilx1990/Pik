@@ -3,13 +3,16 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: %i[show update destroy follow unfollow]
 
   def index
-    @category = Category.new
     @categories = Category.order(count: :desc)
     record_activity('navigation')
   end
 
   def show
     @images = @category.images.page(params[:page])
+  end
+
+  def new
+    @category = Category.new
   end
 
   def create
@@ -35,6 +38,8 @@ class CategoriesController < ApplicationController
 
   def follow
     current_user.follow(@category)
+    UserMailer.with(user: current_user,
+                    category: params[:id]).follow_email.deliver_later
     redirect_to categories_path
   end
 

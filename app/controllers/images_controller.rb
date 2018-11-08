@@ -19,7 +19,10 @@ class ImagesController < ApplicationController
     @image = @category.images.new(image_param)
     @image.user_id = current_user.id
 
-    redirect_to category_path(params[:category_id]) if @image.save
+    if @image.save
+      notify_followers(@image)
+      redirect_to category_path(params[:category_id])
+    end
   end
 
   def like
@@ -44,5 +47,11 @@ class ImagesController < ApplicationController
 
   def find_image
     @image = Image.friendly.find(params[:id])
+  end
+
+  def notify_followers(image)
+    image.category.followers.each do |user|
+      UserMailer.with(user: user, category: params[:category_id]).new_image_email.deliver_later
+    end
   end
 end

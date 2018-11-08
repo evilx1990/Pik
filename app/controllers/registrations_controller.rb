@@ -1,25 +1,28 @@
 class RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: %i[create]
 
-  private
-
-  def check_captcha
-    unless verify_recaptcha
-      self.resource = resource_class.new sign_up_params
-      resource.validate # Look for any other validation errors besides Recaptcha
-      set_minimum_password_length
-      respond_with resource
-    end
+  def create
+    super
+    UserMailer.with(user: @user).welcome_email.deliver_later unless @user.errors.any?
   end
 
+  private
+
   def update_resource(resource, params)
+    unless params[:password].blank?
+      resource.password = params[:password]
+      resource.password_confirmation = params[:password_confirmation]
+    end
+
     resource.update_without_password(params)
   end
 
-  def account_update_params
-    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-      params[:user].delete(:password)
-      params[:user].delete(:password_confirmation)
-    end
+  def check_captcha
+    return if verify_recaptcha
+
+    self.resource = resource_class.new sign_up_params
+    resource.validate
+    set_minimum_password_length
+    respond_with resource
   end
 end

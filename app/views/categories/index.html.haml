@@ -1,3 +1,7 @@
+#new-category-block
+  #new-category
+    =link_to(t('catetegories._modal.add_category'), new_category_path, remote: true, class: 'btn btn-sm btn-dark')
+
 %hr
 .categories
   -@categories.each do |category|
@@ -23,5 +27,3 @@
             =link_to(t('catetegories.index.unfollow'), unfollow_category_path(category), class: 'category-nav', remote: true, method: :put)
           -else
             =link_to(t('catetegories.index.follow'), follow_category_path(category), class: 'category-nav', remote: true, method: :put)
-
-=render 'categories/modal' # <= Modal window here(link in layout)

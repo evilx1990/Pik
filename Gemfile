@@ -25,6 +25,7 @@ gem 'kaminari'
 gem 'rails-i18n', '~> 5.1'
 
 gem 'friendly_id', '~> 5.2.0'
+gem 'nokogiri'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
