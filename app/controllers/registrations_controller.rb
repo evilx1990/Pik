@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    UserMailer.with(user: @user).welcome_email.deliver_later unless @user.errors.any?
+    Resque.enqueue(SignUpSendEmail, @user.id) unless @user.errors.any?
   end
 
   private

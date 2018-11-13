@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   has_many :images, dependent: :destroy
+  has_many :follows, as: :followable, dependent: :destroy
   belongs_to :user
   belongs_to :image, optional: true
 

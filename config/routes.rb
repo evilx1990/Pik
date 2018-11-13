@@ -18,8 +18,8 @@ Rails.application.routes.draw do
       put :unfollow, on: :member
 
       resources :images, only: %i[show new create] do
-        put :like, on: :member
-        put :dislike, on: :member
+        put :up_vote, on: :member
+        put :down_vote, on: :member
 
         resources :comments, only: %i[create]
       end

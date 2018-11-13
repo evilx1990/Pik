@@ -7,25 +7,21 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'omniauth-facebook'
 gem 'recaptcha'
-
 gem 'bootstrap', '~> 4.1.3'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails'
-
 gem 'activeadmin'
-
-gem 'haml-rails', "~> 1.0"
-
+gem 'haml-rails', '~> 1.0'
 gem 'carrierwave', '~> 1.0'
 gem 'file_validators'
 gem 'mini_magick'
-
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'kaminari'
 gem 'rails-i18n', '~> 5.1'
-
 gem 'friendly_id', '~> 5.2.0'
 gem 'nokogiri'
+gem 'resque'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'

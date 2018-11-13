@@ -25,7 +25,7 @@
                                              'data-toggle' => 'dropdown', :href => '#', :role => 'button' }
                   =t('layouts.application.top_categories.top')
                 .dropdown-menu{ 'aria-labelledby' => 'navbarDropdown' }
-                  -if categories_present?
+                  -if categories_zero?
                     %a.dropdown-item
                       =t('layouts.application.top_categories.empty')
                   -else

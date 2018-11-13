@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_140351) do
+ActiveRecord::Schema.define(version: 2018_10_31_123101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,9 @@ ActiveRecord::Schema.define(version: 2018_10_31_140351) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "count", default: 0
+    t.integer "images_count", default: 0
+    t.integer "follows_count", default: 0
+    t.integer "range_count", default: 0
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -106,14 +108,14 @@ ActiveRecord::Schema.define(version: 2018_10_31_140351) do
 
   create_table "images", force: :cascade do |t|
     t.string "picture", null: false
+    t.integer "comments_count", default: 0
+    t.integer "votes_count", default: 0
     t.bigint "user_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_name"
     t.string "slug"
-    t.integer "likes_count", default: 0
-    t.integer "dislikes_count", default: 0
     t.index ["category_id"], name: "index_images_on_category_id"
     t.index ["slug"], name: "index_images_on_slug", unique: true
     t.index ["user_id"], name: "index_images_on_user_id"

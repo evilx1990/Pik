@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_image, only: %i[show like dislike]
+  before_action :find_image, only: %i[show up_vote down_vote]
   before_action :find_category, only: %i[new create]
 
   def index
@@ -20,18 +20,18 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
 
     if @image.save
-      notify_followers(@image)
+      Resque.enqueue(NewImageSendEmails, @image.id)
       redirect_to category_path(params[:category_id])
     end
   end
 
-  def like
-    record_activity('like') if @image.like_from(current_user)
+  def up_vote
+    record_activity('like') if @image.vote_from(current_user.id, true)
     redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
   end
 
-  def dislike
-    record_activity('dislike') if @image.dislike_from(current_user)
+  def down_vote
+    record_activity('dislike') if @image.vote_from(current_user.id, false)
     redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
   end
 
@@ -47,11 +47,5 @@ class ImagesController < ApplicationController
 
   def find_image
     @image = Image.friendly.find(params[:id])
-  end
-
-  def notify_followers(image)
-    image.category.followers.each do |user|
-      UserMailer.with(user: user, category: params[:category_id]).new_image_email.deliver_later
-    end
   end
 end

@@ -1,7 +1,10 @@
 class Image < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
-  belongs_to :category, counter_cache: :count
+  has_many :likes, -> { where(flag: true) }, class_name: 'Vote'
+  has_many :dislikes, -> { where(flag: false) }, class_name: 'Vote'
+
+  belongs_to :category, counter_cache: :images_count
   belongs_to :user
 
   validates :picture, presence: true, file_size: { less_than: 50.megabytes }
@@ -14,54 +17,11 @@ class Image < ApplicationRecord
 
   paginates_per 5
 
-  def like_from(user)
-    vote = votes.find_by(user_id: user.id)
-    vote ||= votes.new(user_id: user.id)
+  def vote_from(user_id, vote)
+    vote_record = votes.find_by(user_id: user_id)
+    vote_record ||= votes.new(user_id: user_id)
 
-    vote.flag = if vote.flag.nil?
-                  increment_category_count
-                  true
-                elsif vote.flag.equal?(false)
-                  true
-                else
-                  decrement_category_count
-                  nil
-                end
-    vote.save!
-  end
-
-  def dislike_from(user)
-    vote = votes.find_by(user_id: user.id)
-    vote ||= votes.new(user_id: user.id)
-
-
-    vote.flag = if vote.flag.nil?
-                  increment_category_count
-                  false
-                elsif vote.flag.equal?(true)
-                  false
-                else
-                  decrement_category_count
-                  nil
-                end
-    vote.save!
-  end
-
-  private
-
-  def increment_category_count
-    Category.increment_counter('count', category.id)
-  end
-
-  def decrement_category_count
-    Category.decrement_counter('count', category.id)
+    vote_record.flag = vote_record.flag.eql?(vote) ? nil : vote
+    vote_record.save!
   end
 end
-
-# def like(user)
-#   vote = votes.find_by(user_id: user.id)
-#   vote ||= votes.new(user_id: user.id)
-#
-#   vote.flag = [nil, false].include?(vote.flag) ? true : nil
-#   vote.save!
-# end
