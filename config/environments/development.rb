@@ -61,14 +61,15 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :letter_opener #for false mail
-  # config.action_mailer.smtp_settings = {
-  #   address:              "smtp.gmail.com",
-  #   port:                 587,
-  #   domain:               "example.com",
-  #   authentication:       "plain",
-  #   enable_starttls_auto: true,
-  #   user_name:            'evilxmail@gmail.com',
-  #   password:             'Ev1lxgenius'
-  # }
+  config.action_mailer.delivery_method = :smtp
+      # :letter_opener #for false mail
+  config.action_mailer.smtp_settings = {
+    address:              "smtp.gmail.com",
+    port:                 587,
+    domain:               "example.com",
+    authentication:       "plain",
+    enable_starttls_auto: true,
+    user_name:            'evilxmail@gmail.com',
+    password:             'Ev1lxgenius'
+  }
 end

@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: %i[show update destroy follow unfollow]
 
   def index
-    @categories = Category.order(images_count: :desc)
+    @categories = Category.all
     record_activity('navigation')
   end
 
@@ -38,9 +38,8 @@ class CategoriesController < ApplicationController
 
   def follow
     current_user.follow(@category)
-    UserMailer.with(user: current_user, category: params[:id]).follow_email.deliver_later
 
-    # Resque.enqueue(FollowSendEmail, [current_user.id, params[:id]])
+    Resque.enqueue(FollowSendEmail, [current_user.id, params[:id]])
     redirect_to categories_path
   end
 
