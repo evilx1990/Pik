@@ -3,16 +3,13 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: %i[show update destroy follow unfollow]
 
   def index
-    @categories = Category.all
+    @categories = Category.order(name: :desc)
+    @category = Category.new
     record_activity('navigation')
   end
 
   def show
     @images = @category.images.page(params[:page])
-  end
-
-  def new
-    @category = Category.new
   end
 
   def create
@@ -22,6 +19,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path
     else
+      @category = Category.new
       render :index
     end
   end

@@ -1,4 +1,4 @@
--if image.id
-  .image-list
+-if image
+  #image
     =link_to(image_tag(image.picture.thumb_list.url, alt: 'picture'),
-                       category_image_path(id: image.slug, category_id: image.category.slug))
+                       category_image_path(id: image.slug, category_id: image.category.slug),)

@@ -1,0 +1,40 @@
+#show-image {
+  width: 100%;
+  text-align: center;
+}
+
+#show-image img {
+  margin: 0 auto;
+  max-width: 100%;
+  width: auto;
+}
+
+#likes {
+  text-align: center;
+}
+
+#likes img {
+  width: 30px;
+  height: auto;
+}
+
+#comments-form {
+  text-align: center;
+}
+
+#comments-form textarea {
+  width: 47.5%;
+  background-color: transparent;
+  border: solid 1px;
+  outline: none;
+}
+
+#comments-form ::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#comments-list {
+  width: 70%;
+  margin: 0 auto;
+  border: solid 1px;
+}

@@ -8,6 +8,7 @@ class ImagesController < ApplicationController
   end
 
   def show
+    @comments = @image.comments.page(params[:page]).per(10)
     record_activity('navigation')
   end
 

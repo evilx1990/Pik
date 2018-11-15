@@ -386,6 +386,7 @@ DEPENDENCIES
   rails (~> 5.2.1)
   rails-i18n (~> 5.1)
   recaptcha
+  redis (~> 4.0)
   resque
   sass-rails (~> 5.0)
   selenium-webdriver

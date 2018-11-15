@@ -4,12 +4,27 @@
 
 #new-image-block {
   width: 100%;
-  text-align: right;
+  text-align: center;
   margin-top: 10px;
 }
 
-.image-list{
-  display: block;
-  text-align: center;
-  margin: 30px 0 30px 0;
+#image {
+  display: inline-grid;
+  width: auto;
+}
+
+#image img {
+  max-width: 550px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 1199px) {
+  #images {
+    text-align: center;
+  }
+
+  #image img {
+  max-width: 450px;
+  margin-top: 5px;
+  }
 }
