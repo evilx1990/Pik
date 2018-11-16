@@ -1,7 +1,14 @@
--if comment.body != nil
-  %p
-    =t('comments._comment.user')
-    = User.find(comment.user_id).username
-    =t('comments._comment.comment_body')
-  %p
-    = comment.body
+#comments-list
+  #comment
+    -if comment.user.avatar.present?
+      =image_tag(comment.user.avatar.thumb.url, alt: 'avatar')
+    -else
+      =image_tag('profile_default_m.jpg', alt: 'avatar')
+    #data
+      #uname
+        =comment.user.username
+      #date
+        =comment.created_at.strftime('%Y-%m-%d')
+      %hr
+    #body
+      =comment.body

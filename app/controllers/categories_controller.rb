@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @images = @category.images.page(params[:page])
+    @images = @category.images.order(id: :asc).page(params[:page])
   end
 
   def create
@@ -36,7 +36,7 @@ class CategoriesController < ApplicationController
 
   def follow
     current_user.follow(@category)
-
+    # UserMailer.with(user: current_user, category: @category.name).follow_email.deliver
     Resque.enqueue(FollowSendEmail, [current_user.id, params[:id]])
     redirect_to categories_path
   end

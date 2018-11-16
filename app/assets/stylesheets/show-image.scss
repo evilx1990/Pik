@@ -34,7 +34,42 @@
 }
 
 #comments-list {
-  width: 70%;
-  margin: 0 auto;
+  width: 50%;
+  margin: 2px auto;
   border: solid 1px;
+}
+
+#comment {
+  position: relative;
+  padding: 5px;
+}
+
+#comment img {
+  position: absolute;
+  left: 5px;
+  width: auto;
+  height: auto;
+}
+
+#data {
+  margin-left: 60px;
+}
+
+#uname{
+  display: inline;
+}
+
+#date{
+  display: inline;
+  position: absolute;
+  right: 5px;
+}
+
+#data hr {
+  margin: 10px 5px 5px 5px;
+}
+
+#body {
+  margin-left: 60px;
+  word-wrap: break-word;
 }

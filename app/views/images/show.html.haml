@@ -12,6 +12,6 @@
 #comments-form
   =render 'comments/form'
 %hr
-#comments-list
+-if @comments.present?
   =render @comments
-=paginate @comments
+  =paginate @comments

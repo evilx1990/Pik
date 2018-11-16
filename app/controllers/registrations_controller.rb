@@ -8,14 +8,14 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def update_resource(resource, params)
-    unless params[:password].blank?
-      resource.password = params[:password]
-      resource.password_confirmation = params[:password_confirmation]
-    end
-
-    resource.update_without_password(params)
-  end
+  # def update_resource(resource, params)
+  #   unless params[:password].blank?
+  #     resource.password = params[:password]
+  #     resource.password_confirmation = params[:password_confirmation]
+  #   end
+  #
+  #   resource.update_without_password(params)
+  # end
 
   def check_captcha
     return if verify_recaptcha

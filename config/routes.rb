@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'resque/server'
+
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
