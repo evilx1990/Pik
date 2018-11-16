@@ -42,6 +42,7 @@
 #comment {
   position: relative;
   padding: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 #comment img {
@@ -66,10 +67,11 @@
 }
 
 #data hr {
-  margin: 10px 5px 5px 5px;
+  margin: 5px 5px 5px 10px;
 }
 
 #body {
+  white-space: pre-wrap;
   margin-left: 60px;
   word-wrap: break-word;
 }

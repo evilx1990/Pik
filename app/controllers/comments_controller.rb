@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @comments = Comment.all
+    @comments = Comment.order(created_at: :desc).all
   end
 
   def create

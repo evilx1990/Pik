@@ -8,7 +8,7 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @comments = @image.comments.page(params[:page]).per(10)
+    @comments = @image.comments.order(created_at: :desc).page(params[:page]).per(10)
     record_activity('navigation')
   end
 
@@ -21,7 +21,8 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
 
     if @image.save
-      Resque.enqueue(NewImageSendEmails, @image.id)
+      # Resque.enqueue(NewImageSendEmails, @image.id)
+      NewImageSendEmails.perform_later(@image.id)
       redirect_to category_path(params[:category_id])
     end
   end

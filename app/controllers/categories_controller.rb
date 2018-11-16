@@ -37,7 +37,8 @@ class CategoriesController < ApplicationController
   def follow
     current_user.follow(@category)
     # UserMailer.with(user: current_user, category: @category.name).follow_email.deliver
-    Resque.enqueue(FollowSendEmail, [current_user.id, params[:id]])
+    # Resque.enqueue(FollowSendEmail, [current_user.id, params[:id]])
+    FollowSendEmail.perform_later([current_user.id, params[:id]])
     redirect_to categories_path
   end
 

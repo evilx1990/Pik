@@ -3,15 +3,20 @@
 
 %hr
 #likes
-  =link_to(image_tag('like.resized.png', alt: 'like'), up_vote_category_image_path(category_id: @image.category.slug, id: @image.slug), remote: true, method: :put)
+  =link_to(image_tag('like.resized.png', alt: 'like'),
+                     up_vote_category_image_path(category_id: @image.category.slug, id: @image.slug),
+                                                 remote: true, method: :put)
   =@image.likes.count
   =@image.dislikes.count
-  =link_to(image_tag('dislike.resized.png', alt: 'dislike'), down_vote_category_image_path(category_id: @image.category.slug, id: @image.slug), remote: true, method: :put)
+  =link_to(image_tag('dislike.resized.png', alt: 'dislike'),
+                     down_vote_category_image_path(category_id: @image.category.slug, id: @image.slug),
+                                                   remote: true, method: :put)
+
 %hr
 
 #comments-form
   =render 'comments/form'
 %hr
--if @comments.present?
-  =render @comments
-  =paginate @comments
+
+=render @comments
+=paginate @comments

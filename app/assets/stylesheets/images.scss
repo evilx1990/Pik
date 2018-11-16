@@ -8,6 +8,11 @@
   margin-top: 10px;
 }
 
+#new-image-block small{
+  color: white;
+}
+
+
 #image {
   display: inline-grid;
   width: auto;
@@ -16,7 +21,6 @@
 #image img {
   max-width: 550px;
   margin-top: 5px;
-
 }
 
 @media screen and (max-width: 1199px) {
