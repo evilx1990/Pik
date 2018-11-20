@@ -1,4 +1,4 @@
 =form_with model: @image.comments.build, url: category_image_comments_path(category_id: @image.category_id, image_id: @image.id) do |form|
-  .form-group
-    =form.text_area :body
-    =form.submit t('comments._form.create_comment')
+  =form.text_area :body, rows: '3', placeholder: 'Comment here...'
+  .text-right.col-9
+    =form.submit t('comments._form.create_comment'), class: 'btn btn-sm btn-warning'

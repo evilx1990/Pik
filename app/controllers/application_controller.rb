@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: %i[username password password_confirmation remember_me]
     devise_parameter_sanitizer.permit :sign_in, keys: %i[username password remember_me]
     devise_parameter_sanitizer.permit :account_update, keys: %i[username email password password_confirmation
-                                                              current_password avatar avatar_cache remove_avatar]
+                                                              avatar avatar_cache remove_avatar]
   end
 
   def record_activity(note)

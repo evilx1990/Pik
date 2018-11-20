@@ -1,29 +1,54 @@
-#new-category-block
-  #new-category
-    =link_to(t('catetegories._modal.add_category'), new_category_path, remote: true, class: 'btn btn-sm btn-dark')
+-#
+-#
+-##new-category-block
+-#  #new-category
+-#    =link_to(t('catetegories._modal.add_category'), new_category_path, remote: true, class: 'btn btn-sm btn-dark')
+-#
+-#%hr
+-#.categories
+-#  -@categories.each do |category|
+-#    .card
+-#      .card-img-top
+-#        -unless category.image
+-#          =link_to(image_tag('categoryNew.png', alt: 'new category'), category_path(category))
+-#        -else
+-#          =link_to(image_tag(category.image.picture.thumb_medium.url, alt: 'picture'), category_path(category))
+-#      .card-text.d-flex.justify-content-between
+-#        =truncate(category.name, length: 10)
+-#        &nbsp|&nbsp
+-#        =category.images_count
+-#        &nbsp|&nbsp
+-#        =t('catetegories.index.author')
+-#        -if category.user
+-#          =category.user.username
+-#        -else
+-#          missing
+-#        %div
+-#          =link_to(t('catetegories.index.show'), category_path(category), class: 'category-nav')
+-#          -if current_user.following?(category)
+-#            =link_to(t('catetegories.index.unfollow'), unfollow_category_path(category), class: 'category-nav', remote: true, method: :put)
+-#          -else
+-#            =link_to(t('catetegories.index.follow'), follow_category_path(category), class: 'category-nav', remote: true, method: :put)
 
-%hr
+
+-##new-category-block
+-#  #new-category
+-#    =link_to(t('catetegories._modal.add_category'), new_category_path, remote: true, class: 'btn btn-sm btn-dark')
+
+%br
 .categories
   -@categories.each do |category|
-    .card
-      .card-img-top
-        -unless category.image
-          =link_to(image_tag('categoryNew.png', alt: 'new category'), category_path(category))
+    .category
+      -unless category.image
+        =link_to(image_tag('cat_prev.png', alt: 'Image'), category_path(category))
+      -else
+        =link_to(image_tag(category.image.picture.thumb_medium.url, alt: 'Image'), category_path(category))
+      %h3.d-flex.justify-content-between
+        =category.name
+        -if current_user.following?(category)
+          =link_to(image_tag('unfollow.resized.png', alt: 'unfollow'), unfollow_category_path(category), id: 'follow', remote: true, method: :put)
         -else
-          =link_to(image_tag(category.image.picture.thumb_medium.url, alt: 'picture'), category_path(category))
-      .card-text.d-flex.justify-content-between
-        =truncate(category.name, length: 10)
-        &nbsp|&nbsp
-        =category.images_count
-        &nbsp|&nbsp
-        =t('catetegories.index.author')
-        -if category.user
-          =category.user.username
-        -else
-          missing
-        %div
-          =link_to(t('catetegories.index.show'), category_path(category), class: 'category-nav')
-          -if current_user.following?(category)
-            =link_to(t('catetegories.index.unfollow'), unfollow_category_path(category), class: 'category-nav', remote: true, method: :put)
-          -else
-            =link_to(t('catetegories.index.follow'), follow_category_path(category), class: 'category-nav', remote: true, method: :put)
+          =link_to(image_tag('follow.resized.png', alt: 'follow'), follow_category_path(category), id: 'follow', remote: true, method: :put)
+
+=render 'categories/modal' # <= Modal window here(link in layout)
+

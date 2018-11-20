@@ -1,0 +1,77 @@
+#show-image {
+  width: 100%;
+  text-align: center;
+}
+
+#show-image img {
+  margin: 0 auto;
+  max-width: 100%;
+  width: auto;
+}
+
+#likes {
+  text-align: center;
+}
+
+#likes img {
+  width: 30px;
+  height: auto;
+}
+
+#comments-form {
+  text-align: center;
+}
+
+#comments-form textarea {
+  width: 47.5%;
+  background-color: transparent;
+  border: solid 1px;
+  outline: none;
+}
+
+#comments-form ::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#comments-list {
+  width: 50%;
+  margin: 2px auto;
+  border: solid 1px;
+}
+
+#comment {
+  position: relative;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#comment img {
+  position: absolute;
+  left: 5px;
+  width: auto;
+  height: auto;
+}
+
+#data {
+  margin-left: 60px;
+}
+
+#uname{
+  display: inline;
+}
+
+#date{
+  display: inline;
+  position: absolute;
+  right: 5px;
+}
+
+#data hr {
+  margin: 5px 5px 5px 10px;
+}
+
+#body {
+  white-space: pre-wrap;
+  margin-left: 60px;
+  word-wrap: break-word;
+}

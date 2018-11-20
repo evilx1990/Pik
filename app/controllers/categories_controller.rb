@@ -3,16 +3,13 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: %i[show update destroy follow unfollow]
 
   def index
-    @categories = Category.all
+    @categories = Category.order(name: :desc)
+    @category = Category.new
     record_activity('navigation')
   end
 
   def show
-    @images = @category.images.page(params[:page])
-  end
-
-  def new
-    @category = Category.new
+    @images = @category.images.order(id: :asc).page(params[:page])
   end
 
   def create
@@ -22,6 +19,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path
     else
+      @category = Category.new
       render :index
     end
   end
@@ -38,8 +36,9 @@ class CategoriesController < ApplicationController
 
   def follow
     current_user.follow(@category)
-
-    Resque.enqueue(FollowSendEmail, [current_user.id, params[:id]])
+    # UserMailer.with(user: current_user, category: @category.name).follow_email.deliver
+    # Resque.enqueue(FollowSendEmail, [current_user.id, params[:id]])
+    FollowSendEmail.perform_later([current_user.id, params[:id]])
     redirect_to categories_path
   end
 
