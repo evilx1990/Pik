@@ -1,16 +1,17 @@
-.container-login
+=bootstrap_devise_error_messages!
+#before-login
+  =link_to(image_tag('fb.png'), omniauth_authorize_path(resource_name, 'facebook'))
+
   =form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    =bootstrap_devise_error_messages!
+    .form-group.mt-5
+      =f.email_field :email, placeholder: t('devise.forms.fields.email'), class: 'form-control form-style'
     .form-group
-      =f.email_field :email, placeholder: t('devise.forms.fields.email'), class: 'form-control'
-    .form-group
-      =f.password_field :password, placeholder: t('devise.forms.fields.password'), class: 'form-control'
+      =f.password_field :password, placeholder: t('devise.forms.fields.password'), class: 'form-control form-style'
     - if devise_mapping.rememberable?
       .form-group.form-check
         =f.check_box :remember_me, class: 'form-check-input'
-        =f.label :remember_me, class: 'form-check-label' do
+        =f.label :remember_me, class: 'form-check-label text-white' do
           =resource.class.human_attribute_name(t('devise.forms.check_box.remember_me'))
     .form-group
-      =f.submit  t('.sign_in'), class: 'btn btn-sm btn-primary'
+      =f.submit  t('.sign_in'), class: 'btn btn-primary'
   = render 'devise/shared/links'
-

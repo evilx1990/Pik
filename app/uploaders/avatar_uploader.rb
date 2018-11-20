@@ -33,6 +33,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [50, 50]
   end
 
+  version :thumb_avatar do
+    process resize_to_fit: [420, 420]
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist

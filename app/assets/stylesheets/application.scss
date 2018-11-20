@@ -13,7 +13,7 @@
  */
 @import "bootstrap";
 @import "header";
-@import "login-form";
+@import "devise";
 @import "categories";
 @import "images";
 @import "pagination";
@@ -31,4 +31,15 @@ body {
 .content {
   width: 100%;
   margin: 50px auto 50px auto;
+}
+
+.form-style {
+  background-color: transparent;
+  border: solid 1px black;
+  outline: none;
+  color:black;
+}
+
+.form-style::placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }

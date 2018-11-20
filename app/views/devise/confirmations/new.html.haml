@@ -1,8 +1,8 @@
-.container-login
+#before-login
   = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
     = bootstrap_devise_error_messages!
     .form-group
       = f.email_field :email, placeholder: t('devise.form.fields.email'), value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control'
     .form-group
-      = f.submit t('devise.form.buttons.confirm'), class: 'btn btn-sm btn-primary'
+      = f.submit t('devise.form.buttons.confirm'), class: 'btn btn-primary'
   = render 'devise/shared/links'
