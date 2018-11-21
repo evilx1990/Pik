@@ -12,7 +12,11 @@ class ApplicationController < ActionController::Base
   end
 
   def record_activity(note)
-    @activity = Activity.new(user_id: current_user.id, action: note, url: request.original_url).save
+    if current_user
+      @activity = Activity.new(user_id: current_user.id,
+                               action: note,
+                               url: request.original_url).save
+    end
   end
 
   def set_locale
@@ -24,6 +28,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    resource.encrypted_password.present? ? root_path : edit_user_registration_path
+    resource.encrypted_password.present? ? categories_path : edit_user_registration_path
   end
 end

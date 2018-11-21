@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :activities, dependent: :destroy
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable,:registerable, :trackable,
+  # :confirmable, :timeoutable
+  devise :database_authenticatable,:registerable, :trackable, :lockable,
          :recoverable, :rememberable, :validatable, :omniauthable
   acts_as_follower
   mount_uploader :avatar, AvatarUploader
@@ -23,5 +23,9 @@ class User < ApplicationRecord
       user.username = auth.info.name
       user.save!(validate: false)
     end
+  end
+
+  def self.logins_before_captcha
+    3
   end
 end
