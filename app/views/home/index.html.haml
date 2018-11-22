@@ -1,0 +1,19 @@
+#forOrder
+  #helloWorld
+    Hello! Share new and see pictures of other people. We will help you save your favorite moments. Have a nice day :)
+
+  #slider.carousel.slide{'data-ride' => 'carousel'}
+    .carousel-inner
+      -get_slider_img.each_with_index do |img, index|
+        -if index.eql?(0)
+          .carousel-item.active
+            =image_tag('slider/' + img, alt: 'slide', style: 'width: 100%; display: block;')
+        -else
+          .carousel-item
+            =image_tag('slider/' + img, alt: 'slide', style: 'width: 100%; display: block;')
+    %a.carousel-control-prev{'data-slide' => 'prev', :href => '#slider', :role => 'button'}
+      %span.carousel-control-prev-icon{'aria-hidden' => 'true'}
+      %span.sr-only Previous
+    %a.carousel-control-next{'data-slide' => 'next', :href => '#slider', :role => 'button'}
+      %span.carousel-control-next-icon{'aria-hidden' => 'true'}
+      %span.sr-only Next

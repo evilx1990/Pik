@@ -1,6 +1,6 @@
 =form_with(model: image, url: category_images_path, remote: true) do |form|
   =form.file_field :picture, style: 'color: white'
   =form.text_field :image_name, placeholder: t('images._form.image_name_field'), maxlength: 15
-  =form.submit t('catetegories.show.upload_image'), class: 'btn btn-sm btn-dark'
+  =form.submit t('catetegories.show.upload_image'), class: 'btn btn-sm btn-warning'
 %small
   =t('images._form.small')
