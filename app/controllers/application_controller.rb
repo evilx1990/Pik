@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  protect_from_forgery prepend: true
 
   protected
 
@@ -30,4 +31,6 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     resource.encrypted_password.present? ? categories_path : edit_user_registration_path
   end
+
+
 end

@@ -12,10 +12,7 @@
         =f.check_box :remember_me, class: 'form-check-input'
         =f.label :remember_me, class: 'form-check-label text-white' do
           =resource.class.human_attribute_name(t('devise.forms.check_box.remember_me'))
-    -if User.find_by(email: resource.email)
-      -if User.find_by(email: resource.email).failed_attempts > User.logins_before_captcha
-        =flash[:recaptcha_error]
-        =recaptcha_tags
+    =show_recaptcha
     .form-group
       =f.submit  t('.sign_in'), class: 'btn btn-primary'
   = render 'devise/shared/links'

@@ -1,20 +1,7 @@
 class SessionsController < Devise::SessionsController
   def create
-    fails = User.find_by(email: sign_in_params[:email])&.failed_attempts
-
-    super && return unless fails
-
-    if fails > User.logins_before_captcha
-      if recaptcha_present?(params) && !verify_recaptcha
-        sign_out # !!!!!!!!!!!!!!
-        self.resource = resource_class.new(sign_in_params)
-        render :new
-        return
-      end
-    end
-
-    record_activity('log in')
     super
+    record_activity('log in')
   end
 
   def destroy
