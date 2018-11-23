@@ -1,5 +1,18 @@
 class SessionsController < Devise::SessionsController
   def create
+    session[:login_failure] ? session[:login_failure] += 1 : session[:login_failure] = 0
+
+    if session[:login_failure] > User.logins_before_captcha
+      if recaptcha_present?(params) && !verify_recaptcha
+        fails = session[:login_failure]
+        sign_out
+        session[:login_failure] = fails
+        self.resource = resource_class.new
+        render 'devise/sessions/new'
+        return
+      end
+    end
+
     super
     record_activity('log in')
   end
@@ -13,9 +26,5 @@ class SessionsController < Devise::SessionsController
 
   def recaptcha_present?(params)
     params['g-recaptcha-response']
-  end
-
-  def decrement_failed_attempts(user)
-    user.update!(failed_attempts: user.failed_attempts - 1)
   end
 end
