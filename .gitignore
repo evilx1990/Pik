@@ -133,3 +133,8 @@ cmake-build-*/
 dump.rbd
 
 /log
+
+coverage
+
+public/Mouse-retina2-full-resolution.jpg
+

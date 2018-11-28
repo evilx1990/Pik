@@ -27,6 +27,9 @@ en:
         label: 'Delete category'
         confirm: 'You are sure?'
   images:
+    show:
+      modal:
+        layout: "Share"
     _form:
       image_name_field: 'Image name'
       small: 'image must have name(minimum 3 symbols)'

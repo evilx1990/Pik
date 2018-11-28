@@ -27,6 +27,9 @@ ru:
         label: 'удалить категорию'
         confirm: 'Серьезно удалить?'
   images:
+    show:
+      modal:
+        layout: 'Поделиться'
     _form:
       image_name_field: 'Имя'
       small: 'у картинки должно быть имя(минимум 3 символа)'

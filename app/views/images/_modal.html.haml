@@ -1,0 +1,17 @@
+#modalCategory.modal.fade{ tabindex: '-1', role: 'dialog' }
+  .modal-dialog.modal-dialog-centered
+    .modal-content
+      .modal-header
+        %strong
+          =t('images.show.modal.layout')
+        %button.close{type: 'button', 'data-dismiss' => 'modal'}
+          x
+      .modal-body
+        =form_for :share, url: share_category_image_path, method: :get do |form|
+          =form.hidden_field :url, value: request.original_url
+          =form.email_field :email, class: 'd-block'
+          =form.text_area :message, class: 'd-block w-100 mt-1'
+          =form.submit :share, class: 'd-block col-5 mt-1'
+      .modal-footer
+        %button.btn.btn-primary{ type: 'button', 'data-dismiss' => 'modal' }
+          =t('catetegories._modal.close')

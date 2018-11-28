@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       resources :images, only: %i[show new create] do
         put :up_vote, on: :member
         put :down_vote, on: :member
+        get :download, on: :member
+        get :share, on: :member
 
         resources :comments, only: %i[create]
       end

@@ -1,6 +1,11 @@
 #show-image
   =image_tag(@image.picture.thumb_list.url, alt: 'some_image')
 
+#social
+  =link_to(image_tag('friend_mail.png'), '#modalCategory', 'data-toggle' => 'modal',
+                                         class: 'd-block float-right mr-5')
+  =link_to(image_tag('dwnld.png'), download_category_image_path(id: @image.id),
+                                 class: 'd-block float-right mr-1', target: '_blank')
 %hr
 #likes
   =link_to(image_tag('like.resized.png', alt: 'like'),
@@ -20,3 +25,5 @@
 
 =render @comments
 =paginate @comments
+
+=render 'images/modal'

@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_image, only: %i[show up_vote down_vote]
+  before_action :find_image, only: %i[show up_vote down_vote download share]
   before_action :find_category, only: %i[new create]
 
   def index
@@ -21,10 +21,20 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
 
     if @image.save
-      # Resque.enqueue(NewImageSendEmails, @image.id)
       NewImageSendEmails.perform_later(@image.id)
       redirect_to category_path(params[:category_id])
     end
+  end
+
+  def download
+    send_file(@image.picture.path)
+  end
+
+  def share
+    UserMailer.with(email: params[:share][:email],
+                    url: params[:share][:url],
+                    message: params[:share][:message]).share_image.deliver_later
+    redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
   end
 
   def up_vote

@@ -15,6 +15,10 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'New image') if @user.email.present?
   end
 
+  def share_image
+    mail(to: params[:email], subject: 'Hello! Take it look')
+  end
+
   private
 
   def user_from_params

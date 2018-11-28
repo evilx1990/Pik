@@ -20,5 +20,10 @@ module Pik
     config.time_zone = 'Kyiv'
     config.i18n.available_locales = %i[en ru]
     config.i18n.default_locale = :en
+
+    config.generators do |g|
+      g.test_framework :rspec
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+    end
   end
 end

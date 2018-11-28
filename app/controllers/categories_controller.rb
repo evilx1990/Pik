@@ -25,26 +25,24 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category.update(category_param)
-    redirect_to category_path(@category)
+    redirect_to category_path(@category) if @category.update(category_param)
   end
 
   def destroy
-    @category.destroy
-    redirect_to categories_path
+    redirect_to categories_path if @category.destroy
   end
 
   def follow
-    current_user.follow(@category)
-    # UserMailer.with(user: current_user, category: @category.name).follow_email.deliver
-    # Resque.enqueue(FollowSendEmail, [current_user.id, params[:id]])
-    FollowSendEmail.perform_later([current_user.id, params[:id]])
-    redirect_to categories_path
+    if current_user.follow(@category)
+      redirect_to categories_path
+      FollowSendEmail.perform_later([current_user.id, params[:id]])
+    end
   end
 
   def unfollow
-    current_user.stop_following(@category)
-    redirect_to categories_path
+    if current_user.stop_following(@category)
+      redirect_to categories_path
+    end
   end
 
   private
