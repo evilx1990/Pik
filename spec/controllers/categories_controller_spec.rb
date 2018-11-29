@@ -26,7 +26,7 @@ describe CategoriesController, type: :controller do
     end
 
     it 'assign @categories' do
-      expect(assigns(:categories)) == categories
+      expect(assigns(:categories)).to eq categories
     end
 
     it 'assign @category' do
@@ -48,7 +48,7 @@ describe CategoriesController, type: :controller do
     end
 
     it 'assign @images' do
-      expect(assigns(:images)) == category.images
+      expect(assigns(:images)).to eq category.images
     end
   end
 
@@ -84,13 +84,15 @@ describe CategoriesController, type: :controller do
   end
 
   context 'PUT #update' do
+    let(:category_image) { create(:category_with_images) }
+
     before do
       put :update,
           params: {
-            id: category.id,
+            id: category_image.id,
             category: {
               name: Faker::FunnyName.two_word_name,
-              image_id: category.images.first.id
+              image_id: category_image.images.first.id
             }
           }
     end
@@ -100,11 +102,11 @@ describe CategoriesController, type: :controller do
     end
 
     it 'should be redirect to category after update' do
-      expect(response).to redirect_to(category)
+      expect(response).to redirect_to(category_image)
     end
 
     it 'assign @category' do
-      expect(assigns(:category)).to eq(Category.last)
+      expect(assigns(:category)).to eq category_image
     end
   end
 

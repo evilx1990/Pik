@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
+
   scope '(:locale)' do
     devise_for :users, skip: :omniauth_callbacks, controllers: {
       sessions: 'sessions',
@@ -19,8 +20,8 @@ Rails.application.routes.draw do
       put :unfollow, on: :member
 
       resources :images, only: %i[show new create] do
-        put :up_vote, on: :member
-        put :down_vote, on: :member
+        put :like, on: :member
+        put :dislike, on: :member
         get :download, on: :member
         get :share, on: :member
 

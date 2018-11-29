@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_image, only: %i[show up_vote down_vote download share]
+  before_action :find_image, only: %i[show like dislike download share]
   before_action :find_category, only: %i[new create]
 
   def index
@@ -20,7 +20,7 @@ class ImagesController < ApplicationController
     @image = @category.images.new(image_param)
     @image.user_id = current_user.id
 
-    if @image.save
+    if @image.save!
       NewImageSendEmails.perform_later(@image.id)
       redirect_to category_path(params[:category_id])
     end
@@ -37,13 +37,15 @@ class ImagesController < ApplicationController
     redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
   end
 
-  def up_vote
-    record_activity('like') if @image.vote_from(current_user.id, true)
+  def like
+    @image.vote_from(current_user.id, true)
+    record_activity('like')
     redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
   end
 
-  def down_vote
-    record_activity('dislike') if @image.vote_from(current_user.id, false)
+  def dislike
+    @image.vote_from(current_user.id, false)
+    record_activity('dislike')
     redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
   end
 

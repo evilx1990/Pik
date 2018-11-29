@@ -3,7 +3,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    # Resque.enqueue(SignUpSendEmail, @user.id) unless @user.errors.any?
     SignUpSendEmail.perform_later(@user.id) unless @user.errors.any?
   end
 
