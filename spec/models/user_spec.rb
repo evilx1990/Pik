@@ -46,4 +46,10 @@ describe User, type: :model do
       respond_to :votes
     end
   end
+
+  describe '#logins_before_captcha' do
+    it 'should be return 3' do
+      expect(described_class.logins_before_captcha).to eq(3)
+    end
+  end
 end

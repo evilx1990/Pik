@@ -25,7 +25,7 @@ class User < ApplicationRecord
     end
   end
 
-  def logins_before_captcha
+  def self.logins_before_captcha
     3
   end
 end

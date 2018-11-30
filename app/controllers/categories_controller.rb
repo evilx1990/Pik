@@ -34,8 +34,8 @@ class CategoriesController < ApplicationController
 
   def follow
     if current_user.follow(@category)
+      send_email_after_follow
       redirect_to categories_path
-      FollowSendEmail.perform_later([current_user.id, params[:id]])
     end
   end
 
@@ -53,5 +53,9 @@ class CategoriesController < ApplicationController
 
   def find_category
     @category = Category.friendly.find(params[:id])
+  end
+
+  def send_email_after_follow
+    FollowSendEmail.perform_later([current_user.id, params[:id]])
   end
 end

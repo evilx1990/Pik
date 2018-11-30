@@ -91,7 +91,7 @@ describe CategoriesController, type: :controller do
           params: {
             id: category_image.id,
             category: {
-              name: Faker::FunnyName.two_word_name,
+              name: Faker::FunnyName.name[3..15],
               image_id: category_image.images.first.id
             }
           }

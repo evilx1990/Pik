@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
 
     if @image.save!
-      NewImageSendEmails.perform_later(@image.id)
+      send_new_image_emails(@image.id)
       redirect_to category_path(params[:category_id])
     end
   end
@@ -33,7 +33,8 @@ class ImagesController < ApplicationController
   def share
     UserMailer.with(email: params[:share][:email],
                     url: params[:share][:url],
-                    message: params[:share][:message]).share_image.deliver_later
+                    message: params[:share][:message]).share_image_email.deliver_later
+
     redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
   end
 
@@ -61,5 +62,9 @@ class ImagesController < ApplicationController
 
   def find_image
     @image = Image.friendly.find(params[:id])
+  end
+
+  def send_new_image_emails(image_id)
+    NewImageSendEmails.perform_later(image_id)
   end
 end
