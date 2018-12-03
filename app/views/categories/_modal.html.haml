@@ -3,7 +3,10 @@
     .modal-content
       .modal-header
         %strong
-          =t('catetegories._modal.edit_category')
+          -if action_name == 'show'
+            =t('catetegories._modal.edit_category')
+          -else
+            =t('catetegories._modal.add_category')
         %button.close{type: 'button', 'data-dismiss' => 'modal'}
           x
       .modal-body

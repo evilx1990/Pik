@@ -36,4 +36,22 @@ describe Category, type: :model do
       respond_to :image
     end
   end
+
+  context 'counter cache' do
+    describe 'images counter' do
+      let(:category_images) { create(:category_with_images) }
+
+      it 'should be equal 3' do
+        expect(category_images.images_count).to eq 3
+      end
+    end
+
+    describe 'follows counter' do
+      let(:category_follows) { create(:category_with_follows) }
+
+      it 'should be equal 3' do
+        expect(category_follows.follows_count).to eq 3
+      end
+    end
+  end
 end

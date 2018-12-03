@@ -80,4 +80,32 @@ describe Image, type: :model do
       respond_to :user
     end
   end
+
+  context 'method' do
+    describe '#vote_from' do
+      let(:user) { create(:user) }
+
+      it 'should be return true with valid parameters' do
+        expect(subject.vote_from(user.id, true)).to be_truthy
+      end
+    end
+  end
+
+  context 'counter cache' do
+    describe 'comments counter' do
+      let(:image) { create(:image_with_comments) }
+
+      it 'should be equal 3' do
+        expect(image.comments_count).to eq(3)
+      end
+    end
+
+    describe 'votes counter' do
+      let(:image) { create(:image_with_votes) }
+
+      it 'should be equal 2' do
+        expect(image.votes_count).to eq(2)
+      end
+    end
+  end
 end

@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :image, class: 'Image' do
-    sequence :image_name  do |n|
+    sequence :image_name do |n|
       "image_#{n}"
     end
 
@@ -13,7 +13,7 @@ FactoryBot.define do
 
     factory :image_with_comments do
       after(:create) do |image|
-        create_list(:comment, 3, image: image, user: image.user)
+        create_list(:comment, 3, image: image)
       end
     end
 
@@ -26,6 +26,13 @@ FactoryBot.define do
     factory :image_with_dislike do
       after(:create) do |image|
         create(:vote, :dislike, image: image, user: image.user)
+      end
+    end
+
+    factory :image_with_votes do
+      after(:create) do |image|
+        create(:vote, :like, image: image)
+        create(:vote, :dislike, image: image)
       end
     end
   end
