@@ -10,10 +10,10 @@
         %button.close{type: 'button', 'data-dismiss' => 'modal'}
           x
       .modal-body
-        =render 'categories/form', category: @category
+        =render 'categories/form'
         -if @category.user.eql?(current_user)
           =link_to(t('catetegories._form.delete_category.label'), category_path(@category),
            class: 'btn btn-link', local: true, method: :delete, data: { confirm: t('catetegories._form.delete_category.confirm') })
       .modal-footer
-        %button.btn.btn-primary{ type: 'button', 'data-dismiss' => 'modal' }
+        %button.btn.btn-sm.btn-dark{ type: 'button', 'data-dismiss' => 'modal' }
           =t('catetegories._modal.close')

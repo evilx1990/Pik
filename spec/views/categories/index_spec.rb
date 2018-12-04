@@ -22,15 +22,14 @@ describe 'categories/index.html.haml', type: :view do
     expect(rendered).to match(/#{categories.last.name}/)
   end
 
-  context 'should be have link ' do
-    let(:user) { create(:user) }
-    let(:cateoory) { create(:category, user: user) }
+  context 'links' do
+    let(:cateoory) { create(:category, user: @user) }
 
-    it 'with category/show acton' do
+    it 'with category/show action' do
       expect(rendered).to have_link(alt: 'Image')
     end
 
-    it 'link with category/follow acton' do
+    it 'link with category/follow action' do
       expect(rendered).to have_link(alt: 'follow')
     end
 
@@ -42,7 +41,38 @@ describe 'categories/index.html.haml', type: :view do
     end
   end
 
-  it 'should be render _modal.html.haml' do
-    expect(rendered).to render_template(partial: '_modal')
+  context 'modal window' do
+    it 'should be rendered' do
+      expect(rendered).to render_template(partial: 'categories/_modal')
+    end
+
+    it 'should be contain categories/form' do
+      expect(rendered).to render_template(partial: 'categories/_form')
+    end
+
+    it 'should be have text <Add category>' do
+      expect(rendered).to have_text('Add category')
+    end
+
+    it 'should be have field <Name>' do
+      expect(rendered).to have_field('category_name')
+    end
+
+    it 'should be have button <Add category>' do
+      expect(rendered).to have_button('Add category')
+    end
+
+    it 'should be have small text <minimum 3 symbols> under <Name> field' do
+      expect(rendered).to have_selector('small')
+      expect(rendered).to have_text('minimum 3 symbols')
+    end
+
+    it 'should be have button <Close>' do
+      expect(rendered).to have_button('Close')
+    end
+
+    it 'should be have button <X>' do
+      expect(rendered).to have_button('x')
+    end
   end
 end

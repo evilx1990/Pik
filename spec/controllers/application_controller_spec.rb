@@ -9,9 +9,7 @@ describe ApplicationController, type: :controller do
     def index; end
   end
 
-  before do
-    sign_in(create(:user))
-  end
+  before { sign_in(create(:user)) }
 
   describe 'methods' do
     context '#record_activity' do
