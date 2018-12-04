@@ -24,8 +24,8 @@ describe Category, type: :model do
       respond_to :images
     end
 
-    it 'has many follows(polymorphic)' do
-      respond_to :followable
+    it 'has many follows' do
+      respond_to :follows
     end
 
     it 'belongs_to user' do
@@ -47,10 +47,10 @@ describe Category, type: :model do
     end
 
     describe 'follows counter' do
-      let(:category_follows) { create(:category_with_follows) }
+      let(:category) { create(:category_with_follows) }
 
       it 'should be equal 3' do
-        expect(category_follows.follows_count).to eq 3
+        expect(category.follows_count).to eq 3
       end
     end
   end

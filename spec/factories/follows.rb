@@ -2,10 +2,7 @@
 
 FactoryBot.define do
   factory :follow do
-    followable_type { 'Category' }
-    follower_type   { 'User' }
-
-    association :followable, factory: :category
-    association :follower, factory: :user
+    association :category, factory: :category
+    association :user, factory: :user
   end
 end

@@ -139,10 +139,10 @@ describe CategoriesController, type: :controller do
   end
 
   context 'PUT #unfollow' do
-    let(:follow) { create(:follow, follower: @user) }
+    let(:follow) { create(:follow, user: @user) }
 
     before do
-      put :unfollow, params: { id: follow.followable.id }
+      put :unfollow, params: { id: follow.category.id }
     end
 
     it 'has a 302 status code' do

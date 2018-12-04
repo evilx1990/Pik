@@ -40,9 +40,7 @@ class CategoriesController < ApplicationController
   end
 
   def unfollow
-    if current_user.stop_following(@category)
-      redirect_to categories_path
-    end
+    redirect_to categories_path if current_user.stop_following(@category)
   end
 
   private

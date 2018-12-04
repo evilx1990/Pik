@@ -26,8 +26,8 @@ describe User, type: :model do
       respond_to :activities
     end
 
-    it 'has many follows(polymorphic)' do
-      respond_to :follower
+    it 'has many follows' do
+      respond_to :follows
     end
 
     it 'has many categories' do

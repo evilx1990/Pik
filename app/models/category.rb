@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   has_many :images, dependent: :destroy
-  has_many :follows, as: :followable, dependent: :destroy
+  has_many :follows, dependent: :destroy
   belongs_to :user
   belongs_to :image, optional: true
 
@@ -8,6 +8,4 @@ class Category < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name, use: :slugged
-
-  acts_as_followable
 end

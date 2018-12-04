@@ -49,10 +49,10 @@ describe UserMailer do
   end
 
   describe '.new_image_email' do
-    let(:category_follow) { create(:category_with_follows) }
+    let(:category) { create(:category_with_follows) }
     let(:mail) do
-      UserMailer.with(user: category_follow.followers.first,
-                      category: category_follow.slug).new_image_email
+      UserMailer.with(user: category.follows.first.user,
+                      category: category.slug).new_image_email
     end
 
     it 'render the new image subject' do
@@ -60,7 +60,7 @@ describe UserMailer do
     end
 
     it 'render the receiver email' do
-      expect(mail.to).to eq([category_follow.followers.first.email])
+      expect(mail.to).to eq([category.follows.first.user.email])
     end
 
     it 'render the sender email' do

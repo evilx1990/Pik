@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :categories, dependent: :destroy
-  has_many :follows, as: :follower
+  has_many :follows
   has_many :images
   has_many :comments
   has_many :votes
@@ -10,7 +10,6 @@ class User < ApplicationRecord
   # :confirmable, :timeoutable
   devise :database_authenticatable,:registerable, :trackable, :lockable,
          :recoverable, :rememberable, :validatable, :omniauthable
-  acts_as_follower
   mount_uploader :avatar, AvatarUploader
 
   validates :username, presence: true
@@ -27,5 +26,21 @@ class User < ApplicationRecord
 
   def self.logins_before_captcha
     3
+  end
+
+  def follow(category)
+    params = {
+      category: category,
+      user: self
+    }
+    category.follows.first_or_create!(params)
+  end
+
+  def stop_following(category)
+    category.follows.find_by(user_id: id)&.destroy
+  end
+
+  def following?(category)
+    category.follows.find_by(user_id: id)
   end
 end
