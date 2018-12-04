@@ -39,10 +39,10 @@ describe Category, type: :model do
 
   context 'counter cache' do
     describe 'images counter' do
-      let(:category_images) { create(:category_with_images) }
+      let(:category) { create(:category_with_images) }
 
       it 'should be equal 3' do
-        expect(category_images.images_count).to eq 3
+        expect(category.images_count).to eq 3
       end
     end
 

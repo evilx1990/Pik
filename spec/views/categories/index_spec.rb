@@ -25,15 +25,15 @@ describe 'categories/index.html.haml', type: :view do
   context 'links' do
     let(:cateoory) { create(:category, user: @user) }
 
-    it 'with category/show action' do
+    it 'with categories/show action' do
       expect(rendered).to have_link(alt: 'Image')
     end
 
-    it 'link with category/follow action' do
+    it 'link with categories/follow action' do
       expect(rendered).to have_link(alt: 'follow')
     end
 
-    it 'link with category/unfollow action' do
+    it 'link with categories/unfollow action' do
       assign(:category, build(:category))
       assign(:categories, [create(:category_with_follow, user: @user)])
       render

@@ -23,6 +23,16 @@ describe 'categories/show.html.haml', type: :view do
   end
 
   context 'links' do
+    it 'with images/show action' do
+      expect(rendered).to have_link(alt: 'picture')
+    end
+
+    it 'with images/new action' do
+      expect(rendered).to have_link('Upload image')
+    end
+  end
+
+  context 'upload image' do
 
   end
 end

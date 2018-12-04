@@ -22,6 +22,6 @@ class Image < ApplicationRecord
     vote_record ||= votes.new(user_id: user_id)
 
     vote_record.flag = vote_record.flag.eql?(vote) ? nil : vote
-    vote_record.save!
+    vote_record.save
   end
 end
