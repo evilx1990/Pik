@@ -54,8 +54,8 @@
                   =link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class: 'nav-link')
               %li.nav-item.active
                 -if I18n.locale == :ru
-                  =link_to('En', { locale: :en }, class: 'nav-link')
+                  =link_to('En', url_for(locale: :en), class: 'nav-link')
                 -else
-                  =link_to('Ru', { locale: :ru }, class: 'nav-link')
+                  =link_to('Ru', url_for(locale: :ru), class: 'nav-link')
       .content
         =yield

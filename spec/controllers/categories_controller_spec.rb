@@ -35,6 +35,8 @@ describe CategoriesController, type: :controller do
   end
 
   context 'GET #show' do
+    let(:category_images) { create(:category_with_images) }
+
     before do
       get :show, params: { id: category.id }
     end

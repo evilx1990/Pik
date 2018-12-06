@@ -17,11 +17,20 @@ describe HomeController, type: :controller do
       it 'should be redirect to categories if user sign_in' do
         expect(response).to redirect_to categories_path
       end
+
+
     end
 
     context 'user do not sign in' do
-      it 'should be render the index template' do
+      before do
         get :index
+      end
+
+      it 'has a 200 code status' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'should be render the index template' do
         expect(response).to render_template(:index)
       end
     end

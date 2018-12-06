@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :activity do
-    action { 'test' }
-    url { 'www.example.com' }
+    action  { 'test' }
+    url     { 'www.example.com' }
 
     association :user, factory: :user
   end

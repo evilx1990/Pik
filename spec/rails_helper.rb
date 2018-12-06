@@ -1,8 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require 'capybara'
-
+require 'capybara/rspec'
+require 'database_cleaner'
 require 'simplecov'
+
 SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -65,5 +66,20 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+
   config.include FactoryBot::Syntax::Methods
+
+  config.include Capybara::DSL
+  config.include Warden::Test::Helpers
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 end
