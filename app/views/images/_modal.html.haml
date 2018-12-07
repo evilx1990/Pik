@@ -9,9 +9,9 @@
       .modal-body
         =form_for :share, url: share_category_image_path, method: :get do |form|
           =form.hidden_field :url, value: request.original_url
-          =form.email_field :email, class: 'd-block'
-          =form.text_area :message, class: 'd-block w-100 mt-1'
-          =form.submit :share, class: 'd-block col-5 mt-1'
+          =form.email_field :email, class: 'd-block', placeholder: 'Email'
+          =form.text_area :message, class: 'd-block w-100 mt-1', placeholder: 'Message...'
+          =form.submit :share, class: 'col-5 mt-1 btn btn-sm btn-warning'
       .modal-footer
-        %button.btn.btn-primary{ type: 'button', 'data-dismiss' => 'modal' }
+        %button.btn.btn-sm.btn-dark{ type: 'button', 'data-dismiss' => 'modal' }
           =t('catetegories._modal.close')

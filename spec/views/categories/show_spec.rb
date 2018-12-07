@@ -32,17 +32,11 @@ describe 'categories/show.html.haml', type: :view do
     end
   end
 
-  context 'upload image form', js: true, driver: :selenium_chrome_headless do
+  context 'upload image form', driver: :selenium_chrome_headless do
     let(:category) { create(:category_with_images) }
 
-    before do
-      visit user_session_path
-      fill_in(:user_email, with: @user.email)
-      fill_in(:user_password, with: @user.password)
-      click_button('Log in')
-    end
-
     it 'should be print new image form' do
+      login_as(create(:user), scope: :user)
       visit category_path(category)
       click_link('Upload image')
       expect(page).to have_field('image_picture')

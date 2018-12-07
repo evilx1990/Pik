@@ -16,9 +16,7 @@ describe 'images/index.html.haml', type: :view do
     expect(rendered).to have_selector('img')
   end
 
-  context 'links' do
-    it 'with images/show action' do
-      expect(rendered).to have_link(alt: 'picture')
-    end
+  it 'links with images/show action' do
+    expect(rendered).to have_link(alt: 'picture')
   end
 end

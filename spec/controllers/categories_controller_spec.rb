@@ -72,7 +72,7 @@ describe CategoriesController, type: :controller do
     end
 
     it 'should be create new category' do
-      expect(new_category.save!).to be true
+      expect(new_category.name).to eq Category.last.name
     end
 
     it 'should be redirect after save' do

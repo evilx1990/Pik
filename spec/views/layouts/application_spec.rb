@@ -103,7 +103,7 @@ describe 'layouts/application.html.haml', type: :view do
         context 'should be have items' do
           let (:category) { create(:category_with_images) }
 
-          it '/categories' do
+          it 'for /categories' do
             find_link(@user.username).click
 
             ['Add category', 'Profile', 'Log out'].each do |item|
@@ -111,7 +111,7 @@ describe 'layouts/application.html.haml', type: :view do
             end
           end
 
-          it '/categories/CategoryName' do
+          it 'for /categories/CategoryName' do
             category
             visit category_path(category)
 
@@ -122,7 +122,7 @@ describe 'layouts/application.html.haml', type: :view do
             end
           end
 
-          it '/categories/CategoryName/ImageName' do
+          it 'for /categories/CategoryName/ImageName' do
             category
             visit category_image_path(category_id: category.id, id: category.images.first.slug)
 

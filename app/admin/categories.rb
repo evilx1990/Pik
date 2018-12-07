@@ -2,6 +2,12 @@ ActiveAdmin.register Category do
   menu priority: 4
   permit_params :name, :user_id
 
+  controller do
+    def find_resource
+      @category = Category.friendly.find(params[:id])
+    end
+  end
+
   form do |f|
     f.inputs 'Category details' do
       f.input :name
