@@ -57,27 +57,27 @@ describe Image, type: :model do
 
   context 'Association' do
     it 'has many comments' do
-      respond_to :comments
+      expect(Image.reflect_on_association(:comments).macro).to eq(:has_many)
     end
 
     it 'has many votes' do
-      respond_to :votes
+      expect(Image.reflect_on_association(:votes).macro).to eq(:has_many)
     end
 
     it 'has_many likes' do
-      respond_to :likes
+      expect(Image.reflect_on_association(:likes).macro).to eq(:has_many)
     end
 
     it 'has many dislikes' do
-      respond_to :dislikes
+      expect(Image.reflect_on_association(:dislikes).macro).to eq(:has_many)
     end
 
     it 'belongs to category' do
-      respond_to :category
+      expect(Image.reflect_on_association(:category).macro).to eq(:belongs_to)
     end
 
     it 'belongs to user' do
-      respond_to :user
+      expect(Image.reflect_on_association(:user).macro).to eq(:belongs_to)
     end
   end
 

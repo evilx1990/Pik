@@ -12,6 +12,10 @@ describe 'images/index.html.haml', type: :view do
     render
   end
 
+  it 'has a request.fullpath that is defined' do
+    expect(controller.request.fullpath).to eq(images_path)
+  end
+
   it 'should be render list images' do
     expect(rendered).to have_selector('img')
   end

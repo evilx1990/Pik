@@ -21,19 +21,19 @@ describe Category, type: :model do
 
   context 'association' do
     it 'has many images' do
-      respond_to :images
+      expect(Category.reflect_on_association(:images).macro).to eq(:has_many)
     end
 
     it 'has many follows' do
-      respond_to :follows
+      expect(Category.reflect_on_association(:follows).macro).to eq(:has_many)
     end
 
-    it 'belongs_to user' do
-      respond_to :user
+    it 'belongs to user' do
+      expect(Category.reflect_on_association(:user).macro).to eq(:belongs_to)
     end
 
-    it 'belongs_to image(for preview)' do
-      respond_to :image
+    it 'belongs to image(for preview)' do
+      expect(Category.reflect_on_association(:image).macro).to eq(:belongs_to)
     end
   end
 

@@ -5,11 +5,11 @@ require 'rails_helper'
 describe Vote, type: :model do
   context 'Association' do
     it 'belongs to user' do
-      respond_to :user
+      expect(Vote.reflect_on_association(:user).macro).to eq(:belongs_to)
     end
 
     it 'belongs to image' do
-      respond_to :image
+      expect(Vote.reflect_on_association(:image).macro).to eq(:belongs_to)
     end
   end
 end

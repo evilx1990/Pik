@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       registrations: 'registrations'
     }
 
-    resources :categories do
+    resources :categories, only: %i[index show create update destroy] do
       put :follow, on: :member
       put :unfollow, on: :member
 

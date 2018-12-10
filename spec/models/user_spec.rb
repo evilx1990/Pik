@@ -22,28 +22,28 @@ describe User, type: :model do
   end
 
   context 'association' do
-    it 'has many activity' do
-      respond_to :activities
+    it 'has many activities' do
+      expect(User.reflect_on_association(:activities).macro).to eq(:has_many)
     end
 
     it 'has many follows' do
-      respond_to :follows
+      expect(User.reflect_on_association(:follows).macro).to eq(:has_many)
     end
 
     it 'has many categories' do
-      respond_to :categories
+      expect(User.reflect_on_association(:categories).macro).to eq(:has_many)
     end
 
     it 'has many images' do
-      respond_to :images
+      expect(User.reflect_on_association(:images).macro).to eq(:has_many)
     end
 
     it 'has many comments' do
-      respond_to :comments
+      expect(User.reflect_on_association(:comments).macro).to eq(:has_many)
     end
 
     it 'has many votes' do
-      respond_to :votes
+      expect(User.reflect_on_association(:votes).macro).to eq(:has_many)
     end
   end
 

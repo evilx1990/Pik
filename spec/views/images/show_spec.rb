@@ -9,7 +9,12 @@ describe 'images/show.html.haml', type: :view do
     login_as(create(:user), scope: :user)
     assign(:image, image)
     assign(:comments, image.comments)
-    visit category_image_path(category_id: image.category.id, id: image.id)
+    visit category_image_path(category_id: image.category.slug, id: image.slug)
+  end
+
+  it 'has a request.fullpath that is defined' do
+    controller.extra_params = { category_id: image.category.slug, id: image.slug }
+    expect(controller.request.fullpath).to eq(category_image_path(category_id: image.category.slug, id: image.slug))
   end
 
   context 'rendered partials' do

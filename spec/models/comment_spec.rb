@@ -16,11 +16,11 @@ describe Comment, type: :model do
 
   context 'association' do
     it 'belongs to image' do
-      respond_to :image
+      expect(Comment.reflect_on_association(:image).macro).to eq(:belongs_to)
     end
 
     it 'belongs to user' do
-      respond_to :user
+      expect(Comment.reflect_on_association(:user).macro).to eq(:belongs_to)
     end
   end
 end
