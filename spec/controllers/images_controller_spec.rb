@@ -13,9 +13,7 @@ describe ImagesController, type: :controller do
   context 'GET #index' do
     let(:images) { create_list(:image, 3) }
 
-    before do
-      get :index
-    end
+    subject! { get :index }
 
     it 'has a 200 status code' do
       expect(response).to have_http_status(200)
@@ -33,9 +31,7 @@ describe ImagesController, type: :controller do
   context 'GET #show' do
     let(:image) { create(:image_with_comments) }
 
-    before do
-      get :show, params: { category_id: image.category.slug, id: image.slug }
-    end
+    subject! { get :show, params: { category_id: image.category.slug, id: image.slug } }
 
     it 'has a 200 status code' do
       expect(response).to have_http_status(200)
@@ -53,9 +49,7 @@ describe ImagesController, type: :controller do
   context 'GET #new' do
     let(:category) { create(:category) }
 
-    before do
-      get :new, xhr: :js, params: { category_id: category.slug }
-    end
+    subject! { get :new, xhr: :js, params: { category_id: category.slug } }
 
     it 'has a 200 status code' do
       expect(response).to have_http_status(200)
@@ -74,7 +68,7 @@ describe ImagesController, type: :controller do
     let(:category) { create(:category) }
     let(:image) { build(:image) }
 
-    before do
+    subject! do
       post :create,
            params: {
              category_id: category.slug,
@@ -95,18 +89,21 @@ describe ImagesController, type: :controller do
   end
 
   context 'GET #download' do
-    it 'has a 200 code status' do
+    subject! do
       get :download,
           params: {
-            id: image.id,
-            category_id: image.category.id
+              id: image.id,
+              category_id: image.category.id
           }
+    end
+
+    it 'has a 200 code status' do
       expect(response).to have_http_status(200)
     end
   end
 
   context 'GET #share' do
-    before do
+    subject! do
       get :share,
           params: {
             category_id: image.category.slug,
@@ -129,39 +126,39 @@ describe ImagesController, type: :controller do
   end
 
   context 'PUT #like' do
-    let(:image_like) { create(:image_with_like, user: @user) }
+    let(:like) { create(:vote, :like, user: @user) }
+
+    subject! { put :like, params: { category_id: image.category.slug, id: image.slug } }
 
     it 'has a 302 code status' do
-      put :like, params: { category_id: image.category.slug, id: image.slug }
       expect(response).to have_http_status(302)
     end
 
     it 'should be put like' do
-      put :like, params: { category_id: image.category.slug, id: image.slug }
       expect(Vote.last).to eq image.likes.last
     end
 
     it 'should be remove like' do
-      put :like, params: { category_id: image_like.category.slug, id: image_like.slug }
+      put :like, params: { category_id: like.image.category.slug, id: like.image.slug }
       expect(Vote.last.flag).to eq nil
     end
   end
 
   context 'PUT #dislike' do
-    let(:image_dislike) { create(:image_with_dislike, user: @user) }
+    let(:dislike) { create(:vote, :dislike, user: @user) }
+
+    subject! { put :dislike, params: { category_id: image.category.slug, id: image.slug } }
 
     it 'has a 302 code status' do
-      put :dislike, params: { category_id: image.category.slug, id: image.slug }
       expect(response).to have_http_status(302)
     end
 
     it 'should be put dislike' do
-      put :dislike, params: { category_id: image.category.slug, id: image.slug }
       expect(Vote.last).to eq image.dislikes.last
     end
 
     it 'should be remove dislike' do
-      put :dislike, params: { category_id: image_dislike.category.slug, id: image_dislike.slug }
+      put :dislike, params: { category_id: dislike.image.category.slug, id: dislike.image.slug }
       expect(Vote.last.flag).to eq nil
     end
   end

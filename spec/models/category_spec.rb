@@ -3,19 +3,28 @@
 require 'rails_helper'
 
 describe Category, type: :model do
-  subject(:category) { create(:category) }
 
   context 'validation' do
-    it 'should be invalid without an name' do
-      expect(build(:category, name: nil)).not_to be_valid
+    subject!(:category) { create(:category) }
+
+    context 'should be invalid' do
+      it 'without an name' do
+        expect(build(:category, name: nil)).not_to be_valid
+      end
+
+      it 'with name less 3 symbols' do
+        expect(build(:category, name: 'ca')).not_to be_valid
+      end
+
+      it 'with more 15 symbols' do
+        expect(build(:category, name: 'categoryName_categoryName')).not_to be_valid
+      end
     end
 
-    it 'should be invalid with name less 3 symbols' do
-      expect(build(:category, name: 'ca')).not_to be_valid
-    end
-
-    it 'should be invalid with more 15 symbols' do
-      expect(build(:category, name: 'categoryName_categoryName')).not_to be_valid
+    context 'successful validate' do
+      it 'must be save to data base' do
+        expect(Category.count).to eq(1)
+      end
     end
   end
 
@@ -37,7 +46,7 @@ describe Category, type: :model do
     end
   end
 
-  context 'counter cache' do
+  describe 'counter cache' do
     describe 'images counter' do
       let(:category) { create(:category_with_images) }
 
@@ -52,6 +61,21 @@ describe Category, type: :model do
       it 'should be equal 3' do
         expect(category.follows_count).to eq 3
       end
+    end
+  end
+
+  describe 'dependent: destroy' do
+    let(:category_images) { create(:category_with_images) }
+    let(:category_follow) { create(:category_with_follows) }
+
+    it 'should be destroy all related images' do
+      category_images.destroy
+      expect(Image.count).to eq(0)
+    end
+
+    it 'should be destroy all related follows' do
+      category_follow.destroy
+      expect(Follow.count).to eq(0)
     end
   end
 end

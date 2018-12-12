@@ -3,7 +3,7 @@ require 'spec_helper'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'simplecov'
-
+require 'support/omniauth_macros'
 SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -72,6 +72,8 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include Warden::Test::Helpers
 
+  config.include OmniauthMacros
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -83,3 +85,6 @@ RSpec.configure do |config|
     end
   end
 end
+
+OmniAuth.config.test_mode = true
+

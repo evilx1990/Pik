@@ -8,7 +8,7 @@ describe Follow, type: :model do
       expect(Follow.reflect_on_association(:category).macro).to eq(:belongs_to)
     end
 
-    it 'belongs_to user' do
+    it 'belongs to user' do
       expect(Follow.reflect_on_association(:user).macro).to eq(:belongs_to)
     end
   end

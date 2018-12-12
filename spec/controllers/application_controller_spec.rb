@@ -19,9 +19,7 @@ describe ApplicationController, type: :controller do
     end
 
     context '#set_locale' do
-      before do
-        get :index, params: { locale: :ru }, format: 'text/html'
-      end
+      subject! { get :index, params: { locale: :ru }, format: 'text/html' }
 
       it 'should be set locale from params' do
         expect(I18n.locale).to eq :ru

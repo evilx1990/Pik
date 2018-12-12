@@ -3,55 +3,63 @@
 require 'rails_helper'
 
 describe Image, type: :model do
-  subject(:image) { FactoryBot.create(:image) }
-
   context 'validation' do
-    it 'should be invalid without image name' do
-      expect(build(:image,
-                   image_name: nil,
-                   picture: image.picture,
-                   user_id: image.user_id,
-                   category_id: image.category.id)).not_to be_valid
+    subject!(:image) { FactoryBot.create(:image) }
+
+    context 'should be invalid' do
+      it 'without image name' do
+        expect(build(:image,
+                     image_name: nil,
+                     picture: image.picture,
+                     user_id: image.user_id,
+                     category_id: image.category.id)).not_to be_valid
+      end
+
+      it 'with image name less 3 symbols' do
+        expect(build(:image,
+                     image_name: 'im',
+                     picture: image.picture,
+                     user_id: image.user_id,
+                     category_id: image.category_id)).not_to be_valid
+      end
+
+      it 'with image name more 15 symbols' do
+        expect(build(:image,
+                     image_name: 'image_name_image_name',
+                     picture: image.picture,
+                     user_id: image.user_id,
+                     category_id: image.category_id)).not_to be_valid
+      end
+
+      it 'without image' do
+        expect(build(:image,
+                     image_name: image.image_name,
+                     picture: nil,
+                     user_id: image.user_id,
+                     category_id: image.category_id)).not_to be_valid
+      end
+
+      it 'with image size more 50 mb' do
+        expect(build(:image,
+                     image_name: image.image_name,
+                     picture: File.open("#{Rails.root}/public/Mouse-retina2-full-resolution.jpg"),
+                     user_id: image.user_id,
+                     category_id: image.category_id)).not_to be_valid
+      end
+
+      it 'with format different from jpg/jpeg/png' do
+        expect(build(:image,
+                     image_name: image.image_name,
+                     picture: File.open("#{Rails.root}/spec/support/test.bmp"),
+                     user_id: image.user_id,
+                     category_id: image.category_id)).not_to be_valid
+      end
     end
 
-    it 'should be invalid with image name less 3 symbols' do
-      expect(build(:image,
-                   image_name: 'im',
-                   picture: image.picture,
-                   user_id: image.user_id,
-                   category_id: image.category_id)).not_to be_valid
-    end
-
-    it 'should be invalid with image name more 15 symbols' do
-      expect(build(:image,
-                   image_name: 'image_name_image_name',
-                   picture: image.picture,
-                   user_id: image.user_id,
-                   category_id: image.category_id)).not_to be_valid
-    end
-
-    it 'should be invalid without image' do
-      expect(build(:image,
-                   image_name: image.image_name,
-                   picture: nil,
-                   user_id: image.user_id,
-                   category_id: image.category_id)).not_to be_valid
-    end
-
-    it 'should be invalid with image size more 50 mb' do
-      expect(build(:image,
-                   image_name: image.image_name,
-                   picture: File.open("#{Rails.root}/public/Mouse-retina2-full-resolution.jpg"),
-                   user_id: image.user_id,
-                   category_id: image.category_id)).not_to be_valid
-    end
-
-    it 'should be invalid with format different from jpg/jpeg/png' do
-      expect(build(:image,
-                   image_name: image.image_name,
-                   picture: File.open("#{Rails.root}/spec/support/test.bmp"),
-                   user_id: image.user_id,
-                   category_id: image.category_id)).not_to be_valid
+    context 'successful validate' do
+      it 'must be save to data base' do
+        expect(Image.count).to eq(1)
+      end
     end
   end
 
@@ -64,7 +72,7 @@ describe Image, type: :model do
       expect(Image.reflect_on_association(:votes).macro).to eq(:has_many)
     end
 
-    it 'has_many likes' do
+    it 'has many likes' do
       expect(Image.reflect_on_association(:likes).macro).to eq(:has_many)
     end
 
@@ -91,7 +99,7 @@ describe Image, type: :model do
     end
   end
 
-  context 'counter cache' do
+  describe 'counter cache' do
     describe 'comments counter' do
       let(:image) { create(:image_with_comments) }
 
@@ -106,6 +114,21 @@ describe Image, type: :model do
       it 'should be equal 2' do
         expect(image.votes_count).to eq(2)
       end
+    end
+  end
+
+  describe 'dependent: destroy' do
+    let(:image_comments) { create(:image_with_comments)}
+    let(:image_votes) { create(:image_with_votes)}
+
+    it 'should be destroy all related comments' do
+      image_comments.destroy
+      expect(Comment.count).to eq(0)
+    end
+
+    it 'should be destroy all related votes' do
+      image_votes.destroy
+      expect(Vote.count).to eq(0)
     end
   end
 end

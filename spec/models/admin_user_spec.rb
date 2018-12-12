@@ -3,17 +3,27 @@
 require 'rails_helper'
 
 describe AdminUser, type: :model do
-  subject(:admin_user) { create(:admin_user) }
+  context 'validates' do
+    subject!(:admin_user) { create(:admin_user) }
 
-  it 'should be invalid without an email' do
-    expect(build(:admin_user,
-                 email: nil,
-                 password: admin_user.password)).not_to be_valid
-  end
+    context 'should be invalid' do
+      it 'without an email' do
+        expect(build(:admin_user,
+                     email: nil,
+                     password: admin_user.password)).not_to be_valid
+      end
 
-  it 'should be invalid without an password' do
-    expect(build(:admin_user,
-                 email: admin_user.email,
-                 password: nil)).not_to be_valid
+      it 'without an password' do
+        expect(build(:admin_user,
+                     email: admin_user.email,
+                     password: nil)).not_to be_valid
+      end
+    end
+
+    context 'successful validate' do
+      it 'must be save to data base' do
+        expect(AdminUser.count).to eq(1)
+      end
+    end
   end
 end

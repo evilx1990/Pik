@@ -3,21 +3,29 @@
 require 'rails_helper'
 
 describe Activity, type: :model do
-  subject(:activity) { create(:activity) }
-
   context 'associations' do
     it 'belongs to user' do
-      respond_to? :user
+      expect(Activity.reflect_on_association(:user).macro).to eq(:belongs_to)
     end
   end
 
   context 'validates' do
-    it 'should be invalid without action' do
-      expect(build(:activity, action: nil, url: activity.url)).not_to be_valid
+    subject!(:activity) { create(:activity) }
+
+    context 'should be invalid' do
+      it 'without an  action' do
+        expect(build(:activity, action: nil, url: activity.url)).not_to be_valid
+      end
+
+      it 'without url' do
+        expect(build(:activity, action: activity.action, url: nil)).not_to be_valid
+      end
     end
 
-    it 'should be invalid without url' do
-      expect(build(:activity, action: activity.action, url: nil)).not_to be_valid
+    context 'successful validate' do
+      it 'must be save to data base' do
+        expect(Activity.count).to eq(1)
+      end
     end
   end
 end

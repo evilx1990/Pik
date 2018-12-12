@@ -5,10 +5,8 @@ require 'rails_helper'
 describe HomeController, type: :controller do
   context 'GET #index' do
     context 'user sign in' do
-      before do
-        sign_in(create(:user))
-        get :index
-      end
+      before { sign_in(create(:user)) }
+      subject! { get :index }
 
       it 'has a 302 code status' do
         expect(response).to have_http_status(302)
@@ -22,9 +20,7 @@ describe HomeController, type: :controller do
     end
 
     context 'user do not sign in' do
-      before do
-        get :index
-      end
+      subject! { get :index }
 
       it 'has a 200 code status' do
         expect(response).to have_http_status(200)

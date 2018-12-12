@@ -13,9 +13,7 @@ describe CommentsController, type: :controller do
   context 'GET #index' do
     let(:comments) { create_list(:comment, 3) }
 
-    before do
-      get :index
-    end
+    subject! { get :index }
 
     it 'has a 200 code status' do
       expect(response).to have_http_status(200)
@@ -34,7 +32,7 @@ describe CommentsController, type: :controller do
     let(:image) { create(:image) }
     let(:comment) { build(:comment, image: image) }
 
-    before do
+    subject! do
       post :create,
            params: {
              category_id: image.category.id,

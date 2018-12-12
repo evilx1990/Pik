@@ -3,21 +3,30 @@
 require 'rails_helper'
 
 describe User, type: :model do
-  subject(:user) { create(:user) }
 
   context 'validation' do
-    it 'should be invalid without an username' do
-      expect(build(:user,
-                   email: user.email,
-                   password: nil,
-                   username: user.username)).not_to be_valid
+    subject!(:user) { create(:user) }
+
+    context 'should be invalid ' do
+      it 'without an username' do
+        expect(build(:user,
+                     email: user.email,
+                     password: nil,
+                     username: user.username)).not_to be_valid
+      end
+
+      it 'with duplicate username' do
+        expect(build(:user,
+                     email: user.email,
+                     password: user.password,
+                     username: user.username)).not_to be_valid
+      end
     end
 
-    it 'does not allow duplicate username' do
-      expect(build(:user,
-                   email: user.email,
-                   password: user.password,
-                   username: user.username)).not_to be_valid
+    context 'successful validation' do
+      it 'must be save to data base' do
+        expect(User.count).to eq(1)
+      end
     end
   end
 
@@ -45,11 +54,27 @@ describe User, type: :model do
     it 'has many votes' do
       expect(User.reflect_on_association(:votes).macro).to eq(:has_many)
     end
+
   end
 
   describe '#logins_before_captcha' do
-    it 'should be return 3' do
-      expect(described_class.logins_before_captcha).to eq(3)
+    it 'should be return 2' do
+      expect(User.logins_before_captcha).to eq(2)
+    end
+  end
+
+  describe 'dependent: destroy' do
+    let(:user_category) { create(:category).user }
+    let(:user_activity) { create(:activity).user }
+
+    it 'should be destroy all related category' do
+      user_category.destroy
+      expect(Category.count).to eq(0)
+    end
+
+    it 'should be destroy all related activity' do
+      user_activity.destroy
+      expect(Activity.count).to eq(0)
     end
   end
 end

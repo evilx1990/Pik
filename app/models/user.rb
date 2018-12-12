@@ -1,10 +1,10 @@
 class User < ApplicationRecord
+  has_many :activities, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :follows
   has_many :images
   has_many :comments
   has_many :votes
-  has_many :activities
 
   # Include default devise modules. Others available are:
   # :confirmable, :timeoutable
@@ -25,7 +25,7 @@ class User < ApplicationRecord
   end
 
   def self.logins_before_captcha
-    3
+    2
   end
 
   def follow(category)

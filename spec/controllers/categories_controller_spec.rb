@@ -13,9 +13,7 @@ describe CategoriesController, type: :controller do
   context 'GET #index' do
     let(:categories) { create_list(:category, 3) }
 
-    before do
-      get :index
-    end
+    subject! { get :index }
 
     it 'has a 200 status code' do
       expect(response).to have_http_status(200)
@@ -37,9 +35,7 @@ describe CategoriesController, type: :controller do
   context 'GET #show' do
     let(:category_images) { create(:category_with_images) }
 
-    before do
-      get :show, params: { id: category.id }
-    end
+    subject! { get :show, params: { id: category.slug } }
 
     it 'has a 200 status code' do
       expect(response).to have_http_status(200)
@@ -57,7 +53,7 @@ describe CategoriesController, type: :controller do
   context 'POST #create' do
     let(:new_category) { build(:category, name: category.name, user: @user) }
 
-    before do
+    subject! do
       post :create,
            params: {
              category: {
@@ -88,7 +84,7 @@ describe CategoriesController, type: :controller do
   context 'PUT #update' do
     let(:category_image) { create(:category_with_images) }
 
-    before do
+    subject! do
       put :update,
           params: {
             id: category_image.id,
@@ -113,9 +109,7 @@ describe CategoriesController, type: :controller do
   end
 
   context 'DELETE #destroy' do
-    before do
-      delete :destroy, params: { id: category.id }
-    end
+    subject! { delete :destroy, params: { id: category.id } }
 
     it 'has a 302 status code' do
       expect(response).to have_http_status(302)
@@ -127,9 +121,7 @@ describe CategoriesController, type: :controller do
   end
 
   context 'PUT #follow' do
-    before do
-      put :follow, params: { id: category.id }
-    end
+    subject! { put :follow, params: { id: category.id } }
 
     it 'has a 302 status code' do
       expect(response).to have_http_status(302)
@@ -143,9 +135,7 @@ describe CategoriesController, type: :controller do
   context 'PUT #unfollow' do
     let(:follow) { create(:follow, user: @user) }
 
-    before do
-      put :unfollow, params: { id: follow.category.id }
-    end
+    subject! { put :unfollow, params: { id: follow.category.id } }
 
     it 'has a 302 status code' do
       expect(response).to have_http_status(302)

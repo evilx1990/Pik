@@ -56,6 +56,7 @@ ru:
         we_need_your_current_password_to_confirm_your_changes: 'Нам нужен ваш текущий пароль для подтверждения изменений'
         update: 'Обновить'
         remove_account: 'Удалить аккаунт'
+        remove_avatar: 'Удалить аватар'
         back: 'Назад'
         are_you_sure: 'Вы уверены?'
       destroyed: "Учетная запись успешно удалена. Надеемся увидеть вас снова."
