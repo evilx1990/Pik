@@ -54,6 +54,6 @@ class CategoriesController < ApplicationController
   end
 
   def send_email_after_follow
-    FollowSendEmail.perform_later([current_user.id, params[:id]])
+    FollowSendEmailJob.perform_later([current_user.id, params[:id]])
   end
 end

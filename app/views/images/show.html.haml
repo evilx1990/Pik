@@ -24,8 +24,8 @@
 #comments-form
   =render 'comments/form'
 %hr
-
-=render @comments
+#comments
+  =render @comments
 =paginate @comments
 
 =render 'images/modal'

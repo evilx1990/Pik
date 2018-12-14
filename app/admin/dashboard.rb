@@ -2,36 +2,42 @@ ActiveAdmin.register_page 'Dashboard' do
   menu priority: 1, label: proc{ I18n.t('active_admin.dashboard') }
 
   content title: proc{ I18n.t('active_admin.dashboard') } do
-    panel 'Last categories' do
-      table_for Category.order('created_at DESC').limit(5) do |category|
-        category.column(:name)
+    columns do
+      column do
+        panel 'Last images' do
+          table_for Image.order(created_at: :desc).limit(10) do
+            column :image do |image|
+              image_tag image.picture.thumb_small.url, alt: 'Image'
+            end
+            column :user
+            column :category
+          end
+        end
       end
-    end
 
-    panel 'Last comments' do
-      table_for Comment.order('created_at DESC').limit(5) do |comment|
-        comment.column(:body)
-        comment.column(:user_id) do |item|
-          item.user.username if item.user
+      column do
+        panel 'Last categories' do
+          table_for Category.order(created_at: :desc).limit(5) do
+            column :name do |category|
+              link_to category.name, admin_category_path(category)
+            end
+            column(:user)
+            column(:created_at)
+          end
         end
-        comment.column(:image_id) do |item|
-          image_tag(item.image.picture.thumb_small.url, alt: 'Image')
-        end
-      end
-    end
 
-    panel 'Last images' do
-      table_for Image.order('created_at DESC').limit(10) do |image|
-        column :picture do |img|
-          image_tag(img.picture.thumb_small.url, alt: 'Image')
-        end
-        column :user_id do |img|
-          User.find(img.user_id).username
-        end
-        column :category_id do |img|
-          Category.find(img.category_id).name
+        panel 'Last comments' do
+          table_for Comment.order(created_at: :desc).limit(5) do
+            column :comment do |comment|
+              link_to 'Show comment', admin_comment_path(comment)
+            end
+            column :user
+            column :image do |comment|
+              image_tag comment.image.picture.thumb_small.url, alt: 'img'
+            end
+          end
         end
       end
-    end
+    end # columns
   end # content
 end

@@ -1,4 +1,6 @@
-class NewImageSendEmails < ApplicationJob
+class NewImageSendEmailsJob < ApplicationJob
+  queue_as :mailer
+
   def perform(image_id)
     image = Image.find(image_id)
     image.category.follows.each do |follow|

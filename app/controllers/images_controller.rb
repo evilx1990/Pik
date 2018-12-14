@@ -65,6 +65,6 @@ class ImagesController < ApplicationController
   end
 
   def send_new_image_emails(image_id)
-    NewImageSendEmails.perform_later(image_id)
+    NewImageSendEmailsJob.perform_later(image_id)
   end
 end
