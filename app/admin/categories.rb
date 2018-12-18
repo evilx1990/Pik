@@ -31,8 +31,14 @@ ActiveAdmin.register Category do
       attributes_table_for category do
         row :author, &:user
         row :name
-        row 'preview image  ' do |category|
+        row 'preview image' do
           image_tag(category.image.picture.thumb_small.url, alt: 'image') if category.image
+        end
+        row :followers do
+          category.follows.each do |follow|
+            a follow.user.username, href: admin_user_path(follow.user)
+            text_node '&nbsp;'.html_safe
+          end
         end
       end
     end

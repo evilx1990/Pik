@@ -2,20 +2,20 @@
   =image_tag(@image.picture.thumb_list.url, alt: 'some_image')
 
 #social
-  =link_to(image_tag('friend_mail.png'), '#modalCategory', 'data-toggle' => 'modal',
+  =link_to(image_tag('app_images/friend_mail.png'), '#modalCategory', 'data-toggle' => 'modal',
                                          class: 'd-block float-right mr-5')
-  =link_to(image_tag('dwnld.png'), download_category_image_path(id: @image.id),
+  =link_to(image_tag('app_images/dwnld.png'), download_category_image_path(id: @image.id),
                                  class: 'd-block float-right mr-1', target: '_blank')
 %hr
 #likes
-  =link_to(image_tag('like.resized.png', alt: 'like'),
+  =link_to(image_tag('app_images/like.resized.png', alt: 'like'),
                      like_category_image_path(category_id: @image.category.slug, id: @image.slug),
                                                  remote: true, method: :put)
   #like-counter.d-inline
     =@image.likes.count
   #dislike-counter.d-inline
     =@image.dislikes.count
-  =link_to(image_tag('dislike.resized.png', alt: 'dislike'),
+  =link_to(image_tag('app_images/dislike.resized.png', alt: 'dislike'),
                      dislike_category_image_path(category_id: @image.category.slug, id: @image.slug),
                                                    remote: true, method: :put)
 

@@ -2,7 +2,7 @@
   -if comment.user.avatar.present?
     =image_tag(comment.user.avatar.thumb_small.url, alt: 'avatar')
   -else
-    =image_tag('profile_default_m.jpg', alt: 'avatar')
+    =image_tag('app_images/profile_default_m.jpg', alt: 'avatar')
   #data
     #uname
       =comment.user.username

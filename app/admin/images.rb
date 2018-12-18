@@ -16,7 +16,13 @@ ActiveAdmin.register Image do
   index do
     selectable_column
     id_column
-
+    column :image do |image|
+      image_tag(image.picture.thumb_small.url, alt: 'image')
+    end
+    column :author, &:user
+    column :category
+    column :created_at
+    column :updated_at
     actions
   end
 

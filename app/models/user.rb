@@ -31,9 +31,9 @@ class User < ApplicationRecord
   def follow(category)
     params = {
       category: category,
-      user: self
+      user_id: self.id
     }
-    category.follows.first_or_create!(params)
+    category.follows.create!(params)
   end
 
   def stop_following(category)

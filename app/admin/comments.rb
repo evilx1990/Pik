@@ -7,8 +7,8 @@ ActiveAdmin.register Comment do
   filter :updates_at
 
   index do
-    id_column
     selectable_column
+    id_column
     column :comment do |comment|
       comment.body.truncate(20)
     end

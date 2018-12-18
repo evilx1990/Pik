@@ -6,7 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 if AdminUser.none? && User.none?
-  User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', username: :admin) if Rails.env.development?AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+  AdminUser.create!(email: 'admin@gallery.loc',
+                    password: 'AdminGallery1',
+                    password_confirmation: 'AdminGallery1')
+  User.create!(email: 'admin@gallery.loc',
+               password: 'AdminGallery1',
+               password_confirmation: 'AdminGallery1',
+               username: :admin)
 end
 
 unless Image.none?

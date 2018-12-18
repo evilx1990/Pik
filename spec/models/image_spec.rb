@@ -42,7 +42,7 @@ describe Image, type: :model do
       it 'with image size more 50 mb' do
         expect(build(:image,
                      image_name: image.image_name,
-                     picture: File.open("#{Rails.root}/public/Mouse-retina2-full-resolution.jpg"),
+                     picture: File.open("#{Rails.root}/spec/support/test_more_50_mb_image.jpg"),
                      user_id: image.user_id,
                      category_id: image.category_id)).not_to be_valid
       end

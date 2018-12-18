@@ -1,3 +1,4 @@
-=semantic_form_for :nokogiri, url: { action: 'import' } do |f|
-  =f.input :url
-  =f.action :submit, as: :button
+=semantic_form_for :nokogiri, builder: ActiveAdmin::FormBuilder, url: { action: :import } do |f|
+  =f.inputs do
+    =f.input :url, label: false, placeholder: 'URL', input_html: { style: 'width: 30%;' }
+    =f.action :submit, label: 'Parse'

@@ -1,2 +1,6 @@
--@images.each do |img|
-  =image_tag(img[:src], alt: 'img')
+=semantic_form_for :nokogiri, builder: ActiveAdmin::FormBuilder, url: { action: :create } do |f|
+  =f.inputs do
+    =f.input :images, as: :check_boxes, collection: names.map { |name| [image_tag(name, style: 'max-height: 100px'), name] },
+             input_html: { style: 'display: block;' }, label: false
+  -unless names.count.eql?(0)
+    =f.action :submit, label: 'Push'

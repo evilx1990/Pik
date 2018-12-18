@@ -1,11 +1,13 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_category, only: %i[show update destroy follow unfollow]
+  after_action  only: %i[index show] do
+    record_activity('navigation')
+  end
 
   def index
     @categories = Category.order(name: :desc)
     @category = Category.new
-    record_activity('navigation')
   end
 
   def show

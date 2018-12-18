@@ -2,15 +2,16 @@
   -@categories.each do |category|
     .category
       -unless category.image
-        =link_to(image_tag('cat_prev.png', alt: 'Image'), category_path(category))
+        =link_to(image_tag('app_images/cat_prev.png', alt: 'Image'), category_path(category))
       -else
         =link_to(image_tag(category.image.picture.thumb_medium.url, alt: 'Image'), category_path(category))
       %h3.d-flex.justify-content-between
         =category.name
         -if current_user.following?(category)
-          =link_to(image_tag('unfollow.resized.png', alt: 'unfollow'), unfollow_category_path(category), id: 'follow', remote: true, method: :put)
+          =link_to(image_tag('app_images/unfollow.resized.png', alt: 'unfollow'), unfollow_category_path(category), id: 'follow', remote: true, method: :put)
         -else
-          =link_to(image_tag('follow.resized.png', alt: 'follow'), follow_category_path(category), id: 'follow', remote: true, method: :put)
+          =link_to(image_tag('app_images/follow.resized.png', alt: 'follow'), follow_category_path(category), id: 'follow', remote: true, method: :put)
+
 
 =render 'categories/modal' # <= Modal window here(link in layout)
 
