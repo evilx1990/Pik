@@ -20,7 +20,6 @@ gem 'rails-i18n', '~> 5.1'
 gem 'friendly_id', '~> 5.2.0'
 gem 'nokogiri'
 gem 'resque'
-gem 'aws-sdk-s3', require: false
 gem 'rails_12factor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
