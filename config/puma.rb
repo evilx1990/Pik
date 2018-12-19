@@ -32,9 +32,3 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
-
-on_worker_boot do
-  if defined?(Resque)
-    Resque.redis = ENV["REDIS_URL"] || "redis://127.0.0.1:6379"
-  end
-end
