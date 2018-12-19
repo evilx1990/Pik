@@ -56,6 +56,7 @@ class CategoriesController < ApplicationController
   end
 
   def send_email_after_follow
-    FollowSendEmailJob.perform_later([current_user.id, params[:id]])
+    url = "#{request.protocol + request.host}/#{params[:locale]}/categories/#{params[:id]}"
+    FollowSendEmailJob.perform_later(current_user.id, params[:id], url)
   end
 end

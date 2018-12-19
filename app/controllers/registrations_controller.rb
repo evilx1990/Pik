@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    SignUpSendEmailJob.perform_later(@user.id) unless @user.errors.any?
+    SignUpSendEmailJob.perform_later(@user.id, "#{request.protocol + request.host}") unless @user.errors.any?
   end
 
   private

@@ -1,4 +1,4 @@
 %h1 Hello, #{@user.username}
 %br
-%p In #{link_to(params[:category], @url)} add new image
+%p In #{link_to(params[:category_id], params[:url_category])} add new #{link_to('image', @url)}
 %p Have a great day!

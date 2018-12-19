@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
 
     if @image.save!
-      send_new_image_emails(@image.id)
+      send_new_image_emails(@image.slug)
       redirect_to category_path(params[:category_id])
     end
   end
@@ -64,7 +64,13 @@ class ImagesController < ApplicationController
     @image = Image.friendly.find(params[:id])
   end
 
-  def send_new_image_emails(image_id)
-    NewImageSendEmailsJob.perform_later(image_id)
+  def send_new_image_emails(image_slug)
+    url_category = "#{request.protocol + request.host}/#{params[:locale]}/categories/#{params[:category_id]}"
+    url_image = url_category + "/images/#{image_slug}"
+    image = Image.friendly.find(image_slug)
+
+    image.category.follows.each do |follow|
+      NewImageSendEmailsJob.perform_later(url_category, url_image, follow.user.id, params[:category_id])
+    end
   end
 end

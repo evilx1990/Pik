@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :activities, dependent: :destroy
   has_many :categories, dependent: :destroy
-  has_many :follows
+  has_many :follows, dependent: :destroy
   has_many :images
   has_many :comments
   has_many :votes
