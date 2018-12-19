@@ -1,1 +1,1 @@
-$redis = Redis.new(url: 'redis://h:pc56eb2aeba0bf87c6be4e5ff20a70c454259723a93f27cf75602db71b1ff1c08@ec2-54-144-21-105.compute-1.amazonaws.com:16299')
+$redis = Redis.new(url: ENV["REDIS_URL"])

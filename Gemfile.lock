@@ -418,7 +418,6 @@ DEPENDENCIES
   rails-i18n (~> 5.1)
   rails_12factor
   recaptcha
-  redis (~> 4.0)
   resque
   rspec-rails
   sass-rails (~> 5.0)
