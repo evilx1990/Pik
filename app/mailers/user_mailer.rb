@@ -26,6 +26,6 @@ class UserMailer < ApplicationMailer
   end
 
   def url_category
-    @url = "http://localhost:3000/categories/#{params[:category]}"
+    @url = "#{request.protocol + request.host}/categories/#{params[:category]}"
   end
 end
