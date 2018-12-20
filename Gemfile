@@ -21,6 +21,7 @@ gem 'friendly_id', '~> 5.2.0'
 gem 'nokogiri'
 gem 'resque'
 gem 'rails_12factor'
+gem 'fog-aws'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
