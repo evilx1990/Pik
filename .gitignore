@@ -76,9 +76,6 @@ yarn-debug.log*
 /test/version_tmp/
 /tmp/
 
-# Used by dotenv library to load environment variables.
-# .env
-
 ## Specific to RubyMotion:
 .dat*
 .repl_history
@@ -127,15 +124,9 @@ cmake-build-*/
 /config/master.key
 
 .idea/
-
 /public/uploads
-
 dump.rbd
-
 /log
-
-coverage
-
-public/Mouse-retina2-full-resolution.jpg
-
+/coverage
 Gemfile.lock/
+/config/application.yml

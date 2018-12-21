@@ -92,8 +92,8 @@ describe ImagesController, type: :controller do
     subject! do
       get :download,
           params: {
-              id: image.id,
-              category_id: image.category.id
+            id: image.id,
+            category_id: image.category.id
           }
     end
 

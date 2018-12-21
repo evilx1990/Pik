@@ -4,9 +4,10 @@ require 'rails_helper'
 
 describe UserMailer do
   let(:user) { create(:user) }
+  let(:url) { 'http://some.url' }
 
   describe '.welcome_email' do
-    let(:mail) { UserMailer.with(user: user).welcome_email }
+    let(:mail) { UserMailer.with(user_id: user.id, url: url).welcome_email }
 
     it 'render the welcome subject' do
       expect(mail.subject).to eq('Welcome Gallery')
@@ -28,7 +29,7 @@ describe UserMailer do
 
   describe '.follow_email' do
     let(:category) { create(:category) }
-    let(:mail) { UserMailer.with(user: user, category: category.slug).follow_email }
+    let(:mail) { UserMailer.with(user_id: user.id, category_id: category.id, url: url).follow_email }
 
     it 'render the follow subject' do
       expect(mail.subject).to eq('Follow')
@@ -51,8 +52,10 @@ describe UserMailer do
   describe '.new_image_email' do
     let(:category) { create(:category_with_follows) }
     let(:mail) do
-      UserMailer.with(user: category.follows.first.user,
-                      category: category.slug).new_image_email
+      UserMailer.with(user_id: category.follows.last.user.id,
+                      category_id: category.id,
+                      url_category: url,
+                      url: url).new_image_email
     end
 
     it 'render the new image subject' do
@@ -60,7 +63,7 @@ describe UserMailer do
     end
 
     it 'render the receiver email' do
-      expect(mail.to).to eq([category.follows.first.user.email])
+      expect(mail.to).to eq([category.follows.last.user.email])
     end
 
     it 'render the sender email' do
@@ -75,9 +78,10 @@ describe UserMailer do
 
   describe '.share_image' do
     let(:mail) do
-      UserMailer.with(email: user.email,
-                      url: Faker::Internet.url,
-                      message: Faker::String.random(20)).share_image_email
+      UserMailer.with(email: 'send@some.email',
+                    user_id: user.id,
+                    url: url,
+                    message: Faker::String.random(20)).share_image_email
     end
 
     it 'render the follow subject' do
@@ -85,7 +89,7 @@ describe UserMailer do
     end
 
     it 'render the receiver email' do
-      expect(mail.to).to eq([user.email])
+      expect(mail.to).to eq(['send@some.email'])
     end
 
     it 'render the sender email' do

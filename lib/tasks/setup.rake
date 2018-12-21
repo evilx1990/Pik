@@ -8,8 +8,9 @@ namespace :app do
     categories = Dir['*'].select { |f| File.directory? f }
 
     categories.each do |it|
-      puts "create category #{it}" if Category.create!(name: it, user_id: 1)
+      Category.create!(name: it, user_id: 1)
       upload_images(it)
+      puts "create category #{it}"
     end
   end
 
@@ -19,10 +20,10 @@ namespace :app do
     category = Category.find_by(name: category_name)
 
     image_paths.each_with_index do |img_path, i|
-      file_img = File.open(img_path)
-      puts "\tUpload #{File.basename(img_path)}" if Image.create!(picture: file_img, image_name: ('d_img_' + (i + 1).to_s),
-                                                                  user_id: 1, category_id: category.id)
-      file_img.close
+      File.open(img_path) do |file|
+        Image.create!(picture: file, image_name: ('d_img_' + (i + 1).to_s), user_id: 1, category_id: category.id)
+        puts "\tUpload #{File.basename(img_path)}"
+      end
     end
   end
 end

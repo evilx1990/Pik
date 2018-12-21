@@ -27,11 +27,16 @@ class ImagesController < ApplicationController
   end
 
   def download
-    send_file(@image.picture.path)
+    if %w(development test).include?(ENV['RAILS_ENV'])
+      send_file(@image.picture.path)
+    else
+      send_data(open(@image.picture.url).read, filename: File.basename(@image.picture.path))
+    end
   end
 
   def share
     UserMailer.with(email: params[:share][:email],
+                    user_id: current_user.id,
                     url: params[:share][:url],
                     message: params[:share][:message]).share_image_email.deliver_later
 
@@ -40,14 +45,14 @@ class ImagesController < ApplicationController
 
   def like
     @image.vote_from(current_user.id, true)
-    record_activity('like')
     redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
+    record_activity('like')
   end
 
   def dislike
     @image.vote_from(current_user.id, false)
-    record_activity('dislike')
     redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
+    record_activity('dislike')
   end
 
   private

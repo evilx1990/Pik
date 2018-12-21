@@ -1,2 +1,1 @@
-# require 'redis'
 $redis = Resque.redis = Redis.new(url: ENV["REDIS_URL"])

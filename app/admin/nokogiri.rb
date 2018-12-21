@@ -7,7 +7,7 @@ ActiveAdmin.register_page 'Nokogiri' do
     if params[:nokogiri][:url].match?(/^https?:\/\//)
       Dir.chdir("#{Rails.root}/app/assets/images/")
 
-      root = params[:nokogiri][:url][/^https?:\/\/.*?\//].chop
+      root = params[:nokogiri][:url][/^https?:\/\/[^\/]+/]
       protocol = root[/^https?:/]
       names = []
 

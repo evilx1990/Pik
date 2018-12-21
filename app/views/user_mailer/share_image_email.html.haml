@@ -1,6 +1,8 @@
 %p
-  =params[:url]
+  =link_to('Click me :)', params[:url])
+%p
   =params[:message]
 %p
   !-------------------------
-Gallery
+%p
+=link_to('Simple Gallery', params[:url][%r(^https?:\/\/[^\/]+)])
