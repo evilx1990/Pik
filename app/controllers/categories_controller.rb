@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @images = @category.images.order(id: :asc).page(params[:page])
+    @images = @category.images.order(created_at: :desc).page(params[:page])
   end
 
   def create

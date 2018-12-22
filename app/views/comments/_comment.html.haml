@@ -1,4 +1,4 @@
-#comment
+#comment.col-10.offset-1.col-md-8.offset-md-2
   -if comment.user.avatar.present?
     =image_tag(comment.user.avatar.thumb_small.url, alt: 'avatar')
   -else
@@ -10,5 +10,4 @@
       =comment.created_at.strftime('%e/%m/%Y %k:%M')
     %hr
   #body
-    -#=simple_format(comment.body)
     =comment.body

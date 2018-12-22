@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_image, only: %i[show like dislike download share]
+  before_action :find_image, only: %i[show like dislike download share full_size]
   before_action :find_category, only: %i[new create]
 
   def index

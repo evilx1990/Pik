@@ -1,35 +1,3 @@
 // Place all the styles related to the Images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-#new-image-block {
-  width: 100%;
-  text-align: center;
-  margin-top: 10px;
-}
-
-#new-image-block small{
-  color: white;
-}
-
-
-#image {
-  display: inline-grid;
-  width: auto;
-}
-
-#image img {
-  max-width: 550px;
-  margin-top: 5px;
-}
-
-@media screen and (max-width: 1199px) {
-  #images {
-    text-align: center;
-  }
-
-  #image img {
-  max-width: 450px;
-  margin-top: 5px;
-  }
-}

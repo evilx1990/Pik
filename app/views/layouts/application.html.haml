@@ -1,12 +1,12 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{charset: 'UTF-8', 'http-equiv' => 'Content-Type'}/
+    %meta{:content => 'text/html, width=device-width, initial-scale=1, shrink-to-fit=no', :name => 'viewport'}/
     %title
       Gallery
     =csrf_meta_tags
     =csp_meta_tag
-    =action_cable_meta_tag
     =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     =javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
@@ -14,3 +14,6 @@
       =render 'layouts/navbar'
       .content
         =yield
+      %footer.page-footer.font-small.blue
+        .footer-copyright.text-center.text-white.py-3
+          © 2018

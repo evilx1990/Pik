@@ -24,4 +24,12 @@ class Image < ApplicationRecord
     vote_record.flag = vote_record.flag.eql?(vote) ? nil : vote
     vote_record.save
   end
+
+  def self.preview(category, cur_img_ct)
+    category.images.order(created_at: :desc).where(Image.arel_table[:created_at].gt(cur_img_ct)).last
+  end
+
+  def self.next(category, cur_img_ct)
+    category.images.order(created_at: :desc).where(Image.arel_table[:created_at].lt(cur_img_ct)).first
+  end
 end
