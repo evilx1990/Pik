@@ -1,32 +1,42 @@
 .row
   =previous_image(@image) # helper return link to previous image
-  =image_tag(@image.picture.thumb_list.url, class: 'col-8 col-sm-10', style: 'width: 100%; height: 100%;', alt: 'some_image')
+  =image_tag(@image.picture.thumb_list.url, class: 'col-10', style: 'width: 100%; height: 100%;', alt: 'some_image')
   =next_image(@image) # helper return link to next image
 
-.row.mt-3
-  .col-3.offset-9
-    =link_to(image_tag('app_images/dwnld.png', alt: 'download', id: 'social'), download_category_image_path(id: @image.id), target: '_blank')
-    =link_to(image_tag('app_images/friend_mail.png', alt: 'share', id: 'social'), '#modalCategory', 'data-toggle' => 'modal')
+.row.mt-3.justify-content-center
+  =link_to(image_tag('app_images/dwnld.png', alt: 'download', id: 'icons'),
+           download_category_image_path(id: @image.id),
+           target: '_blank',
+           class: 'm-1')
+  =link_to(image_tag('app_images/friend_mail.png', alt: 'share', id: 'icons'),
+           '#modalCategory',
+           'data-toggle' => 'modal',
+           class: 'm-1')
+
 %hr
-#likes
-  =link_to(image_tag('app_images/like.resized.png', alt: 'like'),
-                     like_category_image_path(category_id: @image.category.slug, id: @image.slug),
-                                                 remote: true, method: :put)
-  #like-counter.d-inline
+
+.row.justify-content-center
+  =link_to(image_tag('app_images/like.resized.png', alt: 'like', id: 'icons'),
+           like_category_image_path(category_id: @image.category.slug, id: @image.slug),
+           remote: true, method: :put)
+  .mt-1
     =@image.likes.count
-  #dislike-counter.d-inline
+    &nbsp
     =@image.dislikes.count
-  =link_to(image_tag('app_images/dislike.resized.png', alt: 'dislike'),
-                     dislike_category_image_path(category_id: @image.category.slug, id: @image.slug),
-                                                   remote: true, method: :put)
+  =link_to(image_tag('app_images/dislike.resized.png', alt: 'dislike', id: 'icons'),
+           dislike_category_image_path(category_id: @image.category.slug, id: @image.slug),
+           remote: true, method: :put)
 
 %hr
 
 #comments-form
   =render 'comments/form'
+
 %hr
+
 #comments
   =render @comments
+
 =paginate @comments
 
 =render 'images/modal'

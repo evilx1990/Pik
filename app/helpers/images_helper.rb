@@ -13,8 +13,9 @@ module ImagesHelper
 
   def result(image, source)
     a = image.nil? ? ['#', 'opacity: 0.2;'] : [category_image_path(category_id: image.category.slug, id: image.slug), 'opacity: 1']
-    link_to(a[0], class: 'col-2 col-sm-1 m-auto') do
-      image_tag(source, alt: 'slider', class: 'w-100', style: "#{a[1]}")
+
+    link_to(a[0], class: 'col-1') do
+      image_tag(source, alt: 'slider', style: "#{a[1]}")
     end
   end
 end
