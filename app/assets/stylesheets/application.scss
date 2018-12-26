@@ -21,17 +21,11 @@
 @import "show-image";
 
 body {
-  background: image_url('app_images/bg_l.jpg') no-repeat center fixed / cover;
-}
-
-
-.container {
-  margin: 0 auto;
-}
-
-.content {
-  width: 100%;
-  margin: 50px auto 50px auto;
+  background-image: url('app_images/bg_l.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .form-style {
