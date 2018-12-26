@@ -9,7 +9,7 @@ ru:
       comments: 'Комментарии'
       profile: 'Профиль'
       log_out: 'Выход'
-  catetegories:
+  categories:
     index:
       author: 'автор: '
       show: 'перейти'
@@ -22,7 +22,9 @@ ru:
       edit_category: 'Редактировать категорию'
       close: 'Закрыть'
     _form:
-      small: 'минимум 3 символа'
+      small:
+        name_length: 'минимум 3 символа'
+        preview_image: 'preview-изображение'
       delete_category:
         label: 'удалить категорию'
         confirm: 'Серьезно удалить?'
@@ -38,4 +40,6 @@ ru:
       user: 'пользователь: '
       comment_body: 'комментарий: '
     _form:
+      comment_here: 'Комментарий...'
+      your_comment_must_be_here: 'Здесь должен быть твой комментарий'
       create_comment: 'Создать комментарий'

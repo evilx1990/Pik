@@ -3,9 +3,8 @@
   %head
     %meta{ charset: 'UTF-8', 'http-equiv' => 'Content-Type' }
     %meta{ name: :viewport, :content => 'text/html, width=device-width, initial-scale=0.8, shrink-to-fit=no' }
-
     %title
-      Gallery
+      =t('layouts.application.title')
     =csrf_meta_tags
     =csp_meta_tag
     =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -14,7 +13,9 @@
     .container
       =render 'layouts/navbar'
       .mt-5
+      %hr
       =yield
+      %hr
       %footer.page-footer.font-small.blue
-        .footer-copyright.text-center.text-white.py-3
-          © 2018
+        .footer-copyright.text-center.py-3
+          © 2019 Gallery

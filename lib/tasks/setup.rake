@@ -8,9 +8,9 @@ namespace :app do
     categories = Dir['*'].select { |f| File.directory? f }
 
     categories.each do |it|
+      puts "create category #{it}"
       Category.create!(name: it, user_id: 1)
       upload_images(it)
-      puts "create category #{it}"
     end
   end
 

@@ -1,5 +1,5 @@
 =form_with model: @image.comments.build,
            url: category_image_comments_path(category_id: @image.category_id, image_id: @image.id),
            html: { class: 'row'} do |form|
-  =form.text_area :body, rows: '3', placeholder: 'Comment here...', class: 'form-style col-8 offset-2 col-md-6 offset-md-3'
+  =form.text_area :body, rows: '3', placeholder: t('comments._form.comment_here'), class: 'form-style col-8 offset-2 col-md-6 offset-md-3'
   =form.submit t('comments._form.create_comment'), class: 'btn btn-sm btn-warning col-8 offset-2 col-md-3 offset-md-6 mt-3'

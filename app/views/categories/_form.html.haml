@@ -1,8 +1,18 @@
-=form_for @category, remote: true do |form|
-  =form.text_field :name, placeholder: t('activerecord.attributes.category.name'), style: 'display: block-inline;'
+=form_for @category, remote: true, html: { class: 'w-100 text-center'} do |form|
+  =form.text_field :name, placeholder: t('activerecord.attributes.category.name')
+  %small.d-block
+    =t('categories._form.small.name_length')
   -unless @category.new_record?
     =form.collection_select :image_id, @category.images, :id, :image_name, include_blank: true
-  =form.submit @category.new_record? ? t('catetegories._modal.add_category') : t('catetegories._modal.edit_category')
-%small
-  =t('catetegories._form.small')
-%br
+    %small.d-block
+      =t('categories._form.small.preview_image')
+    %br
+  =form.submit (@category.new_record? ? t('categories._modal.add_category') : t('categories._modal.edit_category')),
+               class: 'btn btn-warning'
+  -if @category.user.eql?(current_user)
+    .text-right
+      =link_to(t('categories._form.delete_category.label'),
+               category_path(@category),
+               class: 'btn btn-link text-danger',
+               method: :delete,
+               data: { confirm: t('categories._form.delete_category.confirm') })

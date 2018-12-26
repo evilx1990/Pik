@@ -9,7 +9,7 @@ en:
       comments: 'Comments'
       profile: 'Profile'
       log_out: 'Log out'
-  catetegories:
+  categories:
     index:
       author: 'author: '
       show: 'show'
@@ -18,13 +18,14 @@ en:
     show:
       upload_image: 'Upload image'
     _modal:
-      add_category: 'Add category'
+      add_category: 'Create category'
       edit_category: 'Edit category'
-      close: 'Close'
     _form:
-      small: 'minimum 3 symbols'
+      small:
+        name_length: 'minimum 3 symbols'
+        preview_image: 'preview-image'
       delete_category:
-        label: 'Delete category'
+        label: 'delete category'
         confirm: 'You are sure?'
   images:
     show:
@@ -38,4 +39,6 @@ en:
       user: 'user: '
       comment_body: 'comment body: '
     _form:
+      comment_here: 'Comment here...'
+      your_comment_must_be_here: 'Your comment must be here'
       create_comment: 'Create comment'
