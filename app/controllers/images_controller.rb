@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
     @image.user_id = current_user.id
 
     if @image.save!
-      send_new_image_emails(@image.slug)
+      send_new_image_emails(@image)
       redirect_to category_path(params[:category_id])
     end
   end
@@ -45,14 +45,14 @@ class ImagesController < ApplicationController
 
   def like
     @image.vote_from(current_user.id, true)
-    redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
     record_activity('like')
+    render 'images/votes_counter'
   end
 
   def dislike
     @image.vote_from(current_user.id, false)
-    redirect_to category_image_path(category_id: @image.category.slug, id: @image.slug)
     record_activity('dislike')
+    render 'images/votes_counter'
   end
 
   private
@@ -69,13 +69,13 @@ class ImagesController < ApplicationController
     @image = Image.friendly.find(params[:id])
   end
 
-  def send_new_image_emails(image_slug)
+  def send_new_image_emails(image)
     url_category = "#{request.protocol + request.host}/#{params[:locale]}/categories/#{params[:category_id]}"
-    url_image = url_category + "/images/#{image_slug}"
-    image = Image.friendly.find(image_slug)
+    url_image = url_category + "/images/#{image.slug}"
+    image = Image.friendly.find(image.slug)
 
     image.category.follows.each do |follow|
-      NewImageSendEmailsJob.perform_later(url_category, url_image, follow.user.id, params[:category_id])
+      NewImageSendEmailsJob.perform_later(url_category, url_image, follow.user.id, image.category.name)
     end
   end
 end

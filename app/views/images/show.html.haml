@@ -19,10 +19,13 @@
   =link_to(image_tag('app_images/like.resized.png', alt: 'like', id: 'icons'),
            like_category_image_path(category_id: @image.category.slug, id: @image.slug),
            remote: true, method: :put)
-  .mt-1
+
+  #likes-count.mt-1
     =@image.likes.count
-    &nbsp
+  &nbsp
+  #dislikes-count.mt-1
     =@image.dislikes.count
+
   =link_to(image_tag('app_images/dislike.resized.png', alt: 'dislike', id: 'icons'),
            dislike_category_image_path(category_id: @image.category.slug, id: @image.slug),
            remote: true, method: :put)

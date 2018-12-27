@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_category, only: %i[show update destroy follow unfollow]
+  before_action :block_id, only: %i[follow unfollow]
   after_action  only: %i[index show] do
     record_activity('navigation')
   end
@@ -36,13 +37,12 @@ class CategoriesController < ApplicationController
 
   def follow
     if current_user.follow(@category)
-      send_email_after_follow
-      redirect_to categories_path
+      send_email_after_follow(@category.name)
     end
   end
 
   def unfollow
-    redirect_to categories_path if current_user.stop_following(@category)
+    current_user.stop_following(@category)
   end
 
   private
@@ -55,8 +55,12 @@ class CategoriesController < ApplicationController
     @category = Category.friendly.find(params[:id])
   end
 
-  def send_email_after_follow
+  def block_id
+    @block = "#category_#{params[:block_id]}"
+  end
+
+  def send_email_after_follow(category_name)
     url = "#{request.protocol + request.host}/#{params[:locale]}/categories/#{params[:id]}"
-    FollowSendEmailJob.perform_later(current_user.id, params[:id], url)
+    FollowSendEmailJob.perform_later(current_user.id, category_name, url)
   end
 end
