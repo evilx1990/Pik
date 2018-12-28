@@ -35,6 +35,11 @@
                         placeholder: t('devise.forms.fields.confirm_password'),
                         autocompleate: 'off',
                         class: 'form-control  form-style mt-1 w-50 m-auto'
+      .mt-1
+      =f.password_field :current_password,
+                        placeholder: t('devise.forms.fields.current_password'),
+                        autocompleate: 'off',
+                        class: 'form-control  form-style mt-1 w-50 m-auto'
     .form-group
       =f.submit t('.update'), class: 'btn btn-sm btn-warning mb-3', remote: true
 

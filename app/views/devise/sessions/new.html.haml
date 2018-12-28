@@ -4,9 +4,9 @@
 
   =form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-group.mt-5
-      =f.email_field :email, placeholder: t('devise.forms.fields.email'), class: 'form-control form-style'
+      =f.email_field :email, required: true ,placeholder: t('devise.forms.fields.email'), class: 'form-control form-style'
     .form-group
-      =f.password_field :password, placeholder: t('devise.forms.fields.password'), class: 'form-control form-style'
+      =f.password_field :password, required: true, placeholder: t('devise.forms.fields.password'), class: 'form-control form-style'
     -if devise_mapping.rememberable?
       .form-group.form-check
         =f.check_box :remember_me, class: 'form-check-input'

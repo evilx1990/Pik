@@ -3,7 +3,7 @@
   %small.d-block
     =t('categories._form.small.name_length')
   -unless @category.new_record?
-    =form.collection_select :image_id, @category.images, :id, :image_name, include_blank: true
+    =form.collection_select :image_id, @category.images.order(created_at: :desc), :id, :image_name, include_blank: true
     %small.d-block
       =t('categories._form.small.preview_image')
     %br

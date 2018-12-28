@@ -4,7 +4,7 @@
     = bootstrap_devise_error_messages!
     = f.hidden_field :reset_password_token
     .form-group
-      = f.password_field :password, placeholder: t('devise.forms.fields.password'), class: 'form-control'
+      = f.password_field :password, required: true, placeholder: t('devise.forms.fields.password'), class: 'form-control'
       - if @minimum_password_length
         %small.form-text.text-dark= t('devise.passwords.minimum_pass_length', count: @minimum_password_length)
     .form-group
