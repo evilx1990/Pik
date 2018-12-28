@@ -41,6 +41,8 @@ ru:
       failure: "Не удалось аутентифицировать вас %{kind} потому что \"%{reason}\"."
       success: "Аунтификация успешно завершена %{kind}"
     passwords:
+      change_your_password: 'Введите новый пароль'
+      change_and_login: 'Изменить и войти'
       new:
         send_me_reset_password_instructions: 'Отправить инструкции'
       no_token: "Сначала выполните интрукции по сбросу пароля, мы отправили ее на вашу электронную почту."

@@ -14,6 +14,12 @@
       =render 'layouts/navbar'
       .mt-5
       %hr
+      - if flash[:notice]
+        .alert.alert-success
+          =flash[:notice]
+      - if flash[:alert]
+        .alert.alert-danger
+          =flash[:alert]
       =yield
       %hr
       %footer.page-footer.font-small.blue
