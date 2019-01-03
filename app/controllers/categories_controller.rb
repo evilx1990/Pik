@@ -36,9 +36,7 @@ class CategoriesController < ApplicationController
   end
 
   def follow
-    if current_user.follow(@category)
-      send_email_after_follow(@category.name)
-    end
+    send_email_after_follow(@category.name) if current_user.follow(@category)
   end
 
   def unfollow

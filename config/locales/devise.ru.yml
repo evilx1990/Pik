@@ -54,8 +54,9 @@ ru:
       new:
         sign_up: 'Зарегистрироваться'
       edit:
-        leave_blank_if_you_don_t_want_to_change_it: 'Оставьте пустым, если вы не хотите его менять'
+        leave_blank_if_you_don_t_want_to_change_it: 'Оставьте поля пустыми, если не хотите менять пароль'
         we_need_your_current_password_to_confirm_your_changes: 'Нам нужен ваш текущий пароль для подтверждения изменений'
+        change_email_small: 'Для изменения email введите текущий пароль'
         update: 'Обновить'
         remove_account: 'Удалить аккаунт'
         remove_avatar: 'Удалить аватар'
@@ -74,7 +75,7 @@ ru:
       destroy:
         sign_out: 'Выйти'
       signed_in: "Вход выполнен успешно."
-      signed_out: "Выйти"
+      signed_out: "До свидания!"
       already_signed_out: "До свидания."
     unlocks:
       send_instructions: "вы получите электронное письмо с инструкциями о том, как разблокировать свою учетную запись за несколько минут."

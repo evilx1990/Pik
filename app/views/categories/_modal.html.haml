@@ -10,5 +10,9 @@
         %button.close{type: 'button', 'data-dismiss' => 'modal'}
           x
       .modal-body
-        =render 'categories/form'
+        -if @category.new_record? || @category.user.eql?(current_user)
+          =render 'categories/form'
+        -else
+          .text-center
+            Only the owner can change the preview and title.
       .modal-footer

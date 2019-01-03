@@ -60,7 +60,7 @@ describe ImagesController, type: :controller do
     end
 
     it 'assign @image' do
-      expect(assigns(:image)) == Image.new
+      expect(assigns(:image)) == category.images.new
     end
   end
 

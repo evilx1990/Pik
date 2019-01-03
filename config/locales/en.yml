@@ -1,4 +1,5 @@
 en:
+  recaptcha_fail: 'reCAPTCHA verification failed, please try again.'
   layouts:
     application:
       title: 'Simple Gallery'
@@ -42,3 +43,10 @@ en:
       comment_here: 'Comment here...'
       your_comment_must_be_here: 'Your comment must be here'
       create_comment: 'Create comment'
+  feedback:
+    link: 'Feedback'
+    flash:
+      successful: 'Feedback successful sended'
+    new:
+      feedback_placeholder: 'Message...'
+      submit: 'Send'

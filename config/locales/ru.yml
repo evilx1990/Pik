@@ -1,4 +1,5 @@
 ru:
+  recaptcha_fail: 'Не удалось подтвердить reCAPTCHA, пожалуйста, попробуйте еще раз'
   layouts:
     application:
       title: 'Простая галерея'
@@ -20,7 +21,6 @@ ru:
     _modal:
       add_category: 'Добавить категорию'
       edit_category: 'Редактировать категорию'
-      close: 'Закрыть'
     _form:
       small:
         name_length: 'минимум 3 символа'
@@ -43,3 +43,10 @@ ru:
       comment_here: 'Комментарий...'
       your_comment_must_be_here: 'Здесь должен быть твой комментарий'
       create_comment: 'Создать комментарий'
+  feedback:
+    link: 'Обратная связь'
+    flash:
+      successful: 'Отзыв успешно отправлен'
+    new:
+      feedback_placeholder: 'Сообщение...'
+      submit: 'Отправить'

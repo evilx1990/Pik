@@ -1,0 +1,11 @@
+=form_with model: @feedback, url: feedbacks_path, method: :post, remote: true do |form|
+  #devise-forms
+    =form.email_field :email_author, required: true, placeholder: t('devise.forms.fields.email'), class: 'form-control form-style'
+    .mt-1
+      =form.text_field :name, required: true, placeholder: t('devise.forms.fields.username'), class: 'form-control form-style'
+    .mt-3
+      =form.text_area :feedback, required: true, rows: '4' , placeholder: t('feedback.new.feedback_placeholder'), class: 'form-control form-style'
+    .mt-3
+      #recaptcha
+        =recaptcha_tags
+      =form.submit t('feedback.new.submit'), class: 'btn btn-warning mt-2'

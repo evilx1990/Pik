@@ -3,6 +3,8 @@
 require 'resque/server'
 
 Rails.application.routes.draw do
+  get 'feedback/new'
+  get 'feedback/create'
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, only: :omniauth_callbacks, controllers: {
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
       sessions: 'sessions',
       registrations: 'registrations'
     }
+
+    resources :feedbacks, only: %i[new create]
 
     resources :categories, only: %i[index show create update destroy] do
       put :follow, on: :member

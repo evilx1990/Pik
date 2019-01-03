@@ -63,7 +63,8 @@ en:
         remove_account: 'Remove account'
         remove_avatar: 'Remove avatar'
         we_need_your_current_password_to_confirm_your_changes: 'We need your current password to confirm your changes'
-        leave_blank_if_you_don_t_want_to_change_it: "Leave blank if you don't want to change it"
+        leave_blank_if_you_don_t_want_to_change_it: "Leave blank if you don't want to change password"
+        change_email_small: 'To change email, enter your current password.'
         update: 'Update'
       new:
         sign_up: 'Sign up'

@@ -15,10 +15,12 @@
         =f.label :remove_avatar, class: 'remove-avatar', style: 'color: white;'
     #devise-forms
       .form-group.mt-3
+        %small.form-text.text-dark
+          =t('.change_email_small')
         =f.email_field :email,
-                       placeholder: t('devise.forms.fields.email'),
-                       autocompleate: 'off',
-                       class: 'form-control form-style'
+            placeholder: t('devise.forms.fields.email'),
+            autocompleate: 'off',
+            class: 'form-control form-style'
         .mt-1
         =f.text_field :username,
                       placeholder: t('devise.forms.fields.username'),
@@ -35,12 +37,12 @@
         =f.password_field :password_confirmation,
                           placeholder: t('devise.forms.fields.confirm_password'),
                           autocompleate: 'off',
-                          class: 'form-control  form-style mt-1'
+                          class: 'form-control form-style mt-1'
         .mt-1
         =f.password_field :current_password,
                           placeholder: t('devise.forms.fields.current_password'),
                           autocompleate: 'off',
-                          class: 'form-control  form-style mt-1'
+                          class: 'form-control form-style mt-1'
       .form-group
         =f.submit t('.update'), class: 'btn btn-sm btn-warning mb-3', remote: true
 
