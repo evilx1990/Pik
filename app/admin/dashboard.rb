@@ -1,7 +1,9 @@
-ActiveAdmin.register_page 'Dashboard' do
-  menu priority: 1, label: proc{ I18n.t('active_admin.dashboard') }
+# frozen_string_literal: true
 
-  content title: proc{ I18n.t('active_admin.dashboard') } do
+ActiveAdmin.register_page 'Dashboard' do
+  menu priority: 1, label: proc { I18n.t('active_admin.dashboard') }
+
+  content title: proc { I18n.t('active_admin.dashboard') } do
     columns do
       column do
         panel 'Last images' do
@@ -38,6 +40,21 @@ ActiveAdmin.register_page 'Dashboard' do
           end
         end
       end
-    end # columns
-  end # content
+    end
+
+    columns do
+      column do
+        panel 'Unread feedbaks' do
+          table_for Feedback.where(state: false).order(created_at: :asc).limit(10) do
+            column :email_author
+            column :name
+            column :feedback
+            column '>>' do |feedback|
+              link_to('reply', admin_feedback_reply_feedback_path(feedback))
+            end
+          end
+        end
+      end
+    end
+  end
 end

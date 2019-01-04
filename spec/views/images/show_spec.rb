@@ -32,51 +32,51 @@ describe 'images/show.html.haml', type: :view do
   end
 
   it 'should be have image' do
-    expect(page).to have_xpath('//*[@id="show-image"]/img')
+    expect(page).to have_xpath('/html/body/div/div[3]/img')
   end
 
   context 'should be contain social links' do
     it 'download link' do
-      expect(page).to have_selector('#social > a.d-block.float-right.mr-1 > img')
+      expect(page).to have_selector('body > div > div.row.mt-3.justify-content-center > a:nth-child(1) > img')
     end
 
     it 'share link' do
-      expect(page).to have_selector('#social > a.d-block.float-right.mr-5 > img')
+      expect(page).to have_selector('body > div > div.row.mt-3.justify-content-center > a:nth-child(2) > img')
     end
   end
 
   context 'should be contain like/dislike links' do
     it 'like link' do
-      expect(page).to have_selector('#likes > a:nth-child(1) > img')
+      expect(page).to have_selector('body > div > div:nth-child(7) > a:nth-child(1) > img')
     end
 
     it 'dislike link' do
-      expect(page).to have_selector('#likes > a:nth-child(4) > img')
+      expect(page).to have_selector('body > div > div:nth-child(7) > a:nth-child(4) > img')
     end
 
     context 'click on like/dislike links', driver: :selenium_chrome_headless do
       it 'should be increment like counter' do
-        find('#likes > a:nth-child(1) > img').click
-        sleep(1)
-        expect(find('#like-counter').text).to eq '1'
+        find('body > div > div:nth-child(7) > a:nth-child(1) > img').click
+        sleep(1.5)
+        expect(find('#likes-count').text).to eq '1'
       end
 
       it 'should be decrement like counter' do
-        2.times { find('#likes > a:nth-child(1) > img').click }
-        sleep(1)
-        expect(find('#like-counter').text).to eq '0'
+        2.times { find('body > div > div:nth-child(7) > a:nth-child(1) > img').click }
+        sleep(1.5)
+        expect(find('#likes-count').text).to eq '0'
       end
 
       it 'should be increment dislike counter' do
-        find('#likes > a:nth-child(4) > img').click
-        sleep(1)
-        expect(find('#dislike-counter').text).to eq '1'
+        find('body > div > div:nth-child(7) > a:nth-child(4) > img').click
+        sleep(1.5)
+        expect(find('#dislikes-count').text).to eq '1'
       end
 
       it 'should be decrement dislike counter' do
-        2.times { find('#likes > a:nth-child(4) > img').click }
-        sleep(1)
-        expect(find('#dislike-counter').text).to eq'0'
+        2.times { find('body > div > div:nth-child(7) > a:nth-child(4) > img').click }
+        sleep(1.5)
+        expect(find('#dislikes-count').text).to eq'0'
       end
     end
   end
@@ -129,10 +129,6 @@ describe 'images/show.html.haml', type: :view do
 
       it '<share> button' do
         expect(page).to have_button('share')
-      end
-
-      it '<Close> button' do
-        expect(page).to have_button('Close')
       end
     end
   end

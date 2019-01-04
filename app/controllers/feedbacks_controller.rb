@@ -12,8 +12,7 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_param)
 
     if verify_recaptcha
-      @feedback.save
-      flash[:notice] = t('feedback.flash.successful')
+      flash[:notice] = t('feedback.flash.successful') if @feedback.save
     else
       flash[:alert] = t('recaptcha_fail')
     end
@@ -24,6 +23,6 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_param
-    params.require(:feedback).permit(:email_author, :feedback)
+    params.require(:feedback).permit(:email_author, :name, :feedback)
   end
 end

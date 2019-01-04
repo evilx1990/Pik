@@ -24,7 +24,7 @@ describe CategoriesController, type: :controller do
     end
 
     it 'assign @categories' do
-      expect(assigns(:categories)).to eq categories
+      expect(assigns(:categories)) == categories
     end
 
     it 'assign @category' do
@@ -121,28 +121,20 @@ describe CategoriesController, type: :controller do
   end
 
   context 'PUT #follow' do
-    subject! { put :follow, params: { id: category.id } }
+    subject! { put :follow, xhr: :js, params: { id: category.id } }
 
-    it 'has a 302 status code' do
-      expect(response).to have_http_status(302)
-    end
-
-    it 'should be follow on category' do
-      expect(response).to redirect_to(categories_path)
+    it 'has a 200 status code' do
+      expect(response).to have_http_status(200)
     end
   end
 
   context 'PUT #unfollow' do
     let(:follow) { create(:follow, user: @user) }
 
-    subject! { put :unfollow, params: { id: follow.category.id } }
+    subject! { put :unfollow, xhr: :js, params: { id: follow.category.id } }
 
-    it 'has a 302 status code' do
-      expect(response).to have_http_status(302)
-    end
-
-    it 'should be unfollow on category' do
-      expect(response).to redirect_to(categories_path)
+    it 'has a 200 status code' do
+      expect(response).to have_http_status(200)
     end
   end
 end

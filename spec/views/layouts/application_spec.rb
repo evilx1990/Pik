@@ -106,7 +106,7 @@ describe 'layouts/application.html.haml', type: :view do
           it 'for /categories' do
             find_link(@user.username).click
 
-            ['Add category', 'Profile', 'Log out'].each do |item|
+            ['Create category', 'Profile', 'Log out'].each do |item|
               expect(page).to have_selector('.dropdown-item', text: item)
             end
           end

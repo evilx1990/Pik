@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe Image, type: :model do
   context 'validation' do
-    subject!(:image) { FactoryBot.create(:image) }
+    subject!(:image) { create(:image) }
 
     context 'should be invalid' do
       it 'without image name' do

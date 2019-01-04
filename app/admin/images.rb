@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Image do
   menu priority: 5
   permit_params :image_name, :picture, :category_id

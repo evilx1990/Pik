@@ -1,0 +1,4 @@
+=semantic_form_for :reply_feedback, builder: ActiveAdmin::FormBuilder, url: { action: :send_reply } do |f|
+  =f.inputs do
+    =f.input :message, as: :text, label: false, placeholder: 'message', input_html: { style: 'width: 30%;', rows: 10 }
+    =f.action :submit, label: 'Send'

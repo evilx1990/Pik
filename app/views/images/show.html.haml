@@ -4,11 +4,11 @@
   =next_image(@image) # helper return link to next image
 
 .row.mt-3.justify-content-center
-  =link_to(image_tag('app_images/dwnld.png', alt: 'download', id: 'icons'),
+  =link_to(image_tag('app_images/dwnld.png', alt: 'download', class: 'icons'),
            download_category_image_path(id: @image.id),
            target: '_blank',
            class: 'm-1')
-  =link_to(image_tag('app_images/friend_mail.png', alt: 'share', id: 'icons'),
+  =link_to(image_tag('app_images/friend_mail.png', alt: 'share', class: 'icons'),
            '#modalCategory',
            'data-toggle' => 'modal',
            class: 'm-1')
@@ -16,7 +16,7 @@
 %hr
 
 .row.justify-content-center
-  =link_to(image_tag('app_images/like.resized.png', alt: 'like', id: 'icons'),
+  =link_to(image_tag('app_images/like.resized.png', alt: 'like', class: 'icons'),
            like_category_image_path(category_id: @image.category.slug, id: @image.slug),
            remote: true, method: :put)
 
@@ -26,7 +26,7 @@
   #dislikes-count.mt-1
     =@image.dislikes.count
 
-  =link_to(image_tag('app_images/dislike.resized.png', alt: 'dislike', id: 'icons'),
+  =link_to(image_tag('app_images/dislike.resized.png', alt: 'dislike', class: 'icons'),
            dislike_category_image_path(category_id: @image.category.slug, id: @image.slug),
            remote: true, method: :put)
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Activity do
   config.clear_action_items!
 

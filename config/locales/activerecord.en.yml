@@ -8,6 +8,7 @@ en:
       follow: 'follow'
       image: 'image'
       user: 'user'
+      feedback: 'feedback'
     attributes:
       activity:
         aсtion: 'Action'

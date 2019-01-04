@@ -9,7 +9,7 @@ describe 'devise/session/new.html.haml', type: :view do
 
   context 'should be contain' do
     it 'facebook login link' do
-      expect(page).to have_selector('#before-login > a > img')
+      expect(page).to have_selector('#devise-forms > a > img')
     end
 
     it 'user email field' do

@@ -51,24 +51,20 @@ describe 'categories/index.html.haml', type: :view do
     end
 
     it 'should be have text <Add category>' do
-      expect(rendered).to have_text('Add category')
+      expect(rendered).to have_text('Create category')
     end
 
     it 'should be have field <Name>' do
       expect(rendered).to have_field('category_name')
     end
 
-    it 'should be have button <Add category>' do
-      expect(rendered).to have_button('Add category')
+    it 'should be have button <Create category>' do
+      expect(rendered).to have_button('Create category')
     end
 
     it 'should be have small text <minimum 3 symbols> under <Name> field' do
       expect(rendered).to have_selector('small')
       expect(rendered).to have_text('minimum 3 symbols')
-    end
-
-    it 'should be have button <Close>' do
-      expect(rendered).to have_button('Close')
     end
 
     it 'should be have button <X>' do

@@ -128,10 +128,10 @@ describe ImagesController, type: :controller do
   context 'PUT #like' do
     let(:like) { create(:vote, :like, user: @user) }
 
-    subject! { put :like, params: { category_id: image.category.slug, id: image.slug } }
+    subject! { put :like, xhr: :js, params: { category_id: image.category.slug, id: image.slug } }
 
-    it 'has a 302 code status' do
-      expect(response).to have_http_status(302)
+    it 'has a 200 code status' do
+      expect(response).to have_http_status(200)
     end
 
     it 'should be put like' do
@@ -139,7 +139,7 @@ describe ImagesController, type: :controller do
     end
 
     it 'should be remove like' do
-      put :like, params: { category_id: like.image.category.slug, id: like.image.slug }
+      put :like, xhr: :js, params: { category_id: like.image.category.slug, id: like.image.slug }
       expect(Vote.last.flag).to eq nil
     end
   end
@@ -147,10 +147,10 @@ describe ImagesController, type: :controller do
   context 'PUT #dislike' do
     let(:dislike) { create(:vote, :dislike, user: @user) }
 
-    subject! { put :dislike, params: { category_id: image.category.slug, id: image.slug } }
+    subject! { put :dislike, xhr: :js, params: { category_id: image.category.slug, id: image.slug } }
 
-    it 'has a 302 code status' do
-      expect(response).to have_http_status(302)
+    it 'has a 200 code status' do
+      expect(response).to have_http_status(200)
     end
 
     it 'should be put dislike' do
@@ -158,7 +158,7 @@ describe ImagesController, type: :controller do
     end
 
     it 'should be remove dislike' do
-      put :dislike, params: { category_id: dislike.image.category.slug, id: dislike.image.slug }
+      put :dislike, xhr: :js, params: { category_id: dislike.image.category.slug, id: dislike.image.slug }
       expect(Vote.last.flag).to eq nil
     end
   end

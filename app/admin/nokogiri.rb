@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register_page 'Nokogiri' do
   content do
     render 'nokogiri/form'

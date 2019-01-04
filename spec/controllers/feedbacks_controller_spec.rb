@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe FeedbacksController, type: :controller do
+describe FeedbacksController, type: :controller do
   let(:feedback) { create(:feedback) }
 
   describe 'GET #new' do
@@ -18,6 +18,18 @@ RSpec.describe FeedbacksController, type: :controller do
 
     it 'assign @feedback' do
       expect(assigns(:feedback)) == Feedback.new
+    end
+
+    context 'with user login' do
+      before do
+        @user = create(:user)
+        @feedback = Feedback.new(email_author: @user.email, name: @user.username)
+        login_as(@user, scope: :user)
+      end
+
+      it 'new feedback relation must contain user email end username' do
+        expect(assigns(:feedback)) == @feedback
+      end
     end
   end
 

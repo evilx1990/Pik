@@ -3,8 +3,6 @@
 require 'resque/server'
 
 Rails.application.routes.draw do
-  get 'feedback/new'
-  get 'feedback/create'
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, only: :omniauth_callbacks, controllers: {
