@@ -20,11 +20,21 @@
 @import "pagination";
 @import "show-image";
 
-html {
+.navbar {
+  position: absolute;
+  z-index: 100;
 }
 
-body {
-  background-image: linear-gradient(to right, #9795f0 0%, #fbc8d4 100%);
+#slider {
+  height: 100vh;
+
+}
+
+.carousel-item {
+  height: 100vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  background-size: cover;
 }
 
 .form-style {

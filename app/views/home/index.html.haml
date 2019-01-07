@@ -1,13 +1,12 @@
-.col-10.offset-1
-  #slider.carousel.slide{'data-ride' => 'carousel'}
-    .carousel-inner
-      -get_slider_img.each_with_index do |img, index|
-        -if index.eql?(0)
-          .carousel-item.active
-            =image_tag('slider/' + img, alt: 'slide', style: 'width: 100%; display: block;')
-        -else
-          .carousel-item
-            =image_tag('slider/' + img, alt: 'slide', style: 'width: 100%; display: block;')
+#slider.carousel.slide{'data-ride' => 'carousel'}
+  .carousel-inner
+    -get_slider_img.each_with_index do |img, index|
+      -if index.eql?(0)
+        .carousel-item.active
+          =image_tag('slider/' + img, alt: 'slide', style: 'width: auto; overflow: hidden;')
+      -else
+        .carousel-item
+          =image_tag('slider/' + img, alt: 'slide', style: 'width: auto; overflow: hidden;')
     %a.carousel-control-prev{'data-slide' => 'prev', :href => '#slider', :role => 'button'}
       %span.carousel-control-prev-icon{'aria-hidden' => 'true'}
       %span.sr-only Previous
