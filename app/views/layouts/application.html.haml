@@ -8,7 +8,17 @@
     =csrf_meta_tags
     =csp_meta_tag
     =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    =javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    =javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+    %link{ :href => 'https://fonts.googleapis.com/css?family=Raleway', rel: :stylesheet}/
   %body
+    =render 'layouts/brand'
     =render 'layouts/navbar'
     =yield
+    %footer.page-footer
+      .footer-copyright.text-center.text-white
+        %br
+        © Gallery
+        .text-capitalize
+          make with ruby on rails
+        =image_tag('app_images/ruby_on_rails.png', alt: 'ruby on rails', class: 'mt-5')
+    #background

@@ -1,3 +1,14 @@
+.form-style {
+  background-color: transparent;
+  border: solid 1px black;
+  outline: none;
+  color:black;
+}
+
+.form-style::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
 #edit-user {
   text-align: center;
   padding: 5px;

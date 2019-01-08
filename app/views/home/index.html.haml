@@ -1,15 +1,13 @@
-#slider.carousel.slide{'data-ride' => 'carousel'}
+#slider.carousel.slide.carousel-fade{ 'data-ride' => 'carousel',
+                                      'data-interval' => '9000',
+                                      'data-keyboard' => 'false',
+                                      'data-pause' => 'false',
+                                      'data-touch' => 'false' }
   .carousel-inner
     -get_slider_img.each_with_index do |img, index|
       -if index.eql?(0)
-        .carousel-item.active
-          =image_tag('slider/' + img, alt: 'slide', style: 'width: auto; overflow: hidden;')
+        .carousel-item.scale.active#s1
+          =image_tag('slider/' + img, alt: 'slide')
       -else
-        .carousel-item
-          =image_tag('slider/' + img, alt: 'slide', style: 'width: auto; overflow: hidden;')
-    %a.carousel-control-prev{'data-slide' => 'prev', :href => '#slider', :role => 'button'}
-      %span.carousel-control-prev-icon{'aria-hidden' => 'true'}
-      %span.sr-only Previous
-    %a.carousel-control-next{'data-slide' => 'next', :href => '#slider', :role => 'button'}
-      %span.carousel-control-next-icon{'aria-hidden' => 'true'}
-      %span.sr-only Next
+        .carousel-item.scale#s2
+          =image_tag('slider/' + img, alt: 'slide')

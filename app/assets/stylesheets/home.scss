@@ -1,3 +1,27 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#slider {
+  background-color: black;
+}
+
+.carousel-item {
+  height: 100vh;
+}
+
+.scale {
+  animation: scale 10s linear infinite;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1)
+  }
+
+  100% {
+    transform: scale(1.1)
+  }
+}
+
+@media (min-height: 1080px) {
+  .scale img {
+    height: 100vh;
+  }
+}

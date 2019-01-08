@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
 @import "bootstrap";
 @import "header";
 @import "home";
@@ -20,30 +21,58 @@
 @import "pagination";
 @import "show-image";
 
-.navbar {
+body {
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+
+}
+
+#brand {
   position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 150px;
   z-index: 100;
 }
 
-#slider {
-  height: 100vh;
-
+#brand a {
+  height: 120px;
+  display: block;
+  margin: 15px 0 15px 0;
 }
 
-.carousel-item {
-  height: 100vh;
-  min-height: 300px;
-  background: no-repeat center center scroll;
-  background-size: cover;
+.navbar {
+  position: absolute;
+  top: 151px;
+  z-index: 100;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
-.form-style {
-  background-color: transparent;
-  border: solid 1px black;
-  outline: none;
-  color:black;
+#background {
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+  background: image_url('app_images/bg_rails.jpg') no-repeat fixed 50% -50% / cover;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
-.form-style::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+footer {
+  width: 100%;
+  height: 300px;
+  background: black;
+  opacity: 0.8;
+}
+
+
+@media (max-width: 767px) {
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .navbar a {
+    color: #000 !important;
+  }
 }
