@@ -1,30 +1,28 @@
-.row
-  -@categories.each_with_index do |category, block_id|
-    .col-10.offset-1.col-md-6.offset-md-0
-      .category.col-10.offset-1
-        -unless category.image
-          =link_to(image_tag('app_images/cat_prev.png', alt: 'Image'), category_path(category))
-        -else
-          =link_to(image_tag(category.image.picture.thumb_medium.url, alt: 'Image'), category_path(category))
-        .category-info.justify-content-between
-          %h3
-            =category.name
-          .d-inline-block{id: "category_#{block_id}"}
-            -if current_user.following?(category)
-              =link_to(image_tag('app_images/unfollow.resized.png', alt: 'unfollow'),
-                       unfollow_category_path(id: category.slug, block_id: block_id),
-                       class: 'follow',
-                       remote: true,
-                       method: :put,
-                       'data-toggle' => 'tooltip',
-                       title: t('categories.index.unfollow'))
-            -else
-              =link_to(image_tag('app_images/follow.resized.png', alt: 'follow'),
-                       follow_category_path(id: category.slug, block_id: block_id),
-                       class: 'follow',
-                       remote: true,
-                       method: :put,
-                       'data-toggle' => 'tooltip',
-                       title: t('categories.index.follow'))
+-@categories.each_with_index do |category, block_id|
+  -if category.preview
+    .category{ style: "background-image: url(#{category.preview.url});" }
+  -else
+    .category{ style: "background-image: url('/assets/app_images/cat_prev.png');" }
+
+  -#.category-info.justify-content-between
+  -#  %h3
+  -#    =category.name
+  -#  .d-inline-block{id: "category_#{block_id}"}
+  -#    -if current_user.following?(category)
+  -#      =link_to(image_tag('app_images/unfollow.resized.png', alt: 'unfollow'),
+  -#               unfollow_category_path(id: category.slug, block_id: block_id),
+  -#               class: 'follow',
+  -#               remote: true,
+  -#               method: :put,
+  -#               'data-toggle' => 'tooltip',
+  -#               title: t('categories.index.unfollow'))
+  -#    -else
+  -#      =link_to(image_tag('app_images/follow.resized.png', alt: 'follow'),
+  -#               follow_category_path(id: category.slug, block_id: block_id),
+  -#               class: 'follow',
+  -#               remote: true,
+  -#               method: :put,
+  -#               'data-toggle' => 'tooltip',
+  -#               title: t('categories.index.follow'))
 
 =render 'categories/modal' # <= Modal window here(link in layout)

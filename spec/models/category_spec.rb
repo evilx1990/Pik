@@ -19,6 +19,10 @@ describe Category, type: :model do
       it 'with more 15 symbols' do
         expect(build(:category, name: 'categoryName_categoryName')).not_to be_valid
       end
+
+      it 'with a duplicate name' do
+        expect(build(:category, name: subject.name)).not_to be_valid
+      end
     end
 
     context 'successful validate' do
