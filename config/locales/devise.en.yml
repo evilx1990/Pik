@@ -2,6 +2,8 @@
 
 en:
   devise:
+    omniauth:
+      facebook: 'Log in with Facebook'
     forms:
       fields:
         email: 'Email'
@@ -49,7 +51,7 @@ en:
       change_your_password: 'Change your password'
       change_and_login: 'Change and log in'
       new:
-        send_me_reset_password_instructions: 'Отправить инструкции'
+        send_me_reset_password_instructions: 'Sens instruction'
       minimum_pass_length: "Minimum password length: %{count}"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
@@ -57,6 +59,8 @@ en:
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
     registrations:
+      new:
+        sign_up: 'Sign up'
       edit:
         back: 'Back'
         are_you_sure: 'You are sure?'
@@ -66,8 +70,6 @@ en:
         leave_blank_if_you_don_t_want_to_change_it: "Leave blank if you don't want to change password"
         change_email_small: 'To change email, enter your current password.'
         update: 'Update'
-      new:
-        sign_up: 'Sign up'
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -76,6 +78,10 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your account has been updated successfully."
     sessions:
+      new:
+        sign_in: 'Log in'
+      destroy:
+        sign_out: 'Log out'
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."

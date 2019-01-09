@@ -2,6 +2,8 @@
 
 ru:
   devise:
+    omniauth:
+      facebook: 'Вход через Facebook'
     forms:
       fields:
         email: 'Электронная почта'
@@ -12,6 +14,11 @@ ru:
         confirm_password: 'Подтверждение пароля'
       check_box:
         remember_me: 'Запомнить меня'
+      buttons:
+        confirm: 'Подтверлить'
+        sign_in: 'Войти'
+        change_pass: 'Изменить пароль'
+        unlock_acc: 'Разблокировать аккаунт'
     confirmations:
       confirmed: "Email успешно подтвержден"
       send_instructions: "В течение нескольких минут Вы получите email с инструкциями для подтверждения"
@@ -36,7 +43,7 @@ ru:
       email_changed:
         subject: "Email изменен"
       password_change:
-        subject: "Password изменен"
+        subject: "Пароль изменен"
     omniauth_callbacks:
       failure: "Не удалось аутентифицировать вас %{kind} потому что \"%{reason}\"."
       success: "Аунтификация успешно завершена %{kind}"
@@ -45,6 +52,7 @@ ru:
       change_and_login: 'Изменить и войти'
       new:
         send_me_reset_password_instructions: 'Отправить инструкции'
+      minimum_pass_length: "Minimum password length: %{count}"
       no_token: "Сначала выполните интрукции по сбросу пароля, мы отправили ее на вашу электронную почту."
       send_instructions: "Вы получите электронное письмо с инструкциями о том, как сбросить пароль за несколько минут."
       send_paranoid_instructions: "Если ваш адрес электронной почты существует в нашей базе данных, вы получите ссылку на восстановление пароля на свой адрес электронной почты через несколько минут."
@@ -85,7 +93,7 @@ ru:
       links:
         sign_in: 'Войти'
         sign_up: 'Зарегистрироваться'
-        forgot_your_password: 'Восстановить пароль'
+        forgot_your_password: 'Восстановить пароль?'
       minimum_password_length: 'Минимальная длина пароля: %{count}'
   errors:
     messages:

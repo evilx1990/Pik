@@ -1,7 +1,25 @@
+#devise {
+  background: image_url('app_images/bg_devise.jpg') no-repeat center / cover;
+  height: 100vh;
+}
+
+#forms {
+  position: absolute;
+  top: 208px;
+  width: 100%;
+}
+
+.devise-button {
+  background: black;
+  opacity: 0.5;
+  color: white;
+  border-radius: 0;
+}
+
 .form-style {
-  background-color: transparent;
-  border: solid 1px black;
-  outline: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: solid 1px white;
+  border-radius: 0;
   color:black;
 }
 
@@ -27,4 +45,11 @@
 
 .g-recaptcha {
   display: inline-block;
+}
+
+@media (max-width: 767px) {
+  #forms {
+    top: 20%;
+    text-align: center;
+  }
 }
