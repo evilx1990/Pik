@@ -1,6 +1,6 @@
 module CategoriesHelper
-  def categories_zero?
-    Category.count.zero?
+  def categories_count
+    Category.count
   end
 
   def get_top_categories(quantity)

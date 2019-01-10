@@ -5,6 +5,8 @@ class Category < ApplicationRecord
 
   mount_uploader :preview, PreviewUploader
 
+  paginates_per 5
+
   validates :name, length: { minimum: 3, maximum: 15 }
   validates_uniqueness_of :name, case_sensitive: false
 

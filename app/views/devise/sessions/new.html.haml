@@ -1,3 +1,4 @@
+=bootstrap_devise_error_messages!
 #devise
 #forms
   .container
@@ -15,8 +16,5 @@
                 =resource.class.human_attribute_name(t('devise.forms.check_box.remember_me'))
           =show_recaptcha
           .form-group
-            =f.submit  t('devise.forms.buttons.sign_in'), class: 'btn devise-button mr-2'
-            or
-            =button_to(t('devise.omniauth.facebook'), omniauth_authorize_path(resource_name, 'facebook'), class: 'btn devise-button ml-2')
-            .form-group.mt-2.text-white
-              =render 'devise/shared/links'
+            =f.submit  t('.sign_in'), class: 'btn btn-primary'
+        =render 'devise/shared/links'

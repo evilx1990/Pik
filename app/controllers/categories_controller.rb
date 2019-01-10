@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.order(created_at: :desc)
+    @categories = Category.order(created_at: :desc).page(params[:page])
     @category = Category.new
   end
 

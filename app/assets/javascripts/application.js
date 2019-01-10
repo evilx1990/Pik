@@ -17,6 +17,4 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-setTimeout(function(){
-    $('.alert').remove();
-}, 5000);
+

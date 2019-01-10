@@ -1,5 +1,5 @@
 -@categories.each_with_index do |category, block_id|
-  -if category.preview
+  -if category.preview.present?
     .category{ style: "background-image: url(#{category.preview.url});" }
   -else
     .category{ style: "background-image: url('/assets/app_images/cat_prev.png');" }
@@ -25,4 +25,6 @@
   -#               'data-toggle' => 'tooltip',
   -#               title: t('categories.index.follow'))
 
+#paginate
+  =paginate @categories
 =render 'categories/modal' # <= Modal window here(link in layout)
