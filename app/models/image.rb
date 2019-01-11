@@ -8,14 +8,14 @@ class Image < ApplicationRecord
   belongs_to :user
 
   validates :picture, presence: true, file_size: { less_than: 50.megabytes }
-  validates :image_name, presence: true, length: { minimum: 3, maximum: 15 }
+  validates :name, presence: true
 
   extend FriendlyId
-  friendly_id :image_name, use: :slugged
+  friendly_id :name, use: :slugged
 
   mount_uploader :picture, ImageUploader
 
-  paginates_per 5
+  paginates_per 6
 
   def vote_from(user_id, vote)
     vote_record = votes.find_by(user_id: user_id)

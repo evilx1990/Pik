@@ -2,4 +2,54 @@
   background: no-repeat center center / cover;
   height: 100vh;
   overflow: hidden;
+  position: relative;
+}
+
+.category-title {
+  position: relative;
+  top: 70%;
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.category-title a {
+  color: white;
+  text-transform: lowercase;
+  text-decoration: underline;
+}
+
+#category-bg {
+  background: url('app_images/bg-category_show.jpg') no-repeat center / cover;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 31px;
+}
+
+#new-image-block {
+  position: relative;
+  top: 250px;
+  width: 100%;
+  text-align: center;
+}
+
+#images-list {
+  margin-top: 300px;
+}
+
+.image {
+  padding: 6px;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  #new-image-block {
+    top: 100px;
+  }
+
+  #images-list {
+    margin-top: 30%;
+  }
 }

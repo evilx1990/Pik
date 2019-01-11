@@ -1,8 +1,19 @@
-#paginate {
+#paginate-categories {
   background: black;
 }
 
-#paginate ul {
+#paginate-categories ul {
+  margin: 0;
+}
+
+#paginate-images {
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 50px;
+
+}
+
+#paginate-images ul {
   margin: 0;
 }
 

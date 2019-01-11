@@ -1,9 +1,5 @@
-=form_with(model: image, url: category_images_path, remote: true, class: 'm-auto') do |form|
-  =form.file_field :picture, style: 'color: white', class: 'col-8 offset-2 mb-3'
-  =form.text_field :image_name,
-                   placeholder: t('images._form.image_name_field'),
-                   maxlength: 15,
-                   class: 'col-8 offset-2'
-  %small.d-flex.col-8.offset-2.mb-4.text-white
-    =t('images._form.small')
-  =form.submit t('categories.show.upload_image'), class: 'btn btn btn-warning col-8 offset-2'
+.container
+  =form_with(model: image, url: category_images_path, local: true) do |form|
+    =form.file_field :picture, style: 'color: white', class: 'p-0 mb-2'
+    =form.text_field :name, placeholder: t('images._form.image_name_field'), class: 'form-style'
+    =form.submit t('categories.show.upload_image'), class: 'btn btn-sm devise-button m-auto'

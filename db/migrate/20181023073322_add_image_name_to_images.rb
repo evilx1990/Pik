@@ -1,5 +1,5 @@
 class AddImageNameToImages < ActiveRecord::Migration[5.2]
   def change
-    add_column :images, :image_name, :string
+    add_column :images, :name, :string
   end
 end

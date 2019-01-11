@@ -1,4 +1,4 @@
-$('<%= @block %>').html('<%= j link_to(image_tag('app_images/follow.resized.png', alt: 'follow'),
+$('<%= @block %>').html('<%= j link_to('follow',
                                        follow_category_path(id: @category.slug, block_id: params[:block_id]),
                                        class: 'follow',
                                        remote: true,

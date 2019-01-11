@@ -58,7 +58,7 @@ class ImagesController < ApplicationController
   private
 
   def image_param
-    params.require(:image).permit(:picture, :image_name)
+    params.require(:image).permit(:picture, :name)
   end
 
   def find_category

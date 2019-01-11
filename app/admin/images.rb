@@ -2,9 +2,8 @@
 
 ActiveAdmin.register Image do
   menu priority: 5
-  permit_params :image_name, :picture, :category_id
+  permit_params :picture, :category_id
 
-  filter :name
   filter :user
   filter :created_at
   filter :updated_at
@@ -32,11 +31,11 @@ ActiveAdmin.register Image do
     panel 'image Details' do
       attributes_table_for image do
         row :image do
-          link_to(image_tag(image.picture.thumb_list.url, alt: 'image', style: 'width: 50%'),
+          link_to(image_tag(image.picture.thumb_small.url, alt: 'image'),
                   image.picture.url, target: '_blank')
         end
         row :name do
-          image.image_name
+          image.name
         end
         row :author do
           image.user
@@ -51,7 +50,7 @@ ActiveAdmin.register Image do
 
   form do |f|
     f.inputs 'Image details' do
-      f.input :image_name
+      f.input :name
       f.input :category, as: :select, collection: Category.all, include_blank: false
     end
     f.actions

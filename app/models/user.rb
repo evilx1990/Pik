@@ -20,7 +20,7 @@ class User < ApplicationRecord
       user.provider = auth.provider
       user.uid = auth.uid
       user.username = auth.info.name
-      user.save!(validate: false)
+      user.save(validate: false)
     end
   end
 

@@ -23,7 +23,7 @@ namespace :app do
 
     images.each_with_index do |img, i|
       File.open(img) do |file|
-        Image.create!(picture: file, image_name: ('img_' + (i + 1).to_s), user: User.first, category: category)
+        Image.create!(picture: file, name: img[%r(^[^\\.]+)], user: User.first, category: category)
         puts "\tUpload #{File.basename(img)}"
       end
     end

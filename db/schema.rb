@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_161907) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_name"
+    t.string "name"
     t.string "slug"
     t.index ["category_id"], name: "index_images_on_category_id"
     t.index ["slug"], name: "index_images_on_slug", unique: true
