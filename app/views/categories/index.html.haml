@@ -3,7 +3,7 @@
     -"background-image: url(#{category.preview.url});"
   -else
     -"background-image: url('/assets/app_images/cat_prev.png');"
-  .category{ style: css_bg }
+  .category-preview{ style: css_bg }
     .category-title
       %h1
         =category.name
@@ -25,6 +25,10 @@
                    method: :put,
                    'data-toggle' => 'tooltip',
                    title: t('categories.index.follow'))
+    #down
+      =link_to("#category_#{block_id + 1}") do
+        %i.fas.fa-angle-double-down.fa-3x
+  %div.w-100{id: "category_#{block_id + 1}"}
 
 #paginate-categories
   =paginate @categories

@@ -1,4 +1,14 @@
-.category {
+@media (max-width: 767px) {
+  #new-image-block {
+    top: 100px;
+  }
+
+  #images-list {
+    margin-top: 30%;
+  }
+}
+
+.category-preview {
   background: no-repeat center center / cover;
   height: 100vh;
   overflow: hidden;
@@ -7,7 +17,7 @@
 
 .category-title {
   position: relative;
-  top: 70%;
+  top: 80%;
   width: 100%;
   color: white;
   text-transform: uppercase;
@@ -18,6 +28,28 @@
   color: white;
   text-transform: lowercase;
   text-decoration: underline;
+}
+
+#down {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+}
+
+#down a {
+  color: white;
+  position: relative;
+  left: -50%;
+}
+
+#down:hover {
+  animation: down 1s infinite;
+}
+
+@keyframes down {
+  50% {
+    bottom: 2%;
+  }
 }
 
 #category-bg {
@@ -40,16 +72,33 @@
 }
 
 .image {
-  padding: 6px;
+  position: relative;
+  padding: 10px;
   overflow: hidden;
 }
 
-@media (max-width: 767px) {
-  #new-image-block {
-    top: 100px;
-  }
+.image a {
+  display: block;
+  position: relative;
+}
 
-  #images-list {
-    margin-top: 30%;
+.image a:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0;
+}
+
+.image a:hover:after {
+  animation: opacity-black 0.5s forwards;
+}
+
+@keyframes opacity-black {
+  100% {
+    opacity: 0.4;
   }
 }

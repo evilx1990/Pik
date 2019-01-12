@@ -16,3 +16,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+document.addEventListener('DOMContentLoaded', function (event) {
+});
