@@ -20,6 +20,8 @@
               -get_top_categories(5).each do |category|
                 =link_to(category.name, category_path(category), class: 'dropdown-item')
         %li.nav-item
+          =link_to(t('layouts.application.categories'), categories_path, class: 'nav-link')
+        %li.nav-item
           =link_to(t('layouts.application.images'), images_path, class: 'nav-link')
         %li.nav-item
           =link_to(t('layouts.application.comments'), comments_path, class: 'nav-link')

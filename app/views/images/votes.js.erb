@@ -1,0 +1,22 @@
+$('#like').html(
+  '<%= link_to(like_category_image_path(category_id: @image.category.slug, id: @image.slug), id: 'like', remote: true, method: :put) do
+         if @image.liked?(current_user)
+           "<i class=\"far fa-thumbs-up fa-2x ml-2\">".html_safe
+         else
+           "<i class=\"far fa-thumbs-up fa-2x ml-2 text-white\">".html_safe
+         end
+       end
+%>');
+
+$('#dislike').html(
+  '<%= link_to(dislike_category_image_path(category_id: @image.category.slug, id: @image.slug), id: 'dislike', remote: true, method: :put) do
+         if @image.disliked?(current_user)
+           "<i class=\"far fa-thumbs-down fa-2x ml-2 text-danger\">".html_safe
+         else
+           "<i class=\"far fa-thumbs-down fa-2x ml-2 text-light\">".html_safe
+         end
+       end
+%>');
+
+$('#likes-count').html("<%= @image.likes.count %>");
+$('#dislikes-count').html("<%= @image.dislikes.count %>")

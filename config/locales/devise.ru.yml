@@ -60,7 +60,7 @@ ru:
       updated_not_active: "Ваш пароль был успешно изменен."
     registrations:
       new:
-        sign_up: 'Зарегистрироваться'
+        sign_up: 'Регистрация'
       edit:
         leave_blank_if_you_don_t_want_to_change_it: 'Оставьте поля пустыми, если не хотите менять пароль'
         we_need_your_current_password_to_confirm_your_changes: 'Нам нужен ваш текущий пароль для подтверждения изменений'

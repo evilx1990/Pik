@@ -4,8 +4,9 @@ en:
     application:
       title: 'Simple Gallery'
       top_categories:
-        top: "Top 5 categories"
+        top: "Top categories"
         empty: 'Empty'
+      categories: 'Categories'
       images: 'Images'
       comments: 'Comments'
       profile: 'Profile'
@@ -23,7 +24,6 @@ en:
       edit_category: 'Edit category'
     _form:
       small:
-        name_length: 'minimum 3 symbols'
         preview_image: 'preview-image'
       delete_category:
         label: 'delete category'

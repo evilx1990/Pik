@@ -1,34 +1,35 @@
--@categories.each_with_index do |category, block_id|
-  -css_bg = if category.preview.present?
-    -"background-image: url(#{category.preview.url});"
-  -else
-    -"background-image: url('/assets/app_images/cat_prev.png');"
-  .category-preview{ style: css_bg }
-    .category-title
-      %h1
-        =category.name
-      =link_to('show album', category_path(category))
-      .d-block{id: "category_#{block_id}"}
-        -if current_user.following?(category)
-          =link_to('unfollow',
-                   unfollow_category_path(id: category.slug, block_id: block_id),
-                   class: 'follow',
-                   remote: true,
-                   method: :put,
-                   'data-toggle' => 'tooltip',
-                   title: t('categories.index.unfollow'))
-        -else
-          =link_to('follow',
-                   follow_category_path(id: category.slug, block_id: block_id),
-                   class: 'follow',
-                   remote: true,
-                   method: :put,
-                   'data-toggle' => 'tooltip',
-                   title: t('categories.index.follow'))
-    #down
-      =link_to("#category_#{block_id + 1}") do
-        %i.fas.fa-angle-double-down.fa-3x
-  %div.w-100{id: "category_#{block_id + 1}"}
+#categories
+  -@categories.each_with_index do |category, block_id|
+    -css_bg = if category.preview.present?
+      -"background-image: url(#{category.preview.url});"
+    -else
+      -"background-image: url('/assets/app_images/cat_prev.png');"
+    .category-preview{ style: css_bg }
+      .category-title
+        %h1
+          =category.name
+        =link_to('show album', category_path(category))
+        .d-block{id: "category_#{block_id}"}
+          -if current_user.following?(category)
+            =link_to('unfollow',
+                     unfollow_category_path(id: category.slug, block_id: block_id),
+                     class: 'follow',
+                     remote: true,
+                     method: :put,
+                     'data-toggle' => 'tooltip',
+                     title: t('categories.index.unfollow'))
+          -else
+            =link_to('follow',
+                     follow_category_path(id: category.slug, block_id: block_id),
+                     class: 'follow',
+                     remote: true,
+                     method: :put,
+                     'data-toggle' => 'tooltip',
+                     title: t('categories.index.follow'))
+      #down
+        =link_to("#link_#{block_id}", class: 'anchor') do
+          %i.fas.fa-chevron-down
+    %div.w-100{id: "link_#{block_id}"}
 
 #paginate-categories
   =paginate @categories

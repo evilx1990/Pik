@@ -1,12 +1,12 @@
 #devise-bg {
   background: image_url('app_images/bg_devise.jpg') no-repeat center / cover;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 #forms {
-  position: relative;
-  top: 208px;
+  margin-top: 208px;
   width: 100%;
 }
 
@@ -28,9 +28,13 @@
   display: inline-block;
 }
 
+#facebook-button {
+  text-transform: capitalize;
+}
+
 @media (max-width: 767px) {
   #forms {
-    top: 20%;
+    margin-top: 100px;
     text-align: center;
   }
 }

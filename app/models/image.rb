@@ -25,6 +25,14 @@ class Image < ApplicationRecord
     vote_record.save
   end
 
+  def liked?(user)
+    Vote.find_by(image: self, user: user)&.flag.eql?(true)
+  end
+
+  def disliked?(user)
+    Vote.find_by(image: self, user: user)&.flag.eql?(false)
+  end
+
   def self.preview(category, cur_img_ct)
     category.images.order(created_at: :desc).where(Image.arel_table[:created_at].gt(cur_img_ct)).last
   end

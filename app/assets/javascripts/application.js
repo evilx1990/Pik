@@ -18,5 +18,14 @@
 //= require_tree .
 
 
-document.addEventListener('DOMContentLoaded', function (event) {
-});
+
+
+function checkParams() {
+      let name = $('#category_name').val();
+
+      if(name.length !== 0) {
+        $('#cat-modal').removeAttr('disabled');
+      } else {
+        $('#cat-modal').attr('disabled', 'disabled');
+      }
+    }

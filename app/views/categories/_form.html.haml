@@ -1,16 +1,20 @@
-=form_for @category, remote: true, html: { class: 'w-100 text-center'} do |form|
+=form_for @category, remote: true, html: { class: 'w-100 text-lowercase text-center'} do |form|
   =form.text_field :name, placeholder: t('activerecord.attributes.category.name')
-  %small.d-block
-    =t('categories._form.small.name_length')
-  -if @category.new_record?
+  %hr
+  .mt-3
     =form.file_field :preview
-    %br
-  =form.submit (@category.new_record? ? t('categories._modal.add_category') : t('categories._modal.edit_category')),
-               class: 'btn btn-warning'
-  -if @category.user.eql?(current_user)
-    .text-right
-      =link_to(t('categories._form.delete_category.label'),
-               category_path(@category),
-               class: 'btn btn-link text-danger',
-               method: :delete,
-               data: { confirm: t('categories._form.delete_category.confirm') })
+    %small.d-block
+      preview album)
+    %hr
+    .mt-3
+      =form.submit (@category.new_record? ? t('categories._modal.add_category') : t('categories._modal.edit_category')),
+                   class: 'btn devise-button',
+                   id: 'cat-modal',
+                   onkeyup: "checkParams()"
+      -if @category.user.eql?(current_user)
+        .mt-5
+          =link_to(t('categories._form.delete_category.label'),
+                   category_path(@category),
+                   class: 'btn btn-link text-danger',
+                   method: :delete,
+                   data: { confirm: t('categories._form.delete_category.confirm') })

@@ -46,13 +46,13 @@ class ImagesController < ApplicationController
   def like
     @image.vote_from(current_user.id, true)
     record_activity('like')
-    render 'images/votes_counter'
+    render 'images/votes'
   end
 
   def dislike
     @image.vote_from(current_user.id, false)
     record_activity('dislike')
-    render 'images/votes_counter'
+    render 'images/votes'
   end
 
   private

@@ -13,14 +13,17 @@
               = f.email_field :email, placeholder: t('devise.forms.fields.email'), class: 'form-control form-style mt-1'
             .form-group
               - if @minimum_password_length
-                %small{ style: 'color: black' }
+                %small.text-white
                   =t('devise.shared.minimum_password_length', count: @minimum_password_length)
               = f.password_field :password, placeholder: t('devise.forms.fields.password'), class: 'form-control form-style'
               = f.password_field :password_confirmation, placeholder: t('devise.forms.fields.confirm_password'),
-                                                         class: 'form-control form-style mt-1'
+                                                         class: 'form-control form-style'
             .form-group
-              #recaptcha
+              #recaptcha.mb-2
                 =flash[:recaptcha_error]
                 =recaptcha_tags
-              =f.submit t('.sign_up'), class: 'btn btn-warning'
+              =f.submit t('.sign_up'), class: 'btn btn-sm devise-button mr-1'
+              =link_to(t('devise.omniauth.facebook'),
+                         omniauth_authorize_path(resource_name, 'facebook'),
+                         class: 'btn btn-sm devise-button ml-1', id: 'facebook-button')
           =render 'devise/shared/links'

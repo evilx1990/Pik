@@ -4,8 +4,9 @@ ru:
     application:
       title: 'Простая галерея'
       top_categories:
-        top: "Топ 5 категорий"
+        top: "Топ категорий"
         empty: 'Пусто'
+      categories: 'Категории'
       images: 'Изображения'
       comments: 'Комментарии'
       profile: 'Профиль'
@@ -23,7 +24,6 @@ ru:
       edit_category: 'Редактировать категорию'
     _form:
       small:
-        name_length: 'минимум 3 символа'
         preview_image: 'preview-изображение'
       delete_category:
         label: 'удалить категорию'

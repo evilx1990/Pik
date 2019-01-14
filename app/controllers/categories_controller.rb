@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_param)
-    @category.user_id = current_user.id
+    @category.user = current_user
 
     if @category.save
       redirect_to categories_path
