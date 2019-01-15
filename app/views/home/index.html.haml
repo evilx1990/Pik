@@ -6,6 +6,6 @@
   .carousel-inner
     -get_slider_img.each_with_index do |img, index|
       -if index.eql?(0)
-        .carousel-item.scale.active{ style: "background-image: url('/assets/slider/#{img}')" }
+        .carousel-item.scale.active{ style: "background-image: url(#{image_url("/assets/slider/" + img)})" }
       -else
-        .carousel-item.scale{ style: "background-image: url('/assets/slider/#{img}')" }
+        .carousel-item.scale{ style: "background-image: url(#{image_url("/assets/slider/" + img)})" }
