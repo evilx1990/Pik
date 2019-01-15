@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
   before_action :find_category, only: %i[new create]
 
   def index
-    @images = Image.order(votes_count: :desc).page(params[:page]).per(20)
+    @images = Image.order(votes_count: :desc).page(params[:page]).per(21)
   end
 
   def show

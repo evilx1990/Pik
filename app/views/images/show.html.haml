@@ -36,9 +36,12 @@
     .mt-4
       =render 'comments/form'
     .mt-4
-      -if !@comments.count.zero?
-        =render @comments
+      -unless @comments.count.zero?
+        -@comments.each do |comment|
+          .comment.col-8.offset-2.col-md-6.offset-md-3
+            =render 'comments/comment', comment: comment
       -else
         %small.d-block.text-center.text-white
           =t('comments._form.your_comment_must_be_here')
+
 =render 'images/modal'

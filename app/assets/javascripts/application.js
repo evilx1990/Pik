@@ -16,16 +16,3 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
-
-
-
-
-function checkParams() {
-      let name = $('#category_name').val();
-
-      if(name.length !== 0) {
-        $('#cat-modal').removeAttr('disabled');
-      } else {
-        $('#cat-modal').attr('disabled', 'disabled');
-      }
-    }
