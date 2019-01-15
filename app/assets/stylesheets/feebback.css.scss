@@ -1,6 +1,6 @@
 #feedback-bg {
   background: url('app_images/bg-feedback.jpg') no-repeat center / cover;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
 }
