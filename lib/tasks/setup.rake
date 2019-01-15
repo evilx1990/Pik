@@ -3,7 +3,7 @@
 namespace :app do
   desc "Fill app"
   task migrate_images: :environment do
-    tasks = %w(db:drop db:create db:migrate db:seed)
+    tasks = %w(db:migrate db:seed)
     tasks.each { |t| Rake::Task[t].invoke }
 
     Dir.chdir("#{Rails.root}/lib/assets/to_table/images")
