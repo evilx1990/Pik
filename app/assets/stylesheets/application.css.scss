@@ -13,7 +13,6 @@
  */
 
 @import "bootstrap";
-@import "header";
 @import "home";
 @import "devise";
 @import "categories";
@@ -26,6 +25,7 @@
 body {
   font-family: 'Raleway', sans-serif;
   color: white;
+  background: gray;
 }
 
 #brand {
@@ -49,21 +49,17 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-#background {
-  position: fixed;
-  bottom: 0;
-  z-index: -1;
-  background: gray;
+#black-bg {
+  background: black;
+  min-height: 100vh;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
 }
 
 footer {
   width: 100%;
   height: 200px;
   background: black;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 @media (max-width: 767px) {
