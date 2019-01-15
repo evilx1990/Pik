@@ -1,6 +1,6 @@
 #image-bg
   #image
-    .image-container
+    .container.pl-0.pr-0
       .position-relative
         =image_tag(@image.picture.url, class: 'w-100 h-100', alt: 'some_image')
         =link_to(category_path(@image.category), id: 'back') do
@@ -32,5 +32,13 @@
 
     =previous_image(@image) # helper return link to previous image
     =next_image(@image) # helper return link to next image
-
+  .container
+    .mt-4
+      =render 'comments/form'
+    .mt-4
+      -if !@comments.count.zero?
+        =render @comments
+      -else
+        %small.d-block.text-center.text-white
+          =t('comments._form.your_comment_must_be_here')
 =render 'images/modal'

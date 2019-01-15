@@ -14,43 +14,6 @@
   margin-top: 15px;
 }
 
-.image-container {
-  width:100%;
-  margin-right:auto;
-  margin-left: auto;
-}
-
-@media (min-width: 576px){
-  .image-container{
-    max-width: 540px
-  }
-}
-
-@media (min-width: 768px) {
-  .image-container{
-    max-width: 720px
-  }
-}
-
-@media (min-width: 992px){
-  .image-container{
-    max-width: 960px
-  }
-}
-
-@media (min-width: 12px){
-  .image-container{
-    max-width: 1280px;
-  }
-}
-
-#show-image {
-  position: absolute;
-  top: 5%;
-  left: 15%;
-  right: 15%;
-}
-
 #previous {
   position: absolute;
   z-index: 1;
