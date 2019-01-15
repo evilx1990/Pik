@@ -59,6 +59,16 @@ body {
   margin: -15px;
 }
 
+.dropdown-item {
+  color: black !important;
+  text-decoration: none;
+}
+
+.dropdown-item{
+  color: black !important;
+  background-color: transparent;
+}
+
 #black-bg {
   background: black;
   min-height: 100vh;
@@ -88,5 +98,9 @@ footer {
 
   .navbar a {
     color: #fff !important;
+  }
+
+  .dropdown-menu a {
+    color: #000 !important;
   }
 }
