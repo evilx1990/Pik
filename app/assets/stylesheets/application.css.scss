@@ -49,6 +49,16 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.navbar-brand {
+  display: none;
+  width: 30px;
+}
+
+#text-brand {
+  display: none;
+  margin: -15px;
+}
+
 #black-bg {
   background: black;
   min-height: 100vh;
@@ -67,12 +77,16 @@ footer {
     top: -150px;
   }
 
+  .navbar-brand, #text-brand {
+    display: block;
+  }
+
   .navbar {
     top: 0;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   .navbar a {
-    color: #000 !important;
+    color: #fff !important;
   }
 }

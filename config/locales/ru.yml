@@ -2,7 +2,7 @@ ru:
   recaptcha_fail: 'Не удалось подтвердить reCAPTCHA, пожалуйста, попробуйте еще раз'
   layouts:
     application:
-      title: 'Простая галерея'
+      title: 'Простая Галерея'
       top_categories:
         top: "Топ категорий"
         empty: 'Пусто'
