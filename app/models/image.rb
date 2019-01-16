@@ -16,8 +16,6 @@ class Image < ApplicationRecord
 
   mount_uploader :picture, ImageUploader
 
-  paginates_per 6
-
   # vote must contain true/false
   def vote_from(user, vote)
     vote_record = votes.find_by(user: user)
@@ -35,10 +33,12 @@ class Image < ApplicationRecord
     Vote.find_by(image: self, user: user)&.flag.eql?(false)
   end
 
+  # get previous image in category
   def self.previous(category, cur_img_at)
     category.images.order(created_at: :desc).where(Image.arel_table[:created_at].gt(cur_img_at)).last
   end
 
+  # get next image in category
   def self.next(category, cur_img_at)
     category.images.order(created_at: :desc).where(Image.arel_table[:created_at].lt(cur_img_at)).first
   end

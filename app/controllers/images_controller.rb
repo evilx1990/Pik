@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_image, only: %i[show like dislike download share full_size]
+  before_action :find_image, only: %i[show download share like dislike]
   before_action :find_category, only: %i[new create]
 
   def index
-    @images = Image.order(votes_count: :desc).page(params[:page]).per(21)
+    @images = Image.order('random()').page(params[:page]).per(21)
   end
 
   def show
-    @comments = @image.comments.order(created_at: :desc).page(params[:page])
-    @comment = @image.comments.build
+    @comment = @image.comments.new
+    @comments = @image.comments.order(created_at: :desc).page(params[:page]).per(6)
     record_activity('navigation')
   end
 
