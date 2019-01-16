@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HomeHelper
   def get_slider_img
     Dir.chdir("#{Rails.root}/app/assets/images/slider")

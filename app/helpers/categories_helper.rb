@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CategoriesHelper
   def categories_count
     Category.count

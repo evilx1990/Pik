@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 module ImagesHelper
   def previous_image(image_rel)
-    image = Image.preview(image_rel.category, image_rel.created_at)
-    result(image, 'fas fa-chevron-left fa', 'previous')
+    image = Image.previous(image_rel.category, image_rel.created_at)
+    result(image, 'fas fa-chevron-left', 'previous')
   end
 
   def next_image(image_rel)
     image = Image.next(image_rel.category, image_rel.created_at)
-    result(image, 'fas fa-chevron-right fa', 'next')
+    result(image, 'fas fa-chevron-right', 'next')
   end
 
   private

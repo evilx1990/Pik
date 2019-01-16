@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
@@ -12,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def record_activity(note)
-    @activity = Activity.create!(user_id: current_user.id, action: note, url: request.original_url)
+    Activity.create!(user: current_user, action: note, url: request.original_url)
   end
 
   def set_locale

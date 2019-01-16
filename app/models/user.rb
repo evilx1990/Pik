@@ -1,18 +1,21 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-  has_many :activities, dependent: :destroy
-  has_many :categories, dependent: :destroy
-  has_many :follows, dependent: :destroy
-  has_many :images
-  has_many :comments
-  has_many :votes
+  has_many  :activities, dependent: :destroy
+  has_many  :categories, dependent: :destroy
+  has_many  :follows, dependent: :destroy
+  has_many  :images
+  has_many  :comments
+  has_many  :votes
 
   # Include default devise modules. Others available are:
   # :confirmable, :timeoutable
   devise :database_authenticatable,:registerable, :trackable, :lockable,
          :recoverable, :rememberable, :validatable, :omniauthable
+
   mount_uploader :avatar, AvatarUploader
 
-  validates :username, presence: true
+  validates               :username, presence: true
   validates_uniqueness_of :username, case_sensitive: false
 
   def self.find_for_facebook_oath(auth)
@@ -31,16 +34,17 @@ class User < ApplicationRecord
   def follow(category)
     params = {
       category: category,
-      user_id: self.id
+      user: self
     }
+
     category.follows.create!(params)
   end
 
   def stop_following(category)
-    category.follows.find_by(user_id: id)&.destroy
+    category.follows.find_by(user: self)&.destroy
   end
 
   def following?(category)
-    category.follows.find_by(user_id: id)
+    category.follows.find_by(user: self)
   end
 end

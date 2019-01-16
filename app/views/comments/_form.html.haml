@@ -1,4 +1,4 @@
-=form_with model: @image.comments.build,
+=form_with model: @comment,
            url: category_image_comments_path(category_id: @image.category_id, image_id: @image.id),
            html: { class: 'row'} do |form|
   =form.text_area :body, rows: '3', placeholder: t('comments._form.comment_here'), class: 'form-style col-8 offset-2 col-md-4 offset-md-4'

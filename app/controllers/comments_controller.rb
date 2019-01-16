@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
@@ -9,9 +11,10 @@ class CommentsController < ApplicationController
     @comment = Image.find(params[:image_id]).comments.new(comment_params)
     @comment.user = current_user
 
-    if @comment.save!
+    if @comment.save
       record_activity('comment')
-      redirect_to category_image_path(id: params[:image_id]), remote: true
+      redirect_to category_image_path(category_id: @comment.image.category.slug,
+                                      id: @comment.image.slug )
     end
   end
 

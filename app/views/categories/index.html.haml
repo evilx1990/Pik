@@ -8,10 +8,10 @@
       .category-title
         %h1
           =category.name
-        =link_to('show album', category_path(category))
+        =link_to(t('categories.index.show_album'), category_path(category))
         .d-block{id: "category_#{block_id}"}
           -if current_user.following?(category)
-            =link_to('unfollow',
+            =link_to(t('categories.index.unfollow'),
                      unfollow_category_path(id: category.slug, block_id: block_id),
                      class: 'follow',
                      remote: true,
@@ -19,14 +19,14 @@
                      'data-toggle' => 'tooltip',
                      title: t('categories.index.unfollow'))
           -else
-            =link_to('follow',
+            =link_to(t('categories.index.follow'),
                      follow_category_path(id: category.slug, block_id: block_id),
                      class: 'follow',
                      remote: true,
                      method: :put,
                      'data-toggle' => 'tooltip',
                      title: t('categories.index.follow'))
-      #down
+      #move-down
         =link_to("#link_#{block_id}", class: 'anchor') do
           %i.fas.fa-chevron-down
     %div.w-100{id: "link_#{block_id}"}

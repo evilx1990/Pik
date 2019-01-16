@@ -1,37 +1,37 @@
 #black-bg
   #image
-    .container.pl-0.pr-0
-      .position-relative
-        =image_tag(@image.picture.url, class: 'w-100 h-100', alt: 'some_image')
-        =link_to(category_path(@image.category), id: 'back') do
-          %i.far.fa-window-close.text-white.bg-dark
+    .container.position-relative.pl-0.pr-0
+      =image_tag(@image.picture.url, class: 'w-100 h-100', alt: 'some_image')
+      =link_to(category_path(@image.category), id: 'back') do
+        %i.far.fa-window-close.text-white.bg-dark
 
-      -# Likes/dislikes
-      .d-flex.justify-content-center.text-white.mt-2
-        =link_to(like_category_image_path(category_id: @image.category.slug, id: @image.slug), id: 'like',remote: true, method: :put) do
-          -if @image.liked?(current_user)
-            %i.far.fa-thumbs-up.fa-2x
-          -else
-            %i.far.fa-thumbs-up.fa-2x.text-white
-        #likes-count.mt-1.ml-2
-          =@image.likes.count
-        &nbsp
-        #dislikes-count.mt-1
-          =@image.dislikes.count
-        =link_to(dislike_category_image_path(category_id: @image.category.slug, id: @image.slug), id: 'dislike', remote: true, method: :put) do
-          -if @image.disliked?(current_user)
-            %i.far.fa-thumbs-down.fa-2x.ml-2.text-danger
-          -else
-            %i.far.fa-thumbs-down.fa-2x.ml-2.text-white
-            -#---------------------------------------------------
+    .d-flex.justify-content-center.text-white.mt-2
+      =link_to(like_category_image_path(category_id: @image.category.slug, id: @image.slug), id: 'like',remote: true, method: :put) do
+        -if @image.liked?(current_user)
+          %i.far.fa-thumbs-up.fa-2x
+        -else
+          %i.far.fa-thumbs-up.fa-2x.text-white
 
-        =link_to(download_category_image_path(id: @image.id), target: '_blank', class: 'm-1') do
-          %i.fas.fa-file-download.fa-2x.ml-5
-        =link_to('#modalCategory','data-toggle' => 'modal', class: 'm-1') do
-          %i.far.fa-envelope.fa-2x.ml-2
+      #likes-count.mt-1.ml-2
+        =@image.likes.count
+      &nbsp
+      #dislikes-count.mt-1
+        =@image.dislikes.count
+
+      =link_to(dislike_category_image_path(category_id: @image.category.slug, id: @image.slug), id: 'dislike', remote: true, method: :put) do
+        -if @image.disliked?(current_user)
+          %i.far.fa-thumbs-down.fa-2x.ml-2.text-danger
+        -else
+          %i.far.fa-thumbs-down.fa-2x.ml-2.text-white
+
+      =link_to(download_category_image_path(id: @image.id), target: '_blank', class: 'm-1') do
+        %i.fas.fa-file-download.fa-2x.ml-5
+      =link_to('#modalCategory','data-toggle' => 'modal', class: 'm-1') do
+        %i.far.fa-envelope.fa-2x.ml-2
 
     =previous_image(@image) # helper return link to previous image
     =next_image(@image) # helper return link to next image
+
   .container
     .mt-4
       =render 'comments/form'

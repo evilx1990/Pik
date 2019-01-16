@@ -13,8 +13,7 @@ en:
       log_out: 'Log out'
   categories:
     index:
-      author: 'author: '
-      show: 'show'
+      show: 'show album'
       follow: 'follow'
       unfollow: 'unfollow'
     show:
@@ -22,6 +21,7 @@ en:
     _modal:
       add_category: 'Create category'
       edit_category: 'Edit category'
+      preview_album: 'preview album'
     _form:
       small:
         preview_image: 'preview-image'

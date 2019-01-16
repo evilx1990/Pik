@@ -1,8 +1,8 @@
 #modalCategory.modal.fade{ tabindex: '-1', role: 'dialog' }
   .modal-dialog.modal-dialog-centered
-    .modal-content
+    .modal-content.text-black-50
       .modal-header
-        %strong
+        %strong.text-black-50
           -if @category.new_record?
             =t('categories._modal.add_category')
           -else

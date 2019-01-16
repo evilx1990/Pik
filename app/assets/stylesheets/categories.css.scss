@@ -20,19 +20,19 @@
   text-decoration: underline;
 }
 
-#down {
+#move-down {
   position: absolute;
   bottom: 3%;
   left: 50%;
 }
 
-#down a {
+#move-down a {
   color: white;
   position: relative;
   left: -50%;
 }
 
-#down:hover {
+#move-down:hover {
   animation: down 1s infinite;
 }
 
@@ -58,6 +58,12 @@
   text-align: center;
 }
 
+.upload-button {
+  background: white;
+  color: black;
+  opacity: 0.7;
+}
+
 #images-list {
   margin-top: 300px;
 }
@@ -71,7 +77,6 @@
     margin-top: 150px;
   }
 }
-
 
 .image {
   position: relative;

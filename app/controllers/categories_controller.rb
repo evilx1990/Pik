@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_category, only: %i[show update destroy follow unfollow]
+  before_action :find_category, except: %i[index create]
   before_action :block_id, only: %i[follow unfollow]
   after_action  only: %i[index show] do
     record_activity('navigation')
@@ -22,21 +24,25 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path
     else
+      @categories = Category.order(created_at: :desc).page(params[:page])
       @category = Category.new
       render :index
     end
   end
 
   def update
-    redirect_to category_path(@category) if @category.update(category_param)
+    @category.update(category_param)
+    redirect_to category_path(@category)
   end
 
   def destroy
-    redirect_to categories_path if @category.destroy
+    @category.destroy
+    redirect_to categories_path
   end
 
   def follow
-    send_email_after_follow(@category.name) if current_user.follow(@category)
+    current_user.follow(@category)
+    send_email_after_follow(@category.name)
   end
 
   def unfollow

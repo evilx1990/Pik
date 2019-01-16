@@ -3,14 +3,14 @@
     =link_to(t('categories.show.upload_image'),
              new_category_image_path(@category),
              remote: true,
-             class: 'btn btn-sm devise-button')
-  #images-list
-    .container
-      .row
-        -@images.each do |image|
-          .image.col-6.col-md-4
-            =link_to(image_tag(image.picture.url, alt: 'picture', class: 'w-100'),
-                     category_image_path(id: image.slug, category_id: image.category.slug))
+             class: 'btn btn-sm upload-button')
+
+  .container#images-list
+    .row
+      -@images.each do |image|
+        .image.col-6.col-md-4
+          =link_to(image_tag(image.picture.url, alt: 'picture', class: 'w-100'),
+                   category_image_path(id: image.slug, category_id: image.category.slug))
 
   #paginate-images
     =paginate @images

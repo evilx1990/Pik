@@ -2,4 +2,4 @@
   =form_with(model: image, url: category_images_path, local: true) do |form|
     =form.file_field :picture, style: 'color: white', class: 'p-0 mb-2'
     =form.text_field :name, placeholder: t('images._form.image_name_field'), class: 'form-style'
-    =form.submit t('categories.show.upload_image'), class: 'btn btn-sm devise-button m-auto'
+    =form.submit t('categories.show.upload_image'), class: 'btn btn-sm upload-button m-auto'

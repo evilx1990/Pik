@@ -1,16 +1,14 @@
-=form_for @category, remote: true, html: { class: 'w-100 text-lowercase text-center'} do |form|
+=form_for(@category, html: { class: 'w-100 text-lowercase text-center'}, remote: true) do |form|
   =form.text_field :name, placeholder: t('activerecord.attributes.category.name')
   %hr
   .mt-3
     =form.file_field :preview
-    %small.d-block
-      preview album)
+    %small.text-black-50.d-block
+      =t('categories._modal.preview_album')
     %hr
     .mt-3
       =form.submit (@category.new_record? ? t('categories._modal.add_category') : t('categories._modal.edit_category')),
-                   class: 'btn devise-button',
-                   id: 'cat-modal',
-                   onkeyup: "checkParams()"
+                   class: 'btn devise-button'
       -if @category.user.eql?(current_user)
         .mt-5
           =link_to(t('categories._form.delete_category.label'),

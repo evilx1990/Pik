@@ -1,4 +1,4 @@
-$('<%= @block %>').html('<%= j link_to('unfollow',
+$('<%= @block %>').html('<%= j link_to(t('categories.index.unfollow'),
                                        unfollow_category_path(id: @category.slug, block_id: params[:block_id]),
                                        class: 'follow',
                                        remote: true,

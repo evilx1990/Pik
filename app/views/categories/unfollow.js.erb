@@ -1,4 +1,4 @@
-$('<%= @block %>').html('<%= j link_to('follow',
+$('<%= @block %>').html('<%= j link_to(t('categories.index.follow'),
                                        follow_category_path(id: @category.slug, block_id: params[:block_id]),
                                        class: 'follow',
                                        remote: true,

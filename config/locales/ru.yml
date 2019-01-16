@@ -13,8 +13,7 @@ ru:
       log_out: 'Выход'
   categories:
     index:
-      author: 'автор: '
-      show: 'перейти'
+      show_album: 'открыть альбом'
       follow: 'подписаться'
       unfollow: 'отписаться'
     show:
@@ -22,6 +21,7 @@ ru:
     _modal:
       add_category: 'Добавить категорию'
       edit_category: 'Редактировать категорию'
+      preview_album: 'preview альбома'
     _form:
       small:
         preview_image: 'preview-изображение'

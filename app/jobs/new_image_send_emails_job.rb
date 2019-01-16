@@ -1,3 +1,5 @@
+# frozen_string_litetal: true
+
 class NewImageSendEmailsJob < ApplicationJob
   queue_as :mailer
 
