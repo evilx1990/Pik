@@ -1,4 +1,12 @@
 #categories
+  -if @categories.count.eql?(0)
+    .category-preview{ style: "background-image: url('/assets/app_images/bg-empty_gallery.jpg');" }
+      .category-title.text-lowercase.text-dark
+        %h3.col-6.p-0
+          =t('categories.index.empty')
+        =link_to(t('categories._modal.add_category'),
+                 '#modalCategory',
+                 'data-toggle' => 'modal', class: 'h3 text-dark', id: 'empty')
   -@categories.each_with_index do |category, block_id|
     -css_bg = if category.preview.present?
       -"background-image: url(#{category.preview.url});"

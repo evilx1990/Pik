@@ -13,9 +13,10 @@ en:
       log_out: 'Log out'
   categories:
     index:
-      show: 'show album'
+      show: 'show category'
       follow: 'follow'
       unfollow: 'unfollow'
+      empty: 'While in the gallery is empty. But you can create a new category.'
     show:
       upload_image: 'Upload image'
     _modal:

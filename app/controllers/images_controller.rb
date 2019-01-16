@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
 
   def create
     @image = @category.images.new(image_param)
-    @image.user_id = current_user.id
+    @image.user = current_user
 
     if @image.save!
       send_new_image_emails(@image)
@@ -30,7 +30,7 @@ class ImagesController < ApplicationController
   end
 
   def download
-    if %w(development test).include?(ENV['RAILS_ENV'])
+    if %w[development test].include?(ENV['RAILS_ENV'])
       send_file(@image.picture.path)
     else
       send_data(open(@image.picture.url).read, filename: File.basename(@image.picture.path))

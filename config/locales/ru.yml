@@ -13,9 +13,10 @@ ru:
       log_out: 'Выход'
   categories:
     index:
-      show_album: 'открыть альбом'
+      show_category: 'открыть категорию'
       follow: 'подписаться'
       unfollow: 'отписаться'
+      empty: 'Пока в галерее пусто. Но ты можешь создать новый альбом.'
     show:
       upload_image: 'Заргузить изображение'
     _modal:
