@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
   before_action :find_category, only: %i[new create]
 
   def index
-    @images = Image.order('random()').page(params[:page]).per(21)
+    @images = Image.order(created_at: :desc).page(params[:page])
   end
 
   def show

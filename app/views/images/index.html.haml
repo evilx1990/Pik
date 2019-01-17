@@ -1,10 +1,23 @@
-#category-bg
+#index-images-bg
   #images-list
     .container
       .row
-        -@images.each do |image|
+        -@images.each_with_index do |image, index|
           .image.col-6.col-md-4
-            =link_to(image_tag(image.picture.url, alt: 'picture', class: 'w-100'), '#')
+            -# for :after pseudo-selector
+            .pseudo-after{ onclick: "showModal(#{index});" }
+              =image_tag(image.picture.url, alt: 'picture', class: 'w-100')
 
-    #paginate-images
-      =paginate @images
+#index-slider
+  .container
+    #slider-content
+      .close
+        %p{ onclick: 'hideModal();' }
+          x
+      .next{ onclick: 'next();' }
+        %i.fas.fa-chevron-right.fa-2x
+      .prev{ onclick: 'prev();' }
+        %i.fas.fa-chevron-left.fa-2x
+
+      -@images.each do |image|
+        =image_tag(image.picture.url, alt: 'picture', class: 'w-100 slider-image')
