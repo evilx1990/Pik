@@ -10,14 +10,14 @@
 
 #index-slider
   .container
+    .close
+      %p{ onclick: 'hideModal();' }
+        x
+    .next{ onclick: 'next();' }
+      %i.fas.fa-chevron-right.fa-2x
+    .prev{ onclick: 'prev();' }
+      %i.fas.fa-chevron-left.fa-2x
     #slider-content
-      .close
-        %p{ onclick: 'hideModal();' }
-          x
-      .next{ onclick: 'next();' }
-        %i.fas.fa-chevron-right.fa-2x
-      .prev{ onclick: 'prev();' }
-        %i.fas.fa-chevron-left.fa-2x
 
       -@images.each do |image|
-        =image_tag(image.picture.url, alt: 'picture', class: 'w-100 slider-image')
+        =image_tag(image.picture.url, alt: 'picture', class: 'slider-image')
