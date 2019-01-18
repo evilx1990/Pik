@@ -11,7 +11,7 @@ describe 'Facebook login', type: :view do
   it 'should be create and login user from facebook', driver: :selenium_chrome_headless do
     mock_auth_hash
     visit new_user_session_path
-    find('#devise-forms > a').click
+    find('#facebook-button').click
     expect(page).to have_text(OmniAuth.config.mock_auth[:facebook].info.name)
   end
 end

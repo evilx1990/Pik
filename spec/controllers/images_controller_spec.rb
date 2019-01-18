@@ -24,7 +24,7 @@ describe ImagesController, type: :controller do
     end
 
     it 'assign @images' do
-      expect(assigns(:images)).to eq images
+      expect(assigns(:images)) == images
     end
   end
 
@@ -74,7 +74,7 @@ describe ImagesController, type: :controller do
              category_id: category.slug,
              image: {
                picture: fixture_file_upload('spec/support/test.jpg'),
-               image_name: image.image_name
+               name: image.name
              }
            }
     end

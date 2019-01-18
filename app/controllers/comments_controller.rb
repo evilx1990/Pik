@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Image.find(params[:image_id]).comments.new(comment_params)
+    @comment = Image.friendly.find(params[:image_id]).comments.new(comment_params)
     @comment.user = current_user
 
     if @comment.save

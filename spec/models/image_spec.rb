@@ -9,50 +9,34 @@ describe Image, type: :model do
     context 'should be invalid' do
       it 'without image name' do
         expect(build(:image,
-                     image_name: nil,
+                     name: nil,
                      picture: image.picture,
-                     user_id: image.user_id,
-                     category_id: image.category.id)).not_to be_valid
-      end
-
-      it 'with image name less 3 symbols' do
-        expect(build(:image,
-                     image_name: 'im',
-                     picture: image.picture,
-                     user_id: image.user_id,
-                     category_id: image.category_id)).not_to be_valid
-      end
-
-      it 'with image name more 15 symbols' do
-        expect(build(:image,
-                     image_name: 'image_name_image_name',
-                     picture: image.picture,
-                     user_id: image.user_id,
-                     category_id: image.category_id)).not_to be_valid
+                     user: image.user,
+                     category: image.category)).not_to be_valid
       end
 
       it 'without image' do
         expect(build(:image,
-                     image_name: image.image_name,
+                     name: image.name,
                      picture: nil,
-                     user_id: image.user_id,
-                     category_id: image.category_id)).not_to be_valid
+                     user: image.user,
+                     category: image.category)).not_to be_valid
       end
 
       it 'with image size more 50 mb' do
         expect(build(:image,
-                     image_name: image.image_name,
+                     name: image.name,
                      picture: File.open("#{Rails.root}/spec/support/test_more_50_mb_image.jpg"),
-                     user_id: image.user_id,
-                     category_id: image.category_id)).not_to be_valid
+                     user: image.user,
+                     category: image.category)).not_to be_valid
       end
 
       it 'with format different from jpg/jpeg/png' do
         expect(build(:image,
-                     image_name: image.image_name,
+                     name: image.name,
                      picture: File.open("#{Rails.root}/spec/support/test.bmp"),
-                     user_id: image.user_id,
-                     category_id: image.category_id)).not_to be_valid
+                     user: image.user,
+                     category: image.category)).not_to be_valid
       end
     end
 
@@ -94,7 +78,7 @@ describe Image, type: :model do
       let(:user) { create(:user) }
 
       it 'should be return true with valid parameters' do
-        expect(subject.vote_from(user.id, true)).to be_truthy
+        expect(subject.vote_from(user, true)).to be_truthy
       end
     end
   end

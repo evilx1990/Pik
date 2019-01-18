@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :image, class: 'Image' do
-    sequence(:image_name) { |n| "image_#{n}" }
+    sequence(:name) { |n| "image_#{n}" }
 
     picture     { File.new(Rails.root + 'spec/support/test.jpg') }
 

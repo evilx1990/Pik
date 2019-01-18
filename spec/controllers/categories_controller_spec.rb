@@ -51,14 +51,14 @@ describe CategoriesController, type: :controller do
   end
 
   context 'POST #create' do
-    let(:new_category) { build(:category, name: category.name, user: @user) }
+    let(:new_category) { build(:category, user: @user) }
 
     subject! do
       post :create,
            params: {
              category: {
                name: new_category.name,
-               image_id: nil
+               preview: nil
              }
            }
     end
@@ -89,8 +89,8 @@ describe CategoriesController, type: :controller do
           params: {
             id: category_image.id,
             category: {
-              name: Faker::FunnyName.name[3..15],
-              image_id: category_image.images.first.id
+              name: Faker::String.random(10),
+              preview: nil
             }
           }
     end

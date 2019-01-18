@@ -35,8 +35,8 @@ describe CommentsController, type: :controller do
     subject! do
       post :create,
            params: {
-             category_id: image.category.id,
-             image_id: image.id,
+             category_id: image.category.slug,
+             image_id: image.slug,
              comment: {
                body: comment.body
              }
@@ -48,7 +48,7 @@ describe CommentsController, type: :controller do
     end
 
     it 'should be create new comment' do
-      expect(response).to redirect_to category_image_path(id: image.id)
+      expect(response).to redirect_to category_image_path(id: image.slug)
     end
   end
 end

@@ -44,10 +44,6 @@ describe Category, type: :model do
     it 'belongs to user' do
       expect(Category.reflect_on_association(:user).macro).to eq(:belongs_to)
     end
-
-    it 'belongs to image(for preview)' do
-      expect(Category.reflect_on_association(:image).macro).to eq(:belongs_to)
-    end
   end
 
   describe 'counter cache' do

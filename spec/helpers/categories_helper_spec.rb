@@ -5,14 +5,14 @@ require 'rails_helper'
 describe CategoriesHelper, type: :helper do
   let(:categories) { create_list(:category_with_img_cmnt_fllw, 5) }
 
-  describe '#categories_zero?' do
+  describe '#categories' do
     it 'should be return true if categories list empty' do
-      expect(helper.categories_zero?).to be_truthy
+      expect(helper.categories_count.zero?).to be_truthy
     end
 
     it 'should be return false if categories list not empty' do
       categories
-      expect(helper.categories_zero?).to be_falsey
+      expect(helper.categories_count.zero?).to be_falsey
     end
   end
 

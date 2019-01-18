@@ -9,12 +9,12 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.order(created_at: :desc).page(params[:page])
+    @categories = Category.order(created_at: :desc).page(params[:page]).per(5)
     @category = Category.new
   end
 
   def show
-    @images = @category.images.order(created_at: :desc).page(params[:page])
+    @images = @category.images.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def create
@@ -24,6 +24,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path
     else
+      puts @category.errors.inspect
       @categories = Category.order(created_at: :desc).page(params[:page])
       @category = Category.new
       render :index

@@ -23,7 +23,7 @@ class ImagesController < ApplicationController
     @image = @category.images.new(image_param)
     @image.user = current_user
 
-    if @image.save!
+    if @image.save
       send_new_image_emails(@image)
       redirect_to category_path(params[:category_id])
     end
