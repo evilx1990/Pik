@@ -6,7 +6,7 @@
              class: 'btn btn-sm upload-button')
 
   .container#images-list
-    .row
+    .row.align-items-center
       -@images.each do |image|
         .image.col-6.col-md-4
           =link_to(image_tag(image.picture.url, alt: 'picture', class: 'w-100'),

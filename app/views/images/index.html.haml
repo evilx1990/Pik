@@ -1,23 +1,21 @@
 #index-images-bg
-  #images-list
+  #index-images-list
     .container
-      .row
+      .row.align-items-center.mb-5
         -@images.each_with_index do |image, index|
           .image.col-6.col-md-4
             -# for :after pseudo-selector
             .pseudo-after{ onclick: "showModal(#{index});" }
-              =image_tag(image.picture.url, alt: 'picture', class: 'w-100')
+              =image_tag(image.picture.url, alt: 'picture', class: 'mw-100 mh-100')
 
 #index-slider
   .container
-    .close
-      %p{ onclick: 'hideModal();' }
-        x
+    .close{ onclick: 'hideModal();' }
+      %i.far.fa-window-close
     .next{ onclick: 'next();' }
       %i.fas.fa-chevron-right.fa-2x
     .prev{ onclick: 'prev();' }
       %i.fas.fa-chevron-left.fa-2x
     #slider-content
-
       -@images.each do |image|
         =image_tag(image.picture.url, alt: 'picture', class: 'slider-image')
