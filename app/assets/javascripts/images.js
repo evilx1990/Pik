@@ -3,12 +3,22 @@ let modal;          // Модальное окно
 let images;         // Массив картинок в модальном окне
 
 window.onkeydown = function (event) {
-  if(!['ArrowRight', 'ArrowLeft'].includes(event.key)){
+  if(!['ArrowRight', 'ArrowLeft', 'Escape'].includes(event.key)){
     return null;
   }
 
   if(modal.style.display === 'block') {
-    event.key === 'ArrowRight'? next() : prev();
+    switch(event.key){
+      case 'ArrowRight':
+        next();
+        break;
+      case 'ArrowLeft':
+        prev();
+        break;
+      case 'Escape':
+        hideModal();
+        break;
+    }
   }
 };
 
@@ -52,4 +62,5 @@ function hideModal() {
   modal.style.display = 'none';
   modal.parentNode.style.overflow = 'visible';
   images[current_index].classList.remove('show-image');
+  images[current_index].classList.add('hidden-image');
 }
