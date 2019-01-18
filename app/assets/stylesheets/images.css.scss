@@ -5,6 +5,7 @@
 #index-images-bg {
   background: url("app_images/bg-images_index.jpg") repeat center;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 #image {
@@ -93,7 +94,7 @@
   margin: auto;
 }
 
-.close {
+.close-slider {
   position: fixed;
   top: 10px;
   right: 10px;
