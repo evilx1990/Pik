@@ -2,8 +2,6 @@
   #image
     .container.position-relative.pl-0.pr-0
       =image_tag(@image.picture.url, class: 'w-100 h-100', alt: 'some_image')
-      =link_to(category_path(@image.category), id: 'back') do
-        %i.far.fa-window-close.text-white.bg-dark
 
     .d-flex.justify-content-center.text-white.mt-2
       =link_to(like_category_image_path(category_id: @image.category.slug, id: @image.slug), id: 'like',remote: true, method: :put) do
@@ -29,6 +27,8 @@
       =link_to('#modalCategory','data-toggle' => 'modal', class: 'm-1') do
         %i.far.fa-envelope.fa-2x.ml-2
 
+    =link_to(category_path(@image.category), id: 'back') do
+      %i.far.fa-window-close.fa-2x.text-white-50.bg-dark
     =previous_image(@image) # helper return link to previous image
     =next_image(@image) # helper return link to next image
 

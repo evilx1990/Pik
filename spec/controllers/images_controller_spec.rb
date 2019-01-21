@@ -111,7 +111,7 @@ describe ImagesController, type: :controller do
             share: {
               url: Faker::Internet.url,
               email: Faker::Internet.email,
-              messege: Faker::String.random
+              messege: Faker::String.random(10)
             }
           }
     end

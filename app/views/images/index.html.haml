@@ -6,16 +6,16 @@
           .image.col-6.col-md-4
             -# for :after pseudo-selector
             .pseudo-after{ onclick: "showModal(#{index});" }
-              =image_tag(image.picture.url, alt: 'picture', class: 'mw-100 mh-100')
+              =image_tag(image.picture.url, alt: 'picture', class: 'mw-100')
 
 #index-slider
   .container
     .close-slider{ onclick: 'hideModal();' }
-      %i.far.fa-window-close.fa-2x
+      %i.far.fa-window-close.fa-2x.text-white-50
     .next{ onclick: 'next();' }
-      %i.fas.fa-chevron-right.fa-2x
+      %i.fas.fa-chevron-right
     .prev{ onclick: 'prev();' }
-      %i.fas.fa-chevron-left.fa-2x
+      %i.fas.fa-chevron-left
     #slider-content
       -@images.each do |image|
         =image_tag(image.picture.url, alt: 'picture', class: 'hidden-image')

@@ -17,19 +17,15 @@ describe 'comments/index.html.haml', type: :view do
 
   context 'should be contain users comment' do
     it 'user avatar' do
-      expect(page).to have_selector('#comment > img')
+      expect(page).to have_selector('#comments > div > div > div')
     end
 
     it 'username' do
-      expect(page).to have_selector('#uname')
-    end
-
-    it 'publication date' do
-      expect(page).to have_selector('#date')
+      expect(page).to have_selector('.uname')
     end
 
     it 'comment body' do
-      expect(page).to have_selector('#body')
+      expect(page).to have_selector('.comment-body')
     end
   end
 end

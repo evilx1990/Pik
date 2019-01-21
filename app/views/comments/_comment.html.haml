@@ -1,6 +1,6 @@
 .comment.col-8.offset-2.col-md-6.offset-md-3
   -if comment.user.avatar.present?
-    =image_tag(comment.user.avatar.thumb_small.url, alt: 'avatar', class: 'circle')
+    =image_tag(comment.user.avatar.thumb_small.url, alt: 'avatar', class: 'avatar')
   -else
     =image_tag('app_images/profile_default_m.jpg', alt: 'avatar', class: 'circle')
   .uname

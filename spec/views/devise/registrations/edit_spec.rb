@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'devise/registration/edit.html.haml', type: :view do
+describe 'devise/registration/edit.html.haml', type: :view, driver: :selenium_chrome_headless do
   before do
     login_as(create(:user_with_avatar), scope: :user)
     visit edit_user_registration_path
@@ -10,7 +10,7 @@ describe 'devise/registration/edit.html.haml', type: :view do
 
   context 'should be contain' do
     it 'user avatar' do
-      expect(page).to have_selector('#edit_user > img')
+      expect(page).to have_selector('#edit_user > div > div.col-12.col-md-6.text-center.text-center > img')
     end
 
     it 'upload avatar field' do
@@ -19,7 +19,7 @@ describe 'devise/registration/edit.html.haml', type: :view do
 
     context 'if avatar present' do
       it "checkbox 'Remove avatar'" do
-        expect(page).to have_content('Remove avatar')
+        expect(page).to have_content('remove avatar')
         expect(page).to have_unchecked_field('user_remove_avatar')
       end
     end

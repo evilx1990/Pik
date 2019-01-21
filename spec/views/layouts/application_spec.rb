@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'layouts/application.html.haml', type: :view do
+describe 'layouts/application.html.haml', type: :view, driver: :selenium_chrome_headless do
   context 'before user login' do
     before do
       visit root_path
@@ -13,10 +13,6 @@ describe 'layouts/application.html.haml', type: :view do
     end
 
     context 'should be contain' do
-      it 'link <Gallery>' do
-        expect(page).to have_link('Gallery')
-      end
-
       it 'link <Log in>' do
         expect(page).to have_link('Log in')
       end
@@ -48,18 +44,14 @@ describe 'layouts/application.html.haml', type: :view do
     end
 
     context 'should be contain' do
-      it 'link <Gallery>' do
-        expect(page).to have_link('Gallery')
-      end
-
-      context 'link <Top 5 categories> dropdown menu' do
+      context 'link <Top categories> dropdown menu' do
         it 'dropdown menu link' do
-          expect(page).to have_link('Top 5 categories')
+          expect(page).to have_link('Top categories')
         end
 
         context 'empty menu' do
           it 'should be have cell <Empty>' do
-            find_link(text: 'Top 5 categories').click
+            find_link(text: 'Top categories').click
             expect(page).to have_selector('.dropdown-item', text: 'Empty')
           end
         end
@@ -73,7 +65,7 @@ describe 'layouts/application.html.haml', type: :view do
           end
 
           it 'should be have items' do
-            find_link(text: 'Top 5 categories').click
+            find_link(text: 'Top categories').click
 
             categories.each do |category|
               expect(page).to have_selector('.dropdown-item', text: category.name)
@@ -82,8 +74,16 @@ describe 'layouts/application.html.haml', type: :view do
         end
       end
 
+      it 'link <Categories>' do
+        expect(page).to have_link('Categories')
+      end
+
       it 'link <Images>' do
         expect(page).to have_link('Images')
+      end
+
+      it 'link <Comments>' do
+        expect(page).to have_link('Comments')
       end
 
       it 'link <Ru>' do
@@ -118,17 +118,6 @@ describe 'layouts/application.html.haml', type: :view do
             find_link(@user.username).click
 
             ['Edit category', 'Profile', 'Log out'].each do |item|
-              expect(page).to have_selector('.dropdown-item', text: item)
-            end
-          end
-
-          it 'for /categories/CategoryName/ImageName' do
-            category
-            visit category_image_path(category_id: category.id, id: category.images.first.slug)
-
-            find_link(@user.username).click
-
-            ['Profile', 'Log out'].each do |item|
               expect(page).to have_selector('.dropdown-item', text: item)
             end
           end

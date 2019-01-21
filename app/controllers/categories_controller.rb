@@ -24,7 +24,6 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path
     else
-      puts @category.errors.inspect
       @categories = Category.order(created_at: :desc).page(params[:page])
       @category = Category.new
       render :index

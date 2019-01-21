@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'categories/show.html.haml', type: :view, driver: :selenium_chrome do
+describe 'categories/show.html.haml', type: :view, driver: :selenium_chrome_headless do
   let(:category) { create(:category_with_images) }
 
   before do
@@ -32,7 +32,7 @@ describe 'categories/show.html.haml', type: :view, driver: :selenium_chrome do
     end
   end
 
-  context 'modal window', driver: :selenium_chrome do
+  context 'modal window' do
     let(:category_current_user) { create(:category, user: @user)}
 
     before do

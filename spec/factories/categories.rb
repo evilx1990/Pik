@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :category, class: 'Category' do
-    name { Faker::String.random(10).gsub(%r(\s+), '') }
+    sequence(:name) { |n| "category_#{n}" }
 
     association :user, factory: :user
 

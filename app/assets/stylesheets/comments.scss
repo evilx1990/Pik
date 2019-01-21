@@ -2,15 +2,22 @@
   margin-top: 250px;
 }
 
+@media (max-width: 767px) {
+  #comments {
+    margin-top: 100px;
+  }
+}
+
 .comment {
   min-height: 100px;
   padding: 0;
   margin-bottom: 30px;
 }
 
-.circle {
-  border-radius: 50%;
+.avatar {
   margin: 5px;
+  width: 50px;
+  overflow: hidden;
 }
 
 .uname {

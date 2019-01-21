@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-describe 'images/index.html.haml', type: :view do
+describe 'images/index.html.haml', type: :view, driver: :selenium_chrome do
   let(:images) { create_list(:image, 5)}
 
   before do
-    sign_in(create(:user))
+    login_as(create(:user), scope: :user)
     images
     assign(:images, Image.order(votes_count: :desc).page(params[:page]).per(20))
-    render
+    visit images_path
   end
 
   it 'has a request.fullpath that is defined' do
@@ -17,10 +17,6 @@ describe 'images/index.html.haml', type: :view do
   end
 
   it 'should be render list images' do
-    expect(rendered).to have_selector('img')
-  end
-
-  it 'links with images/show action' do
-    expect(rendered).to have_link(alt: 'picture')
+    expect(page).to have_selector('#index-images-list > div > div > div:nth-child(1) > div > img')
   end
 end

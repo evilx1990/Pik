@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-describe 'devise/session/new.html.haml', type: :view do
+describe 'devise/session/new.html.haml', type: :view, driver: :selenium_chrome_headless do
   before do
     visit new_user_session_path
   end
 
   context 'should be contain' do
     it 'facebook login link' do
-      expect(page).to have_selector('#devise-forms > a > img')
+      expect(page).to have_selector('#facebook-button')
     end
 
     it 'user email field' do
